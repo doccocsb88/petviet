@@ -20,26 +20,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="156" height="249"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cRY-1k-zR3">
-                        <rect key="frame" x="5" y="5" width="146" height="195"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_thumb_shop" translatesAutoresizingMaskIntoConstraints="NO" id="cRY-1k-zR3">
+                        <rect key="frame" x="20" y="30" width="116" height="182.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="cRY-1k-zR3" secondAttribute="height" multiplier="3:4" id="889-VP-bQW"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="889-VP-bQW"/>
+                            </mask>
+                        </variation>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfC-SG-qjw">
-                        <rect key="frame" x="5" y="210" width="146" height="16.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfC-SG-qjw">
+                        <rect key="frame" x="5" y="222.5" width="146" height="16.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16.5" id="XHu-KS-777"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="cRY-1k-zR3" secondAttribute="trailing" constant="5" id="1gM-12-AYf"/>
-                <constraint firstItem="cRY-1k-zR3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="ESq-uV-fr1"/>
+                <constraint firstAttribute="trailing" secondItem="cRY-1k-zR3" secondAttribute="trailing" constant="20" id="1gM-12-AYf"/>
+                <constraint firstItem="cRY-1k-zR3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ESq-uV-fr1"/>
                 <constraint firstAttribute="trailing" secondItem="QfC-SG-qjw" secondAttribute="trailing" constant="5" id="TdN-PE-Ab9"/>
-                <constraint firstItem="cRY-1k-zR3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="Y43-vo-jHb"/>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QfC-SG-qjw" secondAttribute="bottom" constant="5" id="cwC-f4-mKw"/>
+                <constraint firstItem="cRY-1k-zR3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="30" id="Y43-vo-jHb"/>
+                <constraint firstAttribute="bottom" secondItem="QfC-SG-qjw" secondAttribute="bottom" constant="10" id="cwC-f4-mKw"/>
                 <constraint firstItem="QfC-SG-qjw" firstAttribute="top" secondItem="cRY-1k-zR3" secondAttribute="bottom" constant="10" id="s6d-pq-yOo"/>
                 <constraint firstItem="QfC-SG-qjw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="xZT-Ar-bU3"/>
             </constraints>
@@ -48,4 +57,7 @@
             <point key="canvasLocation" x="-19" y="58.5"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="ic_thumb_shop" width="238" height="279"/>
+    </resources>
 </document>

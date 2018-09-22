@@ -8,13 +8,14 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        initNavigation()
         setupUI()
     }
 
@@ -22,11 +23,20 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    func initNavigation(){
+        self.addRightButton(UIImage(named: "ic_tab_service"))
+        
+    }
     func setupUI(){
         self.title = BaseTabbarController.titles[0]
         tableView.register(UINib(nibName: "HomeViewCell", bundle: nil), forCellReuseIdentifier: "homeViewCell")
         
+    }
+    override func tappedRightButton(_ button: UIButton) {
+        let vc = PublishStoryViewController(nibName: "PublishStoryViewController", bundle: nil)
+        vc.modalPresentationStyle  = .overFullScreen
+        vc.modalTransitionStyle = .coverVertical
+        present(vc, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
@@ -37,7 +47,11 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func showPostDetailView(){
+        let vc = PostDetailViewController(nibName: "PostDetailViewController", bundle: nil)
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: true, completion: nil)
+    }
 }
 
 extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
@@ -49,5 +63,8 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "homeViewCell", for: indexPath) as! HomeViewCell
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.showPostDetailView()
     }
 }

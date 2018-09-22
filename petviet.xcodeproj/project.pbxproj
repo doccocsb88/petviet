@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E8E918321568AE80002CF4F /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E918121568AE80002CF4F /* PostDetailViewController.swift */; };
+		0E8E918421568AE80002CF4F /* PostDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E918221568AE80002CF4F /* PostDetailViewController.xib */; };
+		0E8E9187215691980002CF4F /* CommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E9185215691980002CF4F /* CommentViewCell.swift */; };
+		0E8E9188215691980002CF4F /* CommentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E9186215691980002CF4F /* CommentViewCell.xib */; };
+		0E8E918A21569B2C0002CF4F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E918921569B2C0002CF4F /* BaseViewController.swift */; };
+		0E8E918C21569BC60002CF4F /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E918B21569BC60002CF4F /* BaseNavigationController.swift */; };
+		0E8E918F2156A4850002CF4F /* PublishStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E918D2156A4850002CF4F /* PublishStoryViewController.swift */; };
+		0E8E91902156A4850002CF4F /* PublishStoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E918E2156A4850002CF4F /* PublishStoryViewController.xib */; };
+		0E8E91932156A96C0002CF4F /* StoryImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E91912156A96C0002CF4F /* StoryImageViewCell.swift */; };
+		0E8E91942156A96C0002CF4F /* StoryImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E91922156A96C0002CF4F /* StoryImageViewCell.xib */; };
 		0EA47E3121561947001523A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E3021561947001523A0 /* AppDelegate.swift */; };
 		0EA47E3321561947001523A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E3221561947001523A0 /* ViewController.swift */; };
 		0EA47E3621561947001523A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA47E3421561947001523A0 /* Main.storyboard */; };
@@ -34,6 +44,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E8E918121568AE80002CF4F /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
+		0E8E918221568AE80002CF4F /* PostDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailViewController.xib; sourceTree = "<group>"; };
+		0E8E9185215691980002CF4F /* CommentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewCell.swift; sourceTree = "<group>"; };
+		0E8E9186215691980002CF4F /* CommentViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentViewCell.xib; sourceTree = "<group>"; };
+		0E8E918921569B2C0002CF4F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		0E8E918B21569BC60002CF4F /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		0E8E918D2156A4850002CF4F /* PublishStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishStoryViewController.swift; sourceTree = "<group>"; };
+		0E8E918E2156A4850002CF4F /* PublishStoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublishStoryViewController.xib; sourceTree = "<group>"; };
+		0E8E91912156A96C0002CF4F /* StoryImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryImageViewCell.swift; sourceTree = "<group>"; };
+		0E8E91922156A96C0002CF4F /* StoryImageViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryImageViewCell.xib; sourceTree = "<group>"; };
 		0EA47E2D21561947001523A0 /* petviet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = petviet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA47E3021561947001523A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EA47E3221561947001523A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +197,10 @@
 			isa = PBXGroup;
 			children = (
 				0EA47E4A21562F07001523A0 /* HomeViewController.swift */,
+				0E8E918121568AE80002CF4F /* PostDetailViewController.swift */,
+				0E8E918221568AE80002CF4F /* PostDetailViewController.xib */,
+				0E8E918D2156A4850002CF4F /* PublishStoryViewController.swift */,
+				0E8E918E2156A4850002CF4F /* PublishStoryViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -214,6 +238,10 @@
 			children = (
 				0EA47E57215630CA001523A0 /* HomeViewCell.swift */,
 				0EA47E58215630CA001523A0 /* HomeViewCell.xib */,
+				0E8E9185215691980002CF4F /* CommentViewCell.swift */,
+				0E8E9186215691980002CF4F /* CommentViewCell.xib */,
+				0E8E91912156A96C0002CF4F /* StoryImageViewCell.swift */,
+				0E8E91922156A96C0002CF4F /* StoryImageViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -229,6 +257,8 @@
 			isa = PBXGroup;
 			children = (
 				0EA47E5E2156392B001523A0 /* BaseTabbarController.swift */,
+				0E8E918921569B2C0002CF4F /* BaseViewController.swift */,
+				0E8E918B21569BC60002CF4F /* BaseNavigationController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -329,13 +359,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E8E9188215691980002CF4F /* CommentViewCell.xib in Resources */,
+				0E8E91942156A96C0002CF4F /* StoryImageViewCell.xib in Resources */,
 				0EA47E7121564146001523A0 /* ListShopViewController.xib in Resources */,
+				0E8E91902156A4850002CF4F /* PublishStoryViewController.xib in Resources */,
 				0EA47E3B21561949001523A0 /* LaunchScreen.storyboard in Resources */,
 				0EA47E7721564885001523A0 /* ListProductViewController.xib in Resources */,
 				0EA47E5A215630CA001523A0 /* HomeViewCell.xib in Resources */,
 				0EA47E3821561949001523A0 /* Assets.xcassets in Resources */,
 				0EA47E3621561947001523A0 /* Main.storyboard in Resources */,
 				0EA47E6921564031001523A0 /* ShopViewCell.xib in Resources */,
+				0E8E918421568AE80002CF4F /* PostDetailViewController.xib in Resources */,
 				0EA47E6521563DAA001523A0 /* ShopCategoryViewCell.xib in Resources */,
 				0EA47E7B215648DC001523A0 /* ProductViewCell.xib in Resources */,
 			);
@@ -376,12 +410,18 @@
 				0EA47E59215630CA001523A0 /* HomeViewCell.swift in Sources */,
 				0EA47E5421562F83001523A0 /* ServiceViewController.swift in Sources */,
 				0EA47E6821564031001523A0 /* ShopViewCell.swift in Sources */,
+				0E8E918A21569B2C0002CF4F /* BaseViewController.swift in Sources */,
+				0E8E918321568AE80002CF4F /* PostDetailViewController.swift in Sources */,
 				0EA47E6421563DAA001523A0 /* ShopCategoryViewCell.swift in Sources */,
 				0EA47E5121562F55001523A0 /* ProfileViewController.swift in Sources */,
 				0EA47E5F2156392B001523A0 /* BaseTabbarController.swift in Sources */,
 				0EA47E7021564146001523A0 /* ListShopViewController.swift in Sources */,
+				0E8E918F2156A4850002CF4F /* PublishStoryViewController.swift in Sources */,
 				0EA47E3121561947001523A0 /* AppDelegate.swift in Sources */,
+				0E8E918C21569BC60002CF4F /* BaseNavigationController.swift in Sources */,
 				0EA47E5C215636BD001523A0 /* ViewUtils.swift in Sources */,
+				0E8E9187215691980002CF4F /* CommentViewCell.swift in Sources */,
+				0E8E91932156A96C0002CF4F /* StoryImageViewCell.swift in Sources */,
 				0EA47E4B21562F07001523A0 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
