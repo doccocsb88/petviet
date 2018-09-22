@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0EA47E3121561947001523A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E3021561947001523A0 /* AppDelegate.swift */; };
+		0EA47E3321561947001523A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E3221561947001523A0 /* ViewController.swift */; };
+		0EA47E3621561947001523A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA47E3421561947001523A0 /* Main.storyboard */; };
+		0EA47E3821561949001523A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA47E3721561949001523A0 /* Assets.xcassets */; };
+		0EA47E3B21561949001523A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA47E3921561949001523A0 /* LaunchScreen.storyboard */; };
+		0EA47E4B21562F07001523A0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E4A21562F07001523A0 /* HomeViewController.swift */; };
+		0EA47E4E21562F2F001523A0 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E4D21562F2F001523A0 /* ShopViewController.swift */; };
+		0EA47E5121562F55001523A0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E5021562F55001523A0 /* ProfileViewController.swift */; };
+		0EA47E5421562F83001523A0 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E5321562F83001523A0 /* ServiceViewController.swift */; };
+		0EA47E59215630CA001523A0 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E57215630CA001523A0 /* HomeViewCell.swift */; };
+		0EA47E5A215630CA001523A0 /* HomeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EA47E58215630CA001523A0 /* HomeViewCell.xib */; };
+		0EA47E5C215636BD001523A0 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E5B215636BD001523A0 /* ViewUtils.swift */; };
+		0EA47E5F2156392B001523A0 /* BaseTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E5E2156392B001523A0 /* BaseTabbarController.swift */; };
+		0EA47E6421563DAA001523A0 /* ShopCategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E6221563DAA001523A0 /* ShopCategoryViewCell.swift */; };
+		0EA47E6521563DAA001523A0 /* ShopCategoryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EA47E6321563DAA001523A0 /* ShopCategoryViewCell.xib */; };
+		0EA47E6821564031001523A0 /* ShopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E6621564031001523A0 /* ShopViewCell.swift */; };
+		0EA47E6921564031001523A0 /* ShopViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EA47E6721564031001523A0 /* ShopViewCell.xib */; };
+		0EA47E7021564146001523A0 /* ListShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E6E21564146001523A0 /* ListShopViewController.swift */; };
+		0EA47E7121564146001523A0 /* ListShopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EA47E6F21564146001523A0 /* ListShopViewController.xib */; };
+		0EA47E7621564885001523A0 /* ListProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E7421564885001523A0 /* ListProductViewController.swift */; };
+		0EA47E7721564885001523A0 /* ListProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EA47E7521564885001523A0 /* ListProductViewController.xib */; };
+		0EA47E7A215648DC001523A0 /* ProductViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E78215648DC001523A0 /* ProductViewCell.swift */; };
+		0EA47E7B215648DC001523A0 /* ProductViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EA47E79215648DC001523A0 /* ProductViewCell.xib */; };
+		638FA5F1EC08F0CB04F75685 /* Pods_petviet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D121F858CD14B1B3C2DD0040 /* Pods_petviet.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0EA47E2D21561947001523A0 /* petviet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = petviet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EA47E3021561947001523A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0EA47E3221561947001523A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0EA47E3521561947001523A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0EA47E3721561949001523A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0EA47E3A21561949001523A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0EA47E3C21561949001523A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EA47E4A21562F07001523A0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0EA47E4D21562F2F001523A0 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShopViewController.swift; path = Shop/Controller/ShopViewController.swift; sourceTree = "<group>"; };
+		0EA47E5021562F55001523A0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0EA47E5321562F83001523A0 /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
+		0EA47E57215630CA001523A0 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
+		0EA47E58215630CA001523A0 /* HomeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewCell.xib; sourceTree = "<group>"; };
+		0EA47E5B215636BD001523A0 /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
+		0EA47E5E2156392B001523A0 /* BaseTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabbarController.swift; sourceTree = "<group>"; };
+		0EA47E6221563DAA001523A0 /* ShopCategoryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShopCategoryViewCell.swift; path = Shop/View/ShopCategoryViewCell.swift; sourceTree = "<group>"; };
+		0EA47E6321563DAA001523A0 /* ShopCategoryViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShopCategoryViewCell.xib; path = Shop/View/ShopCategoryViewCell.xib; sourceTree = "<group>"; };
+		0EA47E6621564031001523A0 /* ShopViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShopViewCell.swift; path = Shop/View/ShopViewCell.swift; sourceTree = "<group>"; };
+		0EA47E6721564031001523A0 /* ShopViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShopViewCell.xib; path = Shop/View/ShopViewCell.xib; sourceTree = "<group>"; };
+		0EA47E6E21564146001523A0 /* ListShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListShopViewController.swift; path = Shop/Controller/ListShopViewController.swift; sourceTree = "<group>"; };
+		0EA47E6F21564146001523A0 /* ListShopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ListShopViewController.xib; path = Shop/Controller/ListShopViewController.xib; sourceTree = "<group>"; };
+		0EA47E7421564885001523A0 /* ListProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListProductViewController.swift; path = Shop/Controller/ListProductViewController.swift; sourceTree = "<group>"; };
+		0EA47E7521564885001523A0 /* ListProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ListProductViewController.xib; path = Shop/Controller/ListProductViewController.xib; sourceTree = "<group>"; };
+		0EA47E78215648DC001523A0 /* ProductViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductViewCell.swift; path = Shop/View/ProductViewCell.swift; sourceTree = "<group>"; };
+		0EA47E79215648DC001523A0 /* ProductViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProductViewCell.xib; path = Shop/View/ProductViewCell.xib; sourceTree = "<group>"; };
+		5A5C202797A76A2B95448CA3 /* Pods-petviet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petviet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petviet/Pods-petviet.debug.xcconfig"; sourceTree = "<group>"; };
+		D121F858CD14B1B3C2DD0040 /* Pods_petviet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petviet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEED33B912B882DA2145B2E9 /* Pods-petviet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petviet.release.xcconfig"; path = "Pods/Target Support Files/Pods-petviet/Pods-petviet.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0EA47E2A21561947001523A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				638FA5F1EC08F0CB04F75685 /* Pods_petviet.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0EA47E2421561947001523A0 = {
+			isa = PBXGroup;
+			children = (
+				0EA47E2F21561947001523A0 /* petviet */,
+				0EA47E2E21561947001523A0 /* Products */,
+				314B48EEC87B61258F1D9DDB /* Pods */,
+				2908113DA1B3FEF169BAF987 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0EA47E2E21561947001523A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0EA47E2D21561947001523A0 /* petviet.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0EA47E2F21561947001523A0 /* petviet */ = {
+			isa = PBXGroup;
+			children = (
+				0EA47E5D21563905001523A0 /* Classes */,
+				0EA47E4821562EE0001523A0 /* Utils */,
+				0EA47E4721562ED3001523A0 /* Services */,
+				0EA47E4221562E87001523A0 /* Screen */,
+				0EA47E3021561947001523A0 /* AppDelegate.swift */,
+				0EA47E3221561947001523A0 /* ViewController.swift */,
+				0EA47E3421561947001523A0 /* Main.storyboard */,
+				0EA47E3721561949001523A0 /* Assets.xcassets */,
+				0EA47E3921561949001523A0 /* LaunchScreen.storyboard */,
+				0EA47E3C21561949001523A0 /* Info.plist */,
+			);
+			path = petviet;
+			sourceTree = "<group>";
+		};
+		0EA47E4221562E87001523A0 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				0EA47E4621562EB0001523A0 /* Sevice */,
+				0EA47E4521562EA7001523A0 /* Profile */,
+				0EA47E4421562E9A001523A0 /* Shop */,
+				0EA47E4321562E91001523A0 /* Home */,
+			);
+			name = Screen;
+			sourceTree = "<group>";
+		};
+		0EA47E4321562E91001523A0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0EA47E56215630AF001523A0 /* Model */,
+				0EA47E55215630A9001523A0 /* View */,
+				0EA47E4921562EEF001523A0 /* Controller */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0EA47E4421562E9A001523A0 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				0EA47E6121563D7E001523A0 /* View */,
+				0EA47E6021563D77001523A0 /* Model */,
+				0EA47E4C21562F0E001523A0 /* Controller */,
+			);
+			name = Shop;
+			sourceTree = "<group>";
+		};
+		0EA47E4521562EA7001523A0 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0EA47E4F21562F47001523A0 /* Controller */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		0EA47E4621562EB0001523A0 /* Sevice */ = {
+			isa = PBXGroup;
+			children = (
+				0EA47E5221562F72001523A0 /* Controller */,
+			);
+			path = Sevice;
+			sourceTree = "<group>";
+		};
+		0EA47E4721562ED3001523A0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0EA47E4821562EE0001523A0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0EA47E5B215636BD001523A0 /* ViewUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		0EA47E4921562EEF001523A0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0EA47E4A21562F07001523A0 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0EA47E4C21562F0E001523A0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0EA47E4D21562F2F001523A0 /* ShopViewController.swift */,
+				0EA47E6E21564146001523A0 /* ListShopViewController.swift */,
+				0EA47E6F21564146001523A0 /* ListShopViewController.xib */,
+				0EA47E7421564885001523A0 /* ListProductViewController.swift */,
+				0EA47E7521564885001523A0 /* ListProductViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		0EA47E4F21562F47001523A0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0EA47E5021562F55001523A0 /* ProfileViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0EA47E5221562F72001523A0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0EA47E5321562F83001523A0 /* ServiceViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0EA47E55215630A9001523A0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0EA47E57215630CA001523A0 /* HomeViewCell.swift */,
+				0EA47E58215630CA001523A0 /* HomeViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0EA47E56215630AF001523A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0EA47E5D21563905001523A0 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0EA47E5E2156392B001523A0 /* BaseTabbarController.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0EA47E6021563D77001523A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0EA47E6121563D7E001523A0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0EA47E6221563DAA001523A0 /* ShopCategoryViewCell.swift */,
+				0EA47E6321563DAA001523A0 /* ShopCategoryViewCell.xib */,
+				0EA47E6621564031001523A0 /* ShopViewCell.swift */,
+				0EA47E6721564031001523A0 /* ShopViewCell.xib */,
+				0EA47E78215648DC001523A0 /* ProductViewCell.swift */,
+				0EA47E79215648DC001523A0 /* ProductViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2908113DA1B3FEF169BAF987 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D121F858CD14B1B3C2DD0040 /* Pods_petviet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		314B48EEC87B61258F1D9DDB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5A5C202797A76A2B95448CA3 /* Pods-petviet.debug.xcconfig */,
+				FEED33B912B882DA2145B2E9 /* Pods-petviet.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0EA47E2C21561947001523A0 /* petviet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EA47E3F21561949001523A0 /* Build configuration list for PBXNativeTarget "petviet" */;
+			buildPhases = (
+				1BF5B2188234BC373ACA2C8B /* [CP] Check Pods Manifest.lock */,
+				0EA47E2921561947001523A0 /* Sources */,
+				0EA47E2A21561947001523A0 /* Frameworks */,
+				0EA47E2B21561947001523A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = petviet;
+			productName = petviet;
+			productReference = 0EA47E2D21561947001523A0 /* petviet.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0EA47E2521561947001523A0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = csb;
+				TargetAttributes = {
+					0EA47E2C21561947001523A0 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 0EA47E2821561947001523A0 /* Build configuration list for PBXProject "petviet" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0EA47E2421561947001523A0;
+			productRefGroup = 0EA47E2E21561947001523A0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0EA47E2C21561947001523A0 /* petviet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0EA47E2B21561947001523A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EA47E7121564146001523A0 /* ListShopViewController.xib in Resources */,
+				0EA47E3B21561949001523A0 /* LaunchScreen.storyboard in Resources */,
+				0EA47E7721564885001523A0 /* ListProductViewController.xib in Resources */,
+				0EA47E5A215630CA001523A0 /* HomeViewCell.xib in Resources */,
+				0EA47E3821561949001523A0 /* Assets.xcassets in Resources */,
+				0EA47E3621561947001523A0 /* Main.storyboard in Resources */,
+				0EA47E6921564031001523A0 /* ShopViewCell.xib in Resources */,
+				0EA47E6521563DAA001523A0 /* ShopCategoryViewCell.xib in Resources */,
+				0EA47E7B215648DC001523A0 /* ProductViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1BF5B2188234BC373ACA2C8B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-petviet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0EA47E2921561947001523A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EA47E7A215648DC001523A0 /* ProductViewCell.swift in Sources */,
+				0EA47E4E21562F2F001523A0 /* ShopViewController.swift in Sources */,
+				0EA47E3321561947001523A0 /* ViewController.swift in Sources */,
+				0EA47E7621564885001523A0 /* ListProductViewController.swift in Sources */,
+				0EA47E59215630CA001523A0 /* HomeViewCell.swift in Sources */,
+				0EA47E5421562F83001523A0 /* ServiceViewController.swift in Sources */,
+				0EA47E6821564031001523A0 /* ShopViewCell.swift in Sources */,
+				0EA47E6421563DAA001523A0 /* ShopCategoryViewCell.swift in Sources */,
+				0EA47E5121562F55001523A0 /* ProfileViewController.swift in Sources */,
+				0EA47E5F2156392B001523A0 /* BaseTabbarController.swift in Sources */,
+				0EA47E7021564146001523A0 /* ListShopViewController.swift in Sources */,
+				0EA47E3121561947001523A0 /* AppDelegate.swift in Sources */,
+				0EA47E5C215636BD001523A0 /* ViewUtils.swift in Sources */,
+				0EA47E4B21562F07001523A0 /* HomeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0EA47E3421561947001523A0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0EA47E3521561947001523A0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0EA47E3921561949001523A0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0EA47E3A21561949001523A0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0EA47E3D21561949001523A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0EA47E3E21561949001523A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0EA47E4021561949001523A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A5C202797A76A2B95448CA3 /* Pods-petviet.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F59XSVKP6X;
+				INFOPLIST_FILE = petviet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.csb.petviet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		0EA47E4121561949001523A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEED33B912B882DA2145B2E9 /* Pods-petviet.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F59XSVKP6X;
+				INFOPLIST_FILE = petviet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.csb.petviet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0EA47E2821561947001523A0 /* Build configuration list for PBXProject "petviet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EA47E3D21561949001523A0 /* Debug */,
+				0EA47E3E21561949001523A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0EA47E3F21561949001523A0 /* Build configuration list for PBXNativeTarget "petviet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EA47E4021561949001523A0 /* Debug */,
+				0EA47E4121561949001523A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0EA47E2521561947001523A0 /* Project object */;
+}
