@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let navBackgroundImage:UIImage! = UIImage(color: .white)
         UINavigationBar.appearance().setBackgroundImage(navBackgroundImage, for: .default)
-
+        FirebaseApp.configure()
         return true
     }
 

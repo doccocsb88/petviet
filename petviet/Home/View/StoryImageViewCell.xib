@@ -19,16 +19,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="131" height="123"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_lib_photo" translatesAutoresizingMaskIntoConstraints="NO" id="Mns-3P-51K">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_lib_photo" translatesAutoresizingMaskIntoConstraints="NO" id="Mns-3P-51K">
                         <rect key="frame" x="0.0" y="0.0" width="131" height="123"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="By4-2Q-igG">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="By4-2Q-igG">
                         <rect key="frame" x="106" y="5" width="20" height="20"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="CFF-bT-8ND"/>
                             <constraint firstAttribute="height" constant="20" id="y9G-3K-hRG"/>
                         </constraints>
+                        <inset key="imageEdgeInsets" minX="3" minY="3" maxX="3" maxY="3"/>
+                        <state key="selected" image="ic_check"/>
+                        <connections>
+                            <action selector="tappedSelectImage:" destination="gTV-IL-0wX" eventType="touchUpInside" id="exH-l7-bnq"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
@@ -44,12 +49,13 @@
             <size key="customSize" width="131" height="123"/>
             <connections>
                 <outlet property="selectButton" destination="By4-2Q-igG" id="RdY-l2-Ynu"/>
-                <outlet property="thumbnailImageView" destination="By4-2Q-igG" id="BT3-Vf-EZJ"/>
+                <outlet property="thumbnailImageView" destination="Mns-3P-51K" id="bSg-dS-fLZ"/>
             </connections>
             <point key="canvasLocation" x="-6.5" y="191.5"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="ic_check" width="12" height="8"/>
         <image name="ic_lib_photo" width="153" height="153"/>
     </resources>
 </document>

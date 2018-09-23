@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Photos
 class PublishStoryViewController: UIViewController {
     fileprivate let itemsPerRow: CGFloat = 3
     fileprivate let sectionInsets = UIEdgeInsets(top: 2, left: 1, bottom: 2, right: 1)
@@ -17,12 +17,17 @@ class PublishStoryViewController: UIViewController {
     @IBOutlet weak var inputStoryEdittext: UITextView!
     @IBOutlet weak var mediaContainerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    var didPublishStory:() -> () = {}
+    var allPhotos:PHFetchResult<PHAsset>?
+    let imageManager = PHCachingImageManager()
+    var currentImageIndex:Int = NSNotFound
+    var imageUrl:URL?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupUI()
+        fetchPhotoFromLibrary()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +36,8 @@ class PublishStoryViewController: UIViewController {
     }
     func setupUI(){
         collectionView.register(UINib(nibName: "StoryImageViewCell", bundle: nil), forCellWithReuseIdentifier: "imageCell")
-        
+        collectionView.register(UINib(nibName: "StoryCameraViewCell", bundle: nil), forCellWithReuseIdentifier: "cameraCell")
+
         //
         let tapped = UITapGestureRecognizer(target: self, action: #selector(tappedGesture(_:)))
         self.view.addGestureRecognizer(tapped)
@@ -46,14 +52,58 @@ class PublishStoryViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func fetchPhotoFromLibrary(){
+        PHPhotoLibrary.requestAuthorization { status in
+            switch status {
+            case .authorized:
+                let fetchOptions = PHFetchOptions()
+                self.allPhotos = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+                print("Found \(self.allPhotos?.count ?? 0) assets")
+                
+                self.collectionView.reloadData()
+            case .denied, .restricted:
+                print("Not allowed")
+            case .notDetermined:
+                // Should not see this when requesting
+                print("Not determined yet")
+            }
+        }
+    }
+    func openCamera(){
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.sourceType = .camera
+            imagePicker.delegate = self
+            
+            present(imagePicker, animated: true)
+        }
+    }
     @objc func tappedGesture(_ gesture:UIGestureRecognizer){
         self.view.endEditing(true)
     }
     @IBAction func tappedPublishButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        guard let story = inputStoryEdittext.text, story.count > 0 else{return}
+        guard let imageUrl = imageUrl else{return}
+
+        let post = PostDetail(1, 1, "1234", "vuhai", story, "", "", created_date:Date().millisecondsSince1970)
+        FirebaseServices.shared().uploadImage(imageUrl) { (success, message, url) in
+            if success{
+                post.imagePath = url?.absoluteString
+                FirebaseServices.shared().publishPost(post) {[weak self] (success, message) in
+                    guard let strongSelf = self else{return}
+                    if success{
+                        strongSelf.didPublishStory()
+                        strongSelf.dismiss(animated: true, completion: nil)
+                        
+                    }
+                }
+            }
+        }
+        
     }
     @IBAction func tappedCancelButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        
     }
     
 }
@@ -77,12 +127,55 @@ extension PublishStoryViewController:UITextViewDelegate{
 }
 extension PublishStoryViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return (allPhotos?.count ?? 0) + 1
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! StoryImageViewCell
-        
-        return cell
+       
+        if indexPath.row == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cameraCell", for: indexPath) as! StoryCameraViewCell
+            cell.didSelectCamera = {
+                self.openCamera()
+            }
+            return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! StoryImageViewCell
+            let imageIndex = indexPath.row - 1
+            if let asset = self.allPhotos?.object(at: imageIndex){
+                let imageSize = CGSize(width: asset.pixelWidth,
+                                       height: asset.pixelHeight)
+                
+                /* For faster performance, and maybe degraded image */
+                let options = PHImageRequestOptions()
+                options.deliveryMode = .fastFormat
+                options.isSynchronous = true
+                self.imageManager.requestImage(for: asset,
+                                               targetSize: imageSize,
+                                               contentMode: .aspectFill,
+                                               options: options,
+                                               resultHandler: {
+                                                (image, info) -> Void in
+                                                /* The image is now available to us */
+                                                cell.updateContent(image,self.currentImageIndex == imageIndex)
+                                                print("enum for image, This is number 2")
+                                                
+                })
+                
+            }
+            cell.didSelectImage = { [unowned self ] in
+                if let asset = self.allPhotos?.object(at: imageIndex){
+                    asset.getURL(completionHandler: { (url) in
+                        self.imageUrl = url
+                    })
+                }
+                self.currentImageIndex = imageIndex
+                self.collectionView.reloadData()
+            }
+            return cell
+
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        NSLog("didSelectItemAt %ld", indexPath.row)
     }
 }
 extension PublishStoryViewController:UICollectionViewDelegateFlowLayout{
@@ -107,4 +200,19 @@ extension PublishStoryViewController:UICollectionViewDelegateFlowLayout{
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.top
     }
+}
+extension PublishStoryViewController:UIImagePickerControllerDelegate,
+UINavigationControllerDelegate{
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        }else{
+            print("Something went wrong")
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+
 }

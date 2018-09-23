@@ -17,6 +17,15 @@
 		0E8E91902156A4850002CF4F /* PublishStoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E918E2156A4850002CF4F /* PublishStoryViewController.xib */; };
 		0E8E91932156A96C0002CF4F /* StoryImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E91912156A96C0002CF4F /* StoryImageViewCell.swift */; };
 		0E8E91942156A96C0002CF4F /* StoryImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E91922156A96C0002CF4F /* StoryImageViewCell.xib */; };
+		0E8E91992157539F0002CF4F /* StoryCameraViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E91972157539F0002CF4F /* StoryCameraViewCell.swift */; };
+		0E8E919A2157539F0002CF4F /* StoryCameraViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E91982157539F0002CF4F /* StoryCameraViewCell.xib */; };
+		0E8E919E2157600F0002CF4F /* FirebaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E919D2157600F0002CF4F /* FirebaseServices.swift */; };
+		0E8E91A0215767410002CF4F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E919F215767410002CF4F /* Utils.swift */; };
+		0E8E91A22157676E0002CF4F /* PostDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E91A12157676E0002CF4F /* PostDetail.swift */; };
+		0E8E91A521578A1C0002CF4F /* StoryCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E91A321578A1C0002CF4F /* StoryCategoryViewController.swift */; };
+		0E8E91A621578A1C0002CF4F /* StoryCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E91A421578A1C0002CF4F /* StoryCategoryViewController.xib */; };
+		0E8E91A8215799B70002CF4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E91A7215799B70002CF4F /* GoogleService-Info.plist */; };
+		0E8E91AA2157A7320002CF4F /* UserLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E91A92157A7320002CF4F /* UserLike.swift */; };
 		0EA47E3121561947001523A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E3021561947001523A0 /* AppDelegate.swift */; };
 		0EA47E3321561947001523A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E3221561947001523A0 /* ViewController.swift */; };
 		0EA47E3621561947001523A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA47E3421561947001523A0 /* Main.storyboard */; };
@@ -54,6 +63,15 @@
 		0E8E918E2156A4850002CF4F /* PublishStoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublishStoryViewController.xib; sourceTree = "<group>"; };
 		0E8E91912156A96C0002CF4F /* StoryImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryImageViewCell.swift; sourceTree = "<group>"; };
 		0E8E91922156A96C0002CF4F /* StoryImageViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryImageViewCell.xib; sourceTree = "<group>"; };
+		0E8E91972157539F0002CF4F /* StoryCameraViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCameraViewCell.swift; sourceTree = "<group>"; };
+		0E8E91982157539F0002CF4F /* StoryCameraViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryCameraViewCell.xib; sourceTree = "<group>"; };
+		0E8E919D2157600F0002CF4F /* FirebaseServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServices.swift; sourceTree = "<group>"; };
+		0E8E919F215767410002CF4F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		0E8E91A12157676E0002CF4F /* PostDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetail.swift; sourceTree = "<group>"; };
+		0E8E91A321578A1C0002CF4F /* StoryCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCategoryViewController.swift; sourceTree = "<group>"; };
+		0E8E91A421578A1C0002CF4F /* StoryCategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryCategoryViewController.xib; sourceTree = "<group>"; };
+		0E8E91A7215799B70002CF4F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0E8E91A92157A7320002CF4F /* UserLike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLike.swift; sourceTree = "<group>"; };
 		0EA47E2D21561947001523A0 /* petviet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = petviet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA47E3021561947001523A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EA47E3221561947001523A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +145,7 @@
 				0EA47E3721561949001523A0 /* Assets.xcassets */,
 				0EA47E3921561949001523A0 /* LaunchScreen.storyboard */,
 				0EA47E3C21561949001523A0 /* Info.plist */,
+				0E8E91A7215799B70002CF4F /* GoogleService-Info.plist */,
 			);
 			path = petviet;
 			sourceTree = "<group>";
@@ -181,6 +200,7 @@
 		0EA47E4721562ED3001523A0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0E8E919D2157600F0002CF4F /* FirebaseServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -189,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				0EA47E5B215636BD001523A0 /* ViewUtils.swift */,
+				0E8E919F215767410002CF4F /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -201,6 +222,8 @@
 				0E8E918221568AE80002CF4F /* PostDetailViewController.xib */,
 				0E8E918D2156A4850002CF4F /* PublishStoryViewController.swift */,
 				0E8E918E2156A4850002CF4F /* PublishStoryViewController.xib */,
+				0E8E91A321578A1C0002CF4F /* StoryCategoryViewController.swift */,
+				0E8E91A421578A1C0002CF4F /* StoryCategoryViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -242,6 +265,8 @@
 				0E8E9186215691980002CF4F /* CommentViewCell.xib */,
 				0E8E91912156A96C0002CF4F /* StoryImageViewCell.swift */,
 				0E8E91922156A96C0002CF4F /* StoryImageViewCell.xib */,
+				0E8E91972157539F0002CF4F /* StoryCameraViewCell.swift */,
+				0E8E91982157539F0002CF4F /* StoryCameraViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -249,6 +274,8 @@
 		0EA47E56215630AF001523A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0E8E91A12157676E0002CF4F /* PostDetail.swift */,
+				0E8E91A92157A7320002CF4F /* UserLike.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -311,6 +338,7 @@
 				0EA47E2921561947001523A0 /* Sources */,
 				0EA47E2A21561947001523A0 /* Frameworks */,
 				0EA47E2B21561947001523A0 /* Resources */,
+				ED02985F4A4F3AC938A79323 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -366,11 +394,14 @@
 				0EA47E3B21561949001523A0 /* LaunchScreen.storyboard in Resources */,
 				0EA47E7721564885001523A0 /* ListProductViewController.xib in Resources */,
 				0EA47E5A215630CA001523A0 /* HomeViewCell.xib in Resources */,
+				0E8E919A2157539F0002CF4F /* StoryCameraViewCell.xib in Resources */,
 				0EA47E3821561949001523A0 /* Assets.xcassets in Resources */,
+				0E8E91A8215799B70002CF4F /* GoogleService-Info.plist in Resources */,
 				0EA47E3621561947001523A0 /* Main.storyboard in Resources */,
 				0EA47E6921564031001523A0 /* ShopViewCell.xib in Resources */,
 				0E8E918421568AE80002CF4F /* PostDetailViewController.xib in Resources */,
 				0EA47E6521563DAA001523A0 /* ShopCategoryViewCell.xib in Resources */,
+				0E8E91A621578A1C0002CF4F /* StoryCategoryViewController.xib in Resources */,
 				0EA47E7B215648DC001523A0 /* ProductViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,6 +427,38 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		ED02985F4A4F3AC938A79323 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-petviet/Pods-petviet-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-petviet/Pods-petviet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -407,16 +470,22 @@
 				0EA47E4E21562F2F001523A0 /* ShopViewController.swift in Sources */,
 				0EA47E3321561947001523A0 /* ViewController.swift in Sources */,
 				0EA47E7621564885001523A0 /* ListProductViewController.swift in Sources */,
+				0E8E91A22157676E0002CF4F /* PostDetail.swift in Sources */,
 				0EA47E59215630CA001523A0 /* HomeViewCell.swift in Sources */,
 				0EA47E5421562F83001523A0 /* ServiceViewController.swift in Sources */,
 				0EA47E6821564031001523A0 /* ShopViewCell.swift in Sources */,
 				0E8E918A21569B2C0002CF4F /* BaseViewController.swift in Sources */,
+				0E8E91AA2157A7320002CF4F /* UserLike.swift in Sources */,
 				0E8E918321568AE80002CF4F /* PostDetailViewController.swift in Sources */,
 				0EA47E6421563DAA001523A0 /* ShopCategoryViewCell.swift in Sources */,
 				0EA47E5121562F55001523A0 /* ProfileViewController.swift in Sources */,
 				0EA47E5F2156392B001523A0 /* BaseTabbarController.swift in Sources */,
+				0E8E91A521578A1C0002CF4F /* StoryCategoryViewController.swift in Sources */,
+				0E8E919E2157600F0002CF4F /* FirebaseServices.swift in Sources */,
 				0EA47E7021564146001523A0 /* ListShopViewController.swift in Sources */,
 				0E8E918F2156A4850002CF4F /* PublishStoryViewController.swift in Sources */,
+				0E8E91A0215767410002CF4F /* Utils.swift in Sources */,
+				0E8E91992157539F0002CF4F /* StoryCameraViewCell.swift in Sources */,
 				0EA47E3121561947001523A0 /* AppDelegate.swift in Sources */,
 				0E8E918C21569BC60002CF4F /* BaseNavigationController.swift in Sources */,
 				0EA47E5C215636BD001523A0 /* ViewUtils.swift in Sources */,

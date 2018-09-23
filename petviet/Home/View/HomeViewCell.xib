@@ -58,7 +58,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8QC-a2-9R5">
                         <rect key="frame" x="0.0" y="40" width="399" height="399"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_default_photo" translatesAutoresizingMaskIntoConstraints="NO" id="eXA-O7-bLw">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_default_photo" translatesAutoresizingMaskIntoConstraints="NO" id="eXA-O7-bLw">
                                 <rect key="frame" x="0.0" y="0.0" width="399" height="399"/>
                             </imageView>
                         </subviews>
@@ -81,7 +81,11 @@
                                     <constraint firstAttribute="width" constant="32" id="D39-jh-OBz"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                <state key="normal" image="ic_like_selected"/>
+                                <state key="normal" image="ic_tab_shop"/>
+                                <state key="selected" image="ic_like_selected"/>
+                                <connections>
+                                    <action selector="tappedLikeButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hmu-5P-r5Z"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Vj-YH-YbC">
                                 <rect key="frame" x="52" y="5.5" width="30" height="30"/>
@@ -91,6 +95,9 @@
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                                 <state key="normal" image="ic_comment"/>
+                                <connections>
+                                    <action selector="tappedCommentButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dNm-64-U71"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -165,6 +172,7 @@
                 <outlet property="displaynameLabel" destination="t2B-ot-afY" id="NSL-Cm-KYs"/>
                 <outlet property="likeButton" destination="hUM-gZ-s4B" id="4aD-8F-oEi"/>
                 <outlet property="likedByLabel" destination="dTw-uZ-46k" id="Plg-88-bbA"/>
+                <outlet property="storyPhotoImageView" destination="eXA-O7-bLw" id="alD-22-p6Q"/>
             </connections>
             <point key="canvasLocation" x="4.5" y="179"/>
         </tableViewCell>
@@ -174,5 +182,6 @@
         <image name="ic_comment" width="23" height="23"/>
         <image name="ic_default_photo" width="375" height="339"/>
         <image name="ic_like_selected" width="24" height="22"/>
+        <image name="ic_tab_shop" width="24" height="22"/>
     </resources>
 </document>
