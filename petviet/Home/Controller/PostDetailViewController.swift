@@ -32,6 +32,7 @@ class PostDetailViewController: BaseViewController {
     @IBOutlet weak var commentBoxBottomConstraint: NSLayoutConstraint!
     var postDetail:PostDetail!
     var didUpdatePostValue:()->() = {}
+    var willComment:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,6 +48,9 @@ class PostDetailViewController: BaseViewController {
         if firstTime {
             firstTime = false
             bindData()
+        }
+        if willComment{
+            commentTextview.becomeFirstResponder()
         }
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -92,13 +96,16 @@ class PostDetailViewController: BaseViewController {
         let userInfo = notification.userInfo ?? [:]
         let keyboardFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         let height = (keyboardFrame.height) * (open ? 1 : 0)
+        var bottomPadding:CGFloat = 0
         if open{
             self.commentBoxBottomConstraint.constant = 0 - height
+            bottomPadding = height + commentContainerView.frame.height
         }else{
             self.commentBoxBottomConstraint.constant = self.commentContainerView.frame.size.height
+            bottomPadding = 0
             
         }
-        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, height + commentContainerView.frame.height, 0.0);
+        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, bottomPadding, 0.0);
         scrollView.contentInset = contentInsets;
         scrollView.scrollIndicatorInsets = contentInsets;
 

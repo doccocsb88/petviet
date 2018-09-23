@@ -28,6 +28,7 @@
 		0E8E91AA2157A7320002CF4F /* UserLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E91A92157A7320002CF4F /* UserLike.swift */; };
 		0E8E91AC2157D2300002CF4F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E91AB2157D2300002CF4F /* Product.swift */; };
 		0E8E91AE2157D3720002CF4F /* ProductType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E91AD2157D3720002CF4F /* ProductType.swift */; };
+		0E8E91B02157F0810002CF4F /* PetComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E91AF2157F0810002CF4F /* PetComment.swift */; };
 		0EA47E3121561947001523A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E3021561947001523A0 /* AppDelegate.swift */; };
 		0EA47E3321561947001523A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E3221561947001523A0 /* ViewController.swift */; };
 		0EA47E3621561947001523A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA47E3421561947001523A0 /* Main.storyboard */; };
@@ -76,6 +77,7 @@
 		0E8E91A92157A7320002CF4F /* UserLike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLike.swift; sourceTree = "<group>"; };
 		0E8E91AB2157D2300002CF4F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Product.swift; path = Shop/Model/Product.swift; sourceTree = "<group>"; };
 		0E8E91AD2157D3720002CF4F /* ProductType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductType.swift; path = Shop/Model/ProductType.swift; sourceTree = "<group>"; };
+		0E8E91AF2157F0810002CF4F /* PetComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetComment.swift; sourceTree = "<group>"; };
 		0EA47E2D21561947001523A0 /* petviet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = petviet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA47E3021561947001523A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EA47E3221561947001523A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 			children = (
 				0E8E91A12157676E0002CF4F /* PostDetail.swift */,
 				0E8E91A92157A7320002CF4F /* UserLike.swift */,
+				0E8E91AF2157F0810002CF4F /* PetComment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				0E8E91A521578A1C0002CF4F /* StoryCategoryViewController.swift in Sources */,
 				0E8E91AE2157D3720002CF4F /* ProductType.swift in Sources */,
 				0E8E919E2157600F0002CF4F /* FirebaseServices.swift in Sources */,
+				0E8E91B02157F0810002CF4F /* PetComment.swift in Sources */,
 				0EA47E7021564146001523A0 /* ListShopViewController.swift in Sources */,
 				0E8E918F2156A4850002CF4F /* PublishStoryViewController.swift in Sources */,
 				0E8E91A0215767410002CF4F /* Utils.swift in Sources */,

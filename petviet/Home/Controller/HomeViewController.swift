@@ -28,7 +28,10 @@ class HomeViewController: BaseViewController {
         fetchPosts()
        
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.currentPostIndex = nil
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -71,9 +74,10 @@ class HomeViewController: BaseViewController {
             strongSelf.tableView.reloadData()
         }
     }
-    func showPostDetailView(_ post:PostDetail){
+    func showPostDetailView(_ post:PostDetail, _ willComment:Bool){
         let vc = PostDetailViewController(nibName: "PostDetailViewController", bundle: nil)
         vc.postDetail = post
+        vc.willComment = willComment
         vc.didUpdatePostValue = { [weak self] in
             guard let strongSelf = self else{return}
             if let indexPath = strongSelf.currentPostIndex{
@@ -119,11 +123,16 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
                 }
             }
         }
+        cell.didTappedComment = { [unowned self] in
+            self.currentPostIndex = indexPath
+            self.showPostDetailView(post,true)
+        }
+        cell.selectionStyle = .none
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let post = posts[indexPath.row]
         self.currentPostIndex = indexPath
-        self.showPostDetailView(post)
+        self.showPostDetailView(post,false)
     }
 }
