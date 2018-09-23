@@ -52,4 +52,15 @@ extension String{
         }
         return s
     }
+    func verifyUrl () -> Bool {
+        //Check for nil
+            // create NSURL instance
+        if let url = URL(string: self) {
+            // check if your application can open the NSURL instance
+            return UIApplication.shared.canOpenURL(url)
+        }
+        
+        return false
+    }
+
 }

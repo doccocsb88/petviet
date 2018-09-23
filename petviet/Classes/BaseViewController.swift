@@ -11,13 +11,11 @@ import UIKit
 class BaseViewController: UIViewController {
     var leftButton:UIButton?
     var rightButton:UIButton?
+    var firstTime:Bool = true
     override func viewDidLoad() {
         super.viewDidLoad()
         let image = UIImage(color: .white)
         self.navigationController?.navigationBar.setBackgroundImage(image,for: .default)
-        let tapped = UITapGestureRecognizer(target: self, action: #selector(tappedGesture(_:)))
-        self.view.addGestureRecognizer(tapped)
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,10 +44,7 @@ class BaseViewController: UIViewController {
     @objc func tappedLeftButton(_ button:UIButton){
         
     }
-    @objc func tappedGesture(_ gesture:UIGestureRecognizer){
-        self.view.endEditing(true)
-    }
-
+   
     /*
     // MARK: - Navigation
 

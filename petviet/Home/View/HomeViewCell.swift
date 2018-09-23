@@ -60,7 +60,7 @@ class HomeViewCell: UITableViewCell {
             likedByLabel.text = "Không ai thích sen cả."
 
         }else{
-            likedByLabel.text = "\(post.likes.count) đã thích bài viết này."
+            likedByLabel.text = "\(post.likes.count) người đã thích bài viết này."
         }
         
     }

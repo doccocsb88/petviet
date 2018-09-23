@@ -59,37 +59,45 @@ class PostDetail:Mappable {
         
     }
     
-    func isLiked( _ userId:String) ->Bool{
-        for user in likes{
-            if user.userId == userId{
-                return true
+    func isLiked( _ userId:String?) ->Bool{
+        if let userId = userId{
+            for user in likes{
+                if user.userId == userId{
+                    return true
+                }
             }
         }
         return false
     }
-    func userLikedKey(_ userId:String) -> String?{
-        for userLiked  in likes{
-            if userLiked.userId == userId{
-                return userLiked.key
+    func userLikedKey(_ userId:String?) -> String?{
+        if let userId = userId{
+            for userLiked  in likes{
+                if userLiked.userId == userId{
+                    return userLiked.key
+                }
             }
         }
         return nil
     }
-    func unLike(_ userId:String){
-        var index:Int = NSNotFound
-        for i in 0..<likes.count{
-            let userLiked = likes[i]
-            if userLiked.userId == userId{
-                index = i
-                break
+    func unLike(_ userId:String?){
+        if let userId = userId{
+            var index:Int = NSNotFound
+            for i in 0..<likes.count{
+                let userLiked = likes[i]
+                if userLiked.userId == userId{
+                    index = i
+                    break
+                }
+            }
+            if index != NSNotFound {
+                likes.remove(at: index)
             }
         }
-        if index != NSNotFound {
-            likes.remove(at: index)
-        }
     }
-    func doLike(_ userLike:UserLike){
-        likes.append(userLike)
+    func doLike(_ userLike:UserLike?){
+        if let _ = userLike{
+            likes.append(userLike!)
+        }
     }
 //    func toJson() ->String?{
 //

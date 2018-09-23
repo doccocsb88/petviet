@@ -26,6 +26,8 @@
 		0E8E91A621578A1C0002CF4F /* StoryCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E91A421578A1C0002CF4F /* StoryCategoryViewController.xib */; };
 		0E8E91A8215799B70002CF4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E91A7215799B70002CF4F /* GoogleService-Info.plist */; };
 		0E8E91AA2157A7320002CF4F /* UserLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E91A92157A7320002CF4F /* UserLike.swift */; };
+		0E8E91AC2157D2300002CF4F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E91AB2157D2300002CF4F /* Product.swift */; };
+		0E8E91AE2157D3720002CF4F /* ProductType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E91AD2157D3720002CF4F /* ProductType.swift */; };
 		0EA47E3121561947001523A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E3021561947001523A0 /* AppDelegate.swift */; };
 		0EA47E3321561947001523A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E3221561947001523A0 /* ViewController.swift */; };
 		0EA47E3621561947001523A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA47E3421561947001523A0 /* Main.storyboard */; };
@@ -72,6 +74,8 @@
 		0E8E91A421578A1C0002CF4F /* StoryCategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryCategoryViewController.xib; sourceTree = "<group>"; };
 		0E8E91A7215799B70002CF4F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0E8E91A92157A7320002CF4F /* UserLike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLike.swift; sourceTree = "<group>"; };
+		0E8E91AB2157D2300002CF4F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Product.swift; path = Shop/Model/Product.swift; sourceTree = "<group>"; };
+		0E8E91AD2157D3720002CF4F /* ProductType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductType.swift; path = Shop/Model/ProductType.swift; sourceTree = "<group>"; };
 		0EA47E2D21561947001523A0 /* petviet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = petviet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA47E3021561947001523A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EA47E3221561947001523A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -293,6 +297,8 @@
 		0EA47E6021563D77001523A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0E8E91AB2157D2300002CF4F /* Product.swift */,
+				0E8E91AD2157D3720002CF4F /* ProductType.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -481,11 +487,13 @@
 				0EA47E5121562F55001523A0 /* ProfileViewController.swift in Sources */,
 				0EA47E5F2156392B001523A0 /* BaseTabbarController.swift in Sources */,
 				0E8E91A521578A1C0002CF4F /* StoryCategoryViewController.swift in Sources */,
+				0E8E91AE2157D3720002CF4F /* ProductType.swift in Sources */,
 				0E8E919E2157600F0002CF4F /* FirebaseServices.swift in Sources */,
 				0EA47E7021564146001523A0 /* ListShopViewController.swift in Sources */,
 				0E8E918F2156A4850002CF4F /* PublishStoryViewController.swift in Sources */,
 				0E8E91A0215767410002CF4F /* Utils.swift in Sources */,
 				0E8E91992157539F0002CF4F /* StoryCameraViewCell.swift in Sources */,
+				0E8E91AC2157D2300002CF4F /* Product.swift in Sources */,
 				0EA47E3121561947001523A0 /* AppDelegate.swift in Sources */,
 				0E8E918C21569BC60002CF4F /* BaseNavigationController.swift in Sources */,
 				0EA47E5C215636BD001523A0 /* ViewUtils.swift in Sources */,

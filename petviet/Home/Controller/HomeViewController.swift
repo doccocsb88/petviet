@@ -12,6 +12,7 @@ class HomeViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var posts:[PostDetail] = []
+    var currentPostIndex:IndexPath?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,6 +35,7 @@ class HomeViewController: BaseViewController {
     }
     func initNavigation(){
         self.addRightButton(UIImage(named: "ic_tab_service"))
+        self.addLeftButton(UIImage(named: "ic_filter"))
         
     }
     func setupUI(){
@@ -49,6 +51,9 @@ class HomeViewController: BaseViewController {
             self.fetchPosts()
         }
         present(vc, animated: true, completion: nil)
+    }
+    override func tappedLeftButton(_ button: UIButton) {
+        
     }
     /*
     // MARK: - Navigation
@@ -66,8 +71,17 @@ class HomeViewController: BaseViewController {
             strongSelf.tableView.reloadData()
         }
     }
-    func showPostDetailView(){
+    func showPostDetailView(_ post:PostDetail){
         let vc = PostDetailViewController(nibName: "PostDetailViewController", bundle: nil)
+        vc.postDetail = post
+        vc.didUpdatePostValue = { [weak self] in
+            guard let strongSelf = self else{return}
+            if let indexPath = strongSelf.currentPostIndex{
+                strongSelf.tableView.beginUpdates()
+                strongSelf.tableView.reloadRows(at: [indexPath], with: .none)
+                strongSelf.tableView.endUpdates()
+            }
+        }
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true, completion: nil)
     }
@@ -108,6 +122,8 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.showPostDetailView()
+        let post = posts[indexPath.row]
+        self.currentPostIndex = indexPath
+        self.showPostDetailView(post)
     }
 }
