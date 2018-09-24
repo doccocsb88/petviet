@@ -14,6 +14,7 @@ class PetComment:Mappable{
     var userDisplayName:String = ""
     var message:String = ""
     var created_date:Int64 = 0
+    var to_user:String = ""
     required init?(map: Map) {
         
     }
@@ -23,9 +24,13 @@ class PetComment:Mappable{
         userDisplayName <- map["userDisplayName"]
         message <- map["message"]
         created_date <- map["created_date"]
+        to_user <- map["to_user"]
 
     }
-    
+    init(_ message:String) {
+        self.message = message
+        self.created_date = Date().millisecondsSince1970
+    }
    
     
 }

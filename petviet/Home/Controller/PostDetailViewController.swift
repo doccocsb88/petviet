@@ -146,8 +146,19 @@ class PostDetailViewController: BaseViewController {
     @IBAction func tappedProfileButton(_ sender: Any) {
     }
     @IBAction func tappedSendButton(_ sender: Any) {
+        guard let message = commentTextview.text, message.count > 0 else{return}
         commentTextview.text = ""
         commentTextview .resignFirstResponder()
+        let petComment = PetComment(message)
+        FirebaseServices.shared().commentPost(petComment, postDetail.key) {[unowned self] (success, message, comment) in
+            if success == true , let comment = comment{
+                self.postDetail.addComment(comment)
+                self.didUpdatePostValue()
+                self.tableView.reloadData()
+            }else{
+                
+            }
+        }
     }
 }
 extension PostDetailViewController{
@@ -156,11 +167,12 @@ extension PostDetailViewController{
 extension PostDetailViewController:UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return postDetail.comments.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentViewCell
-        
+        let comment = postDetail.comments[indexPath.row]
+        cell.updateContent(comment)
         return cell
     }
 }

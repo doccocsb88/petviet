@@ -19,6 +19,7 @@ class PostDetail:Mappable {
     var youtubePath:String?
     var created_date:Int64
     var likes:[UserLike] = []
+    var comments:[PetComment] = []
     required init?(map: Map) {
         self.postId = 0
         self.key = ""
@@ -99,18 +100,19 @@ class PostDetail:Mappable {
             likes.append(userLike!)
         }
     }
-//    func toJson() ->String?{
-//
-//        do {
-//            let jsonEncoder = JSONEncoder()
-//            let jsonData = try jsonEncoder.encode(self)
-//            let json = String(data: jsonData, encoding: String.Encoding.utf8)
-//
-//            return json
-//        } catch  {
-//
-//        }
-//        return nil
-//    }
+    func addComment(_ comment:PetComment){
+        comments.insert(comment, at: 0)
+    }
+    func isComment(_ userId:String?) ->Bool{
+        if let userId = userId{
+            for comment in comments{
+                if comment.userId == userId{
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
     
 }

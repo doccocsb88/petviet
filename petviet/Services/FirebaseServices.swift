@@ -13,6 +13,7 @@ import FirebaseDatabase
 class FirebaseServices{
     fileprivate let PATH_POST = "posts"
     fileprivate let PATH_POST_LIKE = "likes"
+    fileprivate let PATH_POST_COMMENT = "comments"
 
     fileprivate let PATH_USER = "uers"
     var ref: DatabaseReference!
@@ -98,19 +99,27 @@ class FirebaseServices{
                     if let postDict =  dict.value as? [String:Any]{
                         if let post = PostDetail(JSON: postDict){
                             post.key = dict.key
-                          if let abc = postDict["likes"] as? [String:Any]{
-                                    for key in abc.keys{
-                                        if let value = abc[key] as? [String:Any] {
-                                            if let userLike = UserLike(JSON: value){
-                                                userLike.key = key
-                                                post.likes.append(userLike)
-                                            }
+                            if let likes = postDict["likes"] as? [String:Any]{
+                                for key in likes.keys{
+                                    if let value = likes[key] as? [String:Any] {
+                                        if let userLike = UserLike(JSON: value){
+                                            userLike.key = key
+                                            post.likes.append(userLike)
                                         }
-
-
                                     }
-
                                 }
+                                
+                            }
+                            if let comments = postDict["comments"] as? [String:Any]{
+                                for key in comments.keys{
+                                    if let value = comments[key] as? [String:Any] {
+                                        if let petComment = PetComment(JSON: value){
+                                            petComment.key = key
+                                            post.addComment(petComment)
+                                        }
+                                    }
+                                }
+                            }
                             posts.append(post)
                         }
                     }
@@ -153,12 +162,31 @@ class FirebaseServices{
                 complete(false,error.localizedDescription,nil)
             }else{
                 let userLike = UserLike(JSON: data)
-                userLike?.key = childRef.key
+                userLike?.key = childRef.key!
                 complete(true,nil,userLike)
 
             }
         }
         
+    }
+    func commentPost(_ comment:PetComment, _ postKey:String, complete:@escaping(_ success:Bool , _ message:String?, _ petComment:PetComment?)->Void){
+        guard let user = Auth.auth().currentUser else {return}
+
+        let postRef = ref.child(PATH_POST).child(postKey).child(PATH_POST_COMMENT)
+        let childRef = postRef.childByAutoId()
+        let data:[String:Any] = ["userId":user.uid,"displayName":user.displayName ?? "Somebody","message":comment.message, "created_date":comment.created_date, "to_user":comment.to_user]
+        
+        comment.key = childRef.key!
+        comment.userId = user.uid
+        comment.userDisplayName = user.displayName ?? "Somebody"
+        childRef.setValue(data) { (error, dataRef) in
+            if let error = error{
+                complete(false,error.localizedDescription,nil)
+            }else{
+                complete(true,nil,comment)
+            }
+        }
+
     }
     func uploadImage(_ localFile:URL,complete:@escaping (_ success:Bool, _ message:String?, _ imageUrl:URL?)->Void){
         guard let user = Auth.auth().currentUser else{

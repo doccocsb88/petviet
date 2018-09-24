@@ -28,4 +28,8 @@ class CommentViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func updateContent(_ comment:PetComment){
+        messageLabel.text = comment.message
+    }
+    
 }

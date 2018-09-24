@@ -6,7 +6,7 @@ target 'petviet' do
   use_frameworks!
   pod 'lottie-ios'
   pod 'Spring', '~> 1.0'
-  pod 'Kingfisher', '~> 4.8'
+  pod 'Kingfisher', '~> 4.8.1'
 
   pod 'Firebase', '~> 5.1'
   pod 'FirebaseCore', '~> 5.1'
