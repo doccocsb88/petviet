@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InputProductViewController" customModule="petviet" customModuleProvider="target">
+            <connections>
+                <outlet property="productCodeTextfield" destination="dlG-4S-M8c" id="B3u-Ht-aMe"/>
+                <outlet property="productNameTextfield" destination="dM5-PM-uU7" id="rLx-XE-XAd"/>
+                <outlet property="productPriceTextfield" destination="rz7-kG-w0T" id="96K-Cq-JRP"/>
+                <outlet property="uploadButton" destination="aLL-Dl-RxB" id="5kG-6d-MZv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập mã sản phẩm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dlG-4S-M8c">
+                    <rect key="frame" x="20" y="60" width="335" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập tên sản phẩm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dM5-PM-uU7">
+                    <rect key="frame" x="20" y="110" width="335" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập giá sản phẩm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rz7-kG-w0T">
+                    <rect key="frame" x="20" y="160" width="335" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLL-Dl-RxB">
+                    <rect key="frame" x="140" y="220" width="95" height="34"/>
+                    <state key="normal" title="Upload Anh">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                    <connections>
+                        <action selector="tappedIUploadButton:" destination="-1" eventType="touchUpInside" id="aNh-zD-Hft"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1b-vX-J0S">
+                    <rect key="frame" x="152" y="284" width="70" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="Ths-9C-5kR"/>
+                        <constraint firstAttribute="width" constant="70" id="b1D-Og-SpR"/>
+                    </constraints>
+                    <state key="normal" title="Save">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="tappedSaveButton:" destination="-1" eventType="touchUpInside" id="bFq-af-ZWD"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rz7-kG-w0T" secondAttribute="trailing" constant="20" id="0Ye-Bd-uQH"/>
+                <constraint firstItem="rz7-kG-w0T" firstAttribute="top" secondItem="dM5-PM-uU7" secondAttribute="bottom" constant="20" id="FUJ-3e-shn"/>
+                <constraint firstItem="G1b-vX-J0S" firstAttribute="top" secondItem="aLL-Dl-RxB" secondAttribute="bottom" constant="30" id="G4n-Jl-jyE"/>
+                <constraint firstItem="dlG-4S-M8c" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="OtX-1Z-tBe"/>
+                <constraint firstItem="dlG-4S-M8c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Qx1-Jl-FxL"/>
+                <constraint firstItem="aLL-Dl-RxB" firstAttribute="top" secondItem="rz7-kG-w0T" secondAttribute="bottom" constant="30" id="SRj-UG-Sli"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dlG-4S-M8c" secondAttribute="trailing" constant="20" id="ZGb-Ym-RmA"/>
+                <constraint firstItem="dM5-PM-uU7" firstAttribute="top" secondItem="dlG-4S-M8c" secondAttribute="bottom" constant="20" id="aBM-KJ-29m"/>
+                <constraint firstItem="aLL-Dl-RxB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="h3m-JY-H7x"/>
+                <constraint firstItem="rz7-kG-w0T" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ikR-dD-fuu"/>
+                <constraint firstItem="dM5-PM-uU7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="qyW-ub-BXp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dM5-PM-uU7" secondAttribute="trailing" constant="20" id="rka-bc-IHh"/>
+                <constraint firstItem="G1b-vX-J0S" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zzL-D6-N08"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

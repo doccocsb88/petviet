@@ -10,9 +10,10 @@ import UIKit
 import Kingfisher
 class HomeViewCell: UITableViewCell {
 
-    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var avatarButton: UIButton!
     @IBOutlet weak var displaynameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var followButton: UIButton!
     
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var commentButton: UIButton!
@@ -27,6 +28,8 @@ class HomeViewCell: UITableViewCell {
     @IBOutlet weak var storyPhotoImageView: UIImageView!
     var didTappedLike:()->() = {}
     var didTappedComment:()->() = {}
+    var didTapUserProfile:()->() = {}
+    var didTapFollowButton:()->() = {}
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,12 +43,14 @@ class HomeViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setupUI(){
-        let avatarSize = self.avatarImageView.frame.height
-        self.avatarImageView.addBorder(avatarSize / 2, 0.5, UIColor.lightGray)
-        
+        let avatarSize = self.avatarButton.frame.height
+        self.avatarButton.addBorder(avatarSize / 2, 0.5, UIColor.lightGray)
+        self.likeButton.imageView?.contentMode  = .scaleAspectFit
+        self.commentButton.imageView?.contentMode =  .scaleAspectFit
     }
     
     func updateContent(_ post:PostDetail){
+        displaynameLabel.text = post.userName
         captionLabel.text = post.story
         if let imagePath = post.imagePath , imagePath.count > 0{
             storyPhotoImageView.kf.setImage(with: URL(string: imagePath))
@@ -56,14 +61,28 @@ class HomeViewCell: UITableViewCell {
         if let userId = FirebaseServices.shared().userId(){
             likeButton.isSelected = post.isLiked(userId)
         }
+        commentButton.setTitle("\(post.comments.count)", for: .normal)
         if post.likes.count == 0{
             likedByLabel.text = "Không ai thích sen cả."
 
         }else{
             likedByLabel.text = "\(post.likes.count) người đã thích bài viết này."
         }
+        if let user = FirebaseServices.shared().currentUser(), user.uid == post.created_user{
+            followButton.isHidden = true
+        }else{
+            followButton.isHidden = false
+        }
         
     }
+    
+    @IBAction func tappedProfileButton(_ sender: Any) {
+        didTapUserProfile()
+    }
+    @IBAction func tappedFollowButton(_ sender: Any) {
+        didTapFollowButton()
+    }
+    
     @IBAction func tappedLikeButton(_ sender: Any) {
         didTappedLike()
     }

@@ -16,13 +16,18 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-//        FirebaseServices.shared().createUser("amail@gmail.com", "123456", "anh dep trai") { (success, message) in
-//            
+        let email = "bmail@gmail.com";
+        let password = "123456"
+        let displayName = "userB"
+//        FirebaseServices.shared().createUser(email, password, displayName) { (success, message) in
+//            FirebaseServices.shared().loginWithEmailPassword(email, password) { (success, mmessage) in
+//
+//            }
 //        }
-        FirebaseServices.shared().loginWithEmailPassword("amail@gmail.com", "123456") { (success, mmessage) in
+        FirebaseServices.shared().loginWithEmailPassword(email, password) { (success, mmessage) in
             
         }
+//        FirebaseServices.shared().logout()
         initNavigation()
         setupUI()
         fetchPosts()
@@ -52,6 +57,7 @@ class HomeViewController: BaseViewController {
         vc.modalTransitionStyle = .coverVertical
         vc.didPublishStory = {
             self.fetchPosts()
+            self.dismiss(animated: true, completion: nil)
         }
         present(vc, animated: true, completion: nil)
     }
@@ -74,7 +80,7 @@ class HomeViewController: BaseViewController {
             strongSelf.tableView.reloadData()
         }
     }
-    func showPostDetailView(_ post:PostDetail, _ willComment:Bool){
+    override func showPostDetailView(_ post:PostDetail, _ willComment:Bool){
         let vc = PostDetailViewController(nibName: "PostDetailViewController", bundle: nil)
         vc.postDetail = post
         vc.willComment = willComment
@@ -126,6 +132,9 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
         cell.didTappedComment = { [unowned self] in
             self.currentPostIndex = indexPath
             self.showPostDetailView(post,true)
+        }
+        cell.didTapUserProfile = {
+            self.showProfileView(post.created_user)
         }
         cell.selectionStyle = .none
         return cell

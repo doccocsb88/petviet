@@ -41,13 +41,24 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:10 20/09/2018" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAQ-qP-j80">
-                        <rect key="frame" x="228" y="68.5" width="87" height="13"/>
+                        <rect key="frame" x="228" y="64.5" width="87" height="13"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYD-L4-K8s">
+                        <rect key="frame" x="40" y="56.5" width="36" height="28"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                        <state key="normal" title="Trả lời">
+                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </state>
+                        <connections>
+                            <action selector="tappedAnswerButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WzL-wX-it7"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="wAQ-qP-j80" firstAttribute="centerY" secondItem="RYD-L4-K8s" secondAttribute="centerY" id="1EG-oP-1TR"/>
                     <constraint firstAttribute="trailing" secondItem="wAQ-qP-j80" secondAttribute="trailing" constant="5" id="5Zf-Bb-rCo"/>
                     <constraint firstItem="58O-sD-hBb" firstAttribute="leading" secondItem="bVe-le-ZcY" secondAttribute="trailing" constant="5" id="Jki-HG-TbY"/>
                     <constraint firstAttribute="trailing" secondItem="58O-sD-hBb" secondAttribute="trailing" constant="5" id="TEb-2M-asd"/>
@@ -55,14 +66,22 @@
                     <constraint firstItem="vYh-JZ-g2V" firstAttribute="leading" secondItem="bVe-le-ZcY" secondAttribute="trailing" constant="5" id="aay-dC-hap"/>
                     <constraint firstAttribute="trailingMargin" secondItem="vYh-JZ-g2V" secondAttribute="trailing" constant="5" id="amo-4L-b2P"/>
                     <constraint firstItem="vYh-JZ-g2V" firstAttribute="top" secondItem="58O-sD-hBb" secondAttribute="bottom" constant="5" id="cH1-YG-5pQ"/>
+                    <constraint firstItem="RYD-L4-K8s" firstAttribute="leading" secondItem="bVe-le-ZcY" secondAttribute="trailing" constant="5" id="enb-4f-5tE"/>
                     <constraint firstItem="bVe-le-ZcY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="f1C-7O-Xzd"/>
-                    <constraint firstItem="wAQ-qP-j80" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vYh-JZ-g2V" secondAttribute="bottom" constant="2" id="jVQ-yB-xNH"/>
+                    <constraint firstItem="RYD-L4-K8s" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vYh-JZ-g2V" secondAttribute="bottom" constant="2" id="hrs-NR-ILg"/>
+                    <constraint firstAttribute="bottom" secondItem="RYD-L4-K8s" secondAttribute="bottom" constant="2" id="pIp-4O-Uo8"/>
                     <constraint firstItem="58O-sD-hBb" firstAttribute="top" secondItem="bVe-le-ZcY" secondAttribute="top" id="rUf-vs-CY8"/>
                     <constraint firstItem="bVe-le-ZcY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="uwV-Re-NTT"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="XwV-qN-Bxg"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="answerButton" destination="RYD-L4-K8s" id="AJ1-FX-wcV"/>
                 <outlet property="avatarButton" destination="bVe-le-ZcY" id="lcz-qJ-bLM"/>
                 <outlet property="createdLabel" destination="wAQ-qP-j80" id="1Ho-QX-93y"/>
                 <outlet property="displayNameLabel" destination="58O-sD-hBb" id="xS1-4y-8NK"/>

@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Lottie
 
 class BaseViewController: UIViewController {
     var leftButton:UIButton?
     var rightButton:UIButton?
     var firstTime:Bool = true
+    var loadingAnimation: LOTAnimationView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let image = UIImage(color: .white)
@@ -45,14 +48,58 @@ class BaseViewController: UIViewController {
         
     }
    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func initLoadingView(){
+        loadingAnimation = LOTAnimationView(name:  "material_loader")
+        // Set view to full screen, aspectFill
+        loadingAnimation!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        loadingAnimation!.contentMode = .scaleAspectFill
+        loadingAnimation!.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        loadingAnimation!.center = self.view.center
+        loadingAnimation!.isHidden = true
+        loadingAnimation!.loopAnimation = true
+        // Add the Animation
+        view.addSubview(loadingAnimation!)
+        
     }
-    */
+    
+    func showMessageDialog(_ title:String?, _ message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Đồng ý", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    func showLoadingView(){
+        if let _ = self.loadingAnimation {
+            self.loadingAnimation!.isHidden = false
+            self.loadingAnimation!.play()
+            
+        }
+        
+    }
+    func hideLoadingView(){
+        if let _ = self.loadingAnimation{
+            self.loadingAnimation!.isHidden = true
+            self.loadingAnimation!.stop()
+        }
+        
+    }
+    func showPostDetailView(_ post:PostDetail, _ willComment:Bool){
+        let vc = PostDetailViewController(nibName: "PostDetailViewController", bundle: nil)
+        vc.postDetail = post
+        vc.willComment = willComment
+        
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: true, completion: nil)
+    }
+    
+    func showProfileView(_ userId:String){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "profileViewController") as? ProfileViewController{
+            vc.userId = userId
+//            vc.modalPresentationStyle = .overFullScreen
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
 
 }

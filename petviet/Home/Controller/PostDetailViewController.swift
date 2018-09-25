@@ -33,6 +33,7 @@ class PostDetailViewController: BaseViewController {
     var postDetail:PostDetail!
     var didUpdatePostValue:()->() = {}
     var willComment:Bool = false
+    var answerTo:PetComment?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -146,10 +147,18 @@ class PostDetailViewController: BaseViewController {
     @IBAction func tappedProfileButton(_ sender: Any) {
     }
     @IBAction func tappedSendButton(_ sender: Any) {
+        guard let user = FirebaseServices.shared().currentUser() else {return}
         guard let message = commentTextview.text, message.count > 0 else{return}
         commentTextview.text = ""
         commentTextview .resignFirstResponder()
+        
         let petComment = PetComment(message)
+        petComment.userDisplayName = user.displayName ?? user.uid
+        
+        if let toUser = self.answerTo{
+            let data:[String:String] = ["userId":toUser.userId,"displayName":toUser.userDisplayName]
+            petComment.to_user = Utils.convertToJSON(data)
+        }
         FirebaseServices.shared().commentPost(petComment, postDetail.key) {[unowned self] (success, message, comment) in
             if success == true , let comment = comment{
                 self.postDetail.addComment(comment)
@@ -173,6 +182,11 @@ extension PostDetailViewController:UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentViewCell
         let comment = postDetail.comments[indexPath.row]
         cell.updateContent(comment)
+        cell.didTappedAnswer = { [unowned self ] in
+            self.answerTo = comment
+            self.commentTextview.becomeFirstResponder()
+        }
+        cell.selectionStyle = .none
         return cell
     }
 }

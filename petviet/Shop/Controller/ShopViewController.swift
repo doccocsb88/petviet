@@ -27,10 +27,26 @@ class ShopViewController: UIViewController {
     func initData(){
         products.append(ProductType(1,1,"Mèo","Thú cưng"))
         products.append(ProductType(2,1,"Mèo","Thú cưng"))
+        //
         products.append(ProductType(3,2,"Thức ăn cho chó","Thức ăn"))
         products.append(ProductType(4,2,"Thức ăn cho mèo","Thức ăn"))
-        products.append(ProductType(5,3,"Tắm mèo","Dịch vụ"))
-        products.append(ProductType(6,3,"Trông giữ mèo","Dịch vụ"))
+        //
+        
+        products.append(ProductType(5,3,"Tắm spa chó mèo","Dịch vụ"))
+        products.append(ProductType(6,3,"Tỉa lông chó mèo","Dịch vụ"))
+        products.append(ProductType(7,3,"Trông giữ chó mèo","Dịch vụ"))
+        //
+        products.append(ProductType(8,4,"Phụ kiện cho chó","Phụ kiện và đồ dùng"))
+        products.append(ProductType(9,4,"Đồ dùng cho chó","Phụ kiện và đồ dùng"))
+
+        products.append(ProductType(9,5,"Phụ kiện cho mèo","Phụ kiện và đồ dùng"))
+        products.append(ProductType(9,5,"Đồ dùng cho mèo","Phụ kiện và đồ dùng"))
+
+        //
+        products.append(ProductType(9,6,"Thuốc thú y cho chó","Thuốc"))
+        products.append(ProductType(9,6,"Thuốc thú y cho mèo","Thuốc"))
+
+
         for product in products{
             var has = false
             for type in productTypes{
@@ -96,7 +112,7 @@ extension ShopViewController: UITableViewDataSource, UITableViewDelegate{
         header.addSubview(titleLabel)
         let type = productTypes[section]
         titleLabel.text = type.1
-        header.backgroundColor = UIColor(hexString: headerColors[section])
+        header.backgroundColor = UIColor(hexString: headerColors[section % headerColors.count])
         return header
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

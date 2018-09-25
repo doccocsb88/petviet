@@ -12,6 +12,7 @@ class PostDetail:Mappable {
     var postId:Int32
     var key:String
     var category_id:Int
+    var petId:Int
     var created_user:String
     var userName:String
     var story:String
@@ -24,6 +25,7 @@ class PostDetail:Mappable {
         self.postId = 0
         self.key = ""
         self.category_id = 0
+        self.petId = 0
         self.created_user = ""
         self.userName = ""
         self.story = ""
@@ -36,6 +38,7 @@ class PostDetail:Mappable {
         self.postId <- map["postId"]
         self.key  <- map["key"]
         self.category_id  <- map["category_id"]
+        self.petId  <- map["petId"]
         self.created_user  <- map["created_user"]
         self.userName  <- map["userName"]
         self.story <- map["story"]
@@ -47,10 +50,11 @@ class PostDetail:Mappable {
     }
     
 
-    init(_ postId:Int32, _ category_id:Int, _ userId:String,_ username:String, _ story:String, _ imagePath:String?, _ youtubePath:String?, created_date:Int64) {
+    init(_ postId:Int32, _ category_id:Int,_ petId:Int, _ userId:String,_ username:String, _ story:String, _ imagePath:String?, _ youtubePath:String?, created_date:Int64) {
         self.postId = postId
         self.key = ""
         self.category_id = category_id
+        self.petId = petId
         self.created_user = userId
         self.userName = username
         self.story = story

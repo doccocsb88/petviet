@@ -11,6 +11,8 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
 class FirebaseServices{
+    fileprivate let PATH_PROFILE = "users"
+
     fileprivate let PATH_POST = "posts"
     fileprivate let PATH_POST_LIKE = "likes"
     fileprivate let PATH_POST_COMMENT = "comments"
@@ -35,6 +37,9 @@ class FirebaseServices{
         guard let user = Auth.auth().currentUser else {return nil}
         return user.uid
     }
+    func currentUser() -> User?{
+        return Auth.auth().currentUser
+    }
     func loginWithEmailPassword(_ email:String, _ password: String, onSuccess
         success: @escaping (_ success:Bool, _ message:String?) -> Void){
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
@@ -57,6 +62,14 @@ class FirebaseServices{
         
     }
     
+    func logout(){
+        do{
+            try Auth.auth().signOut()
+        }catch{
+            
+        }
+    }
+    
     func createUser(_ email:String, _ password: String, _ fullname: String, onSuccess
         success: @escaping (_ success:Bool, _ message:String?) -> Void){
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
@@ -74,7 +87,16 @@ class FirebaseServices{
             
         }
     }
-    
+    func createProfile(){
+        guard let user = Auth.auth().currentUser else{return}
+        let profileRef = ref.child(PATH_PROFILE).child(user.uid);
+        let profile:[String:Any?] = ["email":user.email,"displayName":user.displayName]
+        profileRef.setValue(profile) { (error, dataRef) in
+            
+        }
+        
+
+    }
     func publishPost(_ postDetail:PostDetail, complete:@escaping (_ success:Bool, _ message:String?) -> Void){
         let postRef = ref.child(PATH_POST);
         let child = postRef.childByAutoId()
@@ -92,43 +114,21 @@ class FirebaseServices{
     
     func fetchPosts(_ catId:Int, complete:@escaping (_ success:Bool, _ message:String?, _ posts:[PostDetail]) ->Void){
         let postRef = ref.child(PATH_POST);
-        var posts:[PostDetail] = []
         postRef.observeSingleEvent(of: .value) { (snapshot) in
-            for child in snapshot.children {
-                if let dict = child as? DataSnapshot {
-                    if let postDict =  dict.value as? [String:Any]{
-                        if let post = PostDetail(JSON: postDict){
-                            post.key = dict.key
-                            if let likes = postDict["likes"] as? [String:Any]{
-                                for key in likes.keys{
-                                    if let value = likes[key] as? [String:Any] {
-                                        if let userLike = UserLike(JSON: value){
-                                            userLike.key = key
-                                            post.likes.append(userLike)
-                                        }
-                                    }
-                                }
-                                
-                            }
-                            if let comments = postDict["comments"] as? [String:Any]{
-                                for key in comments.keys{
-                                    if let value = comments[key] as? [String:Any] {
-                                        if let petComment = PetComment(JSON: value){
-                                            petComment.key = key
-                                            post.addComment(petComment)
-                                        }
-                                    }
-                                }
-                            }
-                            posts.append(post)
-                        }
-                    }
-                }
-            }
+            let posts = self.parsePostData(snapshot)
             complete(true,nil,posts)
 
         }
     }
+    
+    func fetchPostByUserId(_ userId:String, complete:@escaping (_ success:Bool, _ message:String?, _ posts:[PostDetail]) ->Void){
+        let postRef = ref.child(PATH_POST);
+        postRef.queryOrdered(byChild: "created_user").queryEqual(toValue: userId).observeSingleEvent(of: .value) { (snapshot) in
+            let posts = self.parsePostData(snapshot)
+            complete(true,nil,posts)
+        }
+    }
+    
     
     func isLiked(_ postKey:String, complete:@escaping (_ success:Bool, _ message:String?, _ isLiked:Bool) ->Void){
         guard let user = Auth.auth().currentUser else {return}
@@ -237,8 +237,41 @@ class FirebaseServices{
             
             
         }
-        
-        
-        
+    }
+    
+    func parsePostData(_ snapshot: DataSnapshot) -> [PostDetail]{
+        var posts:[PostDetail] = []
+        for child in snapshot.children {
+            if let dict = child as? DataSnapshot {
+                if let postDict =  dict.value as? [String:Any]{
+                    if let post = PostDetail(JSON: postDict){
+                        post.key = dict.key
+                        if let likes = postDict["likes"] as? [String:Any]{
+                            for key in likes.keys{
+                                if let value = likes[key] as? [String:Any] {
+                                    if let userLike = UserLike(JSON: value){
+                                        userLike.key = key
+                                        post.likes.append(userLike)
+                                    }
+                                }
+                            }
+                            
+                        }
+                        if let comments = postDict["comments"] as? [String:Any]{
+                            for key in comments.keys{
+                                if let value = comments[key] as? [String:Any] {
+                                    if let petComment = PetComment(JSON: value){
+                                        petComment.key = key
+                                        post.addComment(petComment)
+                                    }
+                                }
+                            }
+                        }
+                        posts.append(post)
+                    }
+                }
+            }
+        }
+        return posts
     }
 }

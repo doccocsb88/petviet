@@ -85,20 +85,16 @@ class PublishStoryViewController: UIViewController {
         guard let story = inputStoryEdittext.text, story.count > 0 else{return}
         guard let imageUrl = imageUrl else{return}
 
-        let post = PostDetail(1, 1, "1234", "vuhai", story, "", "", created_date:Date().millisecondsSince1970)
-        FirebaseServices.shared().uploadImage(imageUrl) { (success, message, url) in
-            if success{
-                post.imagePath = url?.absoluteString
-                FirebaseServices.shared().publishPost(post) {[weak self] (success, message) in
-                    guard let strongSelf = self else{return}
-                    if success{
-                        strongSelf.didPublishStory()
-                        strongSelf.dismiss(animated: true, completion: nil)
-                        
-                    }
-                }
-            }
+        let vc = StoryCategoryViewController(nibName: "StoryCategoryViewController", bundle: nil)
+        vc.story = story
+        vc.imageUrl = imageUrl
+        vc.modalPresentationStyle  = .overFullScreen
+        vc.didPublishStory = { [weak self] in
+            guard let strongSelf = self else{return}
+            strongSelf.didPublishStory()
         }
+
+        present(vc, animated: true, completion: nil)
         
     }
     @IBAction func tappedCancelButton(_ sender: Any) {

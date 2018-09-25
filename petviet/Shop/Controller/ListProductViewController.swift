@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListProductViewController: UIViewController {
+class ListProductViewController: BaseViewController {
     fileprivate let itemsPerRow: CGFloat = 2
     fileprivate let sectionInsets = UIEdgeInsets(top: 1, left: 0.4, bottom: 0, right: 0)
 
@@ -17,6 +17,8 @@ class ListProductViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.addRightButton(UIImage(named: "ic_tab_service"))
+
         setupUI()
     }
 
@@ -39,6 +41,9 @@ class ListProductViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    override func tappedRightButton(_ button: UIButton) {
+        
+    }
 
 }
 extension ListProductViewController: UICollectionViewDelegate, UICollectionViewDataSource{
