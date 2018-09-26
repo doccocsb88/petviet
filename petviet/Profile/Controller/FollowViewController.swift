@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FollowViewController: UIViewController {
+class FollowViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var follows:[PetFollow] = []
@@ -19,6 +19,8 @@ class FollowViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.title = "Following"
+        addDefaultLeft()
         setupUI()
     }
     
@@ -44,6 +46,10 @@ class FollowViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func tappedLeftButton(_ button: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 
 }
 

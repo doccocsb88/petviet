@@ -13,6 +13,7 @@ class ListProductViewController: BaseViewController {
     fileprivate let sectionInsets = UIEdgeInsets(top: 1, left: 0.4, bottom: 0, right: 0)
 
     @IBOutlet weak var collectionView: UICollectionView!
+    var productType:ProductType!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,7 +43,9 @@ class ListProductViewController: BaseViewController {
     }
     */
     override func tappedRightButton(_ button: UIButton) {
-        
+       let vc = InputProductViewController(nibName: "", bundle: nil)
+        vc.productType = productType
+        present(vc, animated: true, completion: nil)
     }
 
 }

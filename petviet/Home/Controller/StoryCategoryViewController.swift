@@ -21,7 +21,8 @@ class StoryCategoryViewController: BaseViewController {
     var pets:[Pet] = []
     var pet:Pet?
     var didPublishStory:() -> () = {}
-
+    var didFilterPost:(Pet?) ->() =  {pet in }
+    var isFilterPost:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,7 +31,14 @@ class StoryCategoryViewController: BaseViewController {
         initData()
         setupUI()
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if isFilterPost {
+            let allPet = Pet(type: 0, name: "Tất cả")
+            pets.insert(allPet, at: 0)
+            collection.reloadData()
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -68,19 +76,22 @@ class StoryCategoryViewController: BaseViewController {
     }
     
     @IBAction func tappedPublishButton(_ sender: Any) {
-
-        guard let user = FirebaseServices.shared().currentUser() else{return}
-        guard let pet = self.pet else{return}
-        let post = PostDetail(1, 1,pet.type, user.uid, user.displayName ?? "vuhai", story, "", "", created_date:Date().millisecondsSince1970)
-        showLoadingView()
-        FirebaseServices.shared().uploadImage(imageUrl) { (success, message, url) in
-            if success{
-                post.imagePath = url?.absoluteString
-                FirebaseServices.shared().publishPost(post) {[weak self] (success, message) in
-                    guard let strongSelf = self else{return}
-                    strongSelf.hideLoadingView()
-                    if success{
-                        strongSelf.didPublishStory()
+        if isFilterPost{
+            didFilterPost(pet)
+        }else{
+            guard let user = FirebaseServices.shared().currentUser() else{return}
+            guard let pet = self.pet else{return}
+            let post = PostDetail(1, 1,pet.type, user.uid, user.displayName ?? "vuhai", story, "", "", created_date:Date().millisecondsSince1970)
+            showLoadingView()
+            FirebaseServices.shared().uploadImage(imageUrl) { (success, message, url) in
+                if success{
+                    post.imagePath = url?.absoluteString
+                    FirebaseServices.shared().publishPost(post) {[weak self] (success, message) in
+                        guard let strongSelf = self else{return}
+                        strongSelf.hideLoadingView()
+                        if success{
+                            strongSelf.didPublishStory()
+                        }
                     }
                 }
             }
@@ -94,6 +105,7 @@ extension StoryCategoryViewController: UICollectionViewDelegate, UICollectionVie
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pets.count
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -103,6 +115,7 @@ extension StoryCategoryViewController: UICollectionViewDelegate, UICollectionVie
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let pet = pets[indexPath.row]
         self.pet = pet
         self.collection.reloadData()

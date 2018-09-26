@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E28F4FA215A92E100ACFDD0 /* PetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E28F4F9215A92E100ACFDD0 /* PetUser.swift */; };
 		0E28F4FC215A93B100ACFDD0 /* PetFollow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E28F4FB215A93B100ACFDD0 /* PetFollow.swift */; };
+		0E28F4FE215BDFAF00ACFDD0 /* ProductServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E28F4FD215BDFAF00ACFDD0 /* ProductServices.swift */; };
 		0E8E918321568AE80002CF4F /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E918121568AE80002CF4F /* PostDetailViewController.swift */; };
 		0E8E918421568AE80002CF4F /* PostDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E918221568AE80002CF4F /* PostDetailViewController.xib */; };
 		0E8E9187215691980002CF4F /* CommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E9185215691980002CF4F /* CommentViewCell.swift */; };
@@ -75,6 +76,7 @@
 /* Begin PBXFileReference section */
 		0E28F4F9215A92E100ACFDD0 /* PetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetUser.swift; sourceTree = "<group>"; };
 		0E28F4FB215A93B100ACFDD0 /* PetFollow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetFollow.swift; sourceTree = "<group>"; };
+		0E28F4FD215BDFAF00ACFDD0 /* ProductServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServices.swift; sourceTree = "<group>"; };
 		0E8E918121568AE80002CF4F /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		0E8E918221568AE80002CF4F /* PostDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailViewController.xib; sourceTree = "<group>"; };
 		0E8E9185215691980002CF4F /* CommentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewCell.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			children = (
 				0E8E919D2157600F0002CF4F /* FirebaseServices.swift */,
 				EC6EFE4F215B3E3E00F0BEE4 /* DataServices.swift */,
+				0E28F4FD215BDFAF00ACFDD0 /* ProductServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				EC6EFE4E215B2C1100F0BEE4 /* PetProfile.swift in Sources */,
 				0E8E91BC215A62760002CF4F /* PetService.swift in Sources */,
 				0EA47E6421563DAA001523A0 /* ShopCategoryViewCell.swift in Sources */,
+				0E28F4FE215BDFAF00ACFDD0 /* ProductServices.swift in Sources */,
 				0EA47E5121562F55001523A0 /* ProfileViewController.swift in Sources */,
 				0EA47E5F2156392B001523A0 /* BaseTabbarController.swift in Sources */,
 				0E8E91A521578A1C0002CF4F /* StoryCategoryViewController.swift in Sources */,

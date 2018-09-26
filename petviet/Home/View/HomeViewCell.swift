@@ -50,6 +50,7 @@ class HomeViewCell: UITableViewCell {
         
         //
         self.followButton.isHidden = true
+
     }
     
     func updateContent(_ post:PostDetail){

@@ -16,6 +16,9 @@ class ProfileViewController: BaseViewController {
     @IBOutlet weak var bioLabel: UILabel!
     
     @IBOutlet weak var storyButton: UIButton!
+    
+    
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var followerButton: UIButton!
     @IBOutlet weak var followingButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -91,6 +94,11 @@ class ProfileViewController: BaseViewController {
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func tappedBackButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func tappedFollowerButton(_ sender: Any) {
     
         

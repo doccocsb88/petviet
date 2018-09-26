@@ -257,6 +257,9 @@ following</string>
                                             <constraint firstAttribute="height" constant="30" id="rXO-BD-jZE"/>
                                         </constraints>
                                         <state key="normal" image="ic_back"/>
+                                        <connections>
+                                            <action selector="tappedBackButton:" destination="7ba-W5-XeQ" eventType="touchUpInside" id="RSd-Ot-che"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -289,7 +292,7 @@ following</string>
                                     </mask>
                                 </variation>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gLL-ht-pCA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gLL-ht-pCA">
                                 <rect key="frame" x="0.0" y="287" width="375" height="331"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -313,6 +316,7 @@ following</string>
                     <navigationItem key="navigationItem" id="NvJ-RI-6YJ"/>
                     <connections>
                         <outlet property="avatarImageView" destination="oIT-iZ-QbR" id="2VC-xj-FHs"/>
+                        <outlet property="backButton" destination="wLJ-mX-DvO" id="OeN-8z-744"/>
                         <outlet property="bioLabel" destination="VVb-mg-Ghk" id="zmb-Fh-Ew9"/>
                         <outlet property="displayNameLabel" destination="jyQ-7O-H4y" id="s67-Ym-kQd"/>
                         <outlet property="followerButton" destination="VlJ-95-GAu" id="K7N-AP-3t9"/>

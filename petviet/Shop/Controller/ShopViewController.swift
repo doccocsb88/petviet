@@ -25,26 +25,29 @@ class ShopViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     func initData(){
-        products.append(ProductType(1,1,"Mèo","Thú cưng"))
-        products.append(ProductType(2,1,"Mèo","Thú cưng"))
+        let dog = Pet(type: 1, name: "Chó")
+        let cat = Pet(type: 2, name: "Mèo")
+        
+        products.append(ProductType(1,1,cat.type,"Mèo","Thú cưng"))
+        products.append(ProductType(2,1,dog.type,"Chó","Thú cưng"))
         //
-        products.append(ProductType(3,2,"Thức ăn cho chó","Thức ăn"))
-        products.append(ProductType(4,2,"Thức ăn cho mèo","Thức ăn"))
+        products.append(ProductType(3,2,dog.type,"Thức ăn cho chó","Thức ăn"))
+        products.append(ProductType(4,2,cat.type,"Thức ăn cho mèo","Thức ăn"))
         //
         
-        products.append(ProductType(5,3,"Tắm spa chó mèo","Dịch vụ"))
-        products.append(ProductType(6,3,"Tỉa lông chó mèo","Dịch vụ"))
-        products.append(ProductType(7,3,"Trông giữ chó mèo","Dịch vụ"))
+        products.append(ProductType(5,3,cat.type,"Tắm spa chó mèo","Dịch vụ"))
+        products.append(ProductType(6,3,cat.type,"Tỉa lông chó mèo","Dịch vụ"))
+        products.append(ProductType(7,3,cat.type,"Trông giữ chó mèo","Dịch vụ"))
         //
-        products.append(ProductType(8,4,"Phụ kiện cho chó","Phụ kiện và đồ dùng"))
-        products.append(ProductType(9,4,"Đồ dùng cho chó","Phụ kiện và đồ dùng"))
+        products.append(ProductType(8,4,dog.type,"Phụ kiện cho chó","Phụ kiện và đồ dùng"))
+        products.append(ProductType(9,4,dog.type,"Đồ dùng cho chó","Phụ kiện và đồ dùng"))
 
-        products.append(ProductType(9,5,"Phụ kiện cho mèo","Phụ kiện và đồ dùng"))
-        products.append(ProductType(9,5,"Đồ dùng cho mèo","Phụ kiện và đồ dùng"))
+        products.append(ProductType(9,5,cat.type,"Phụ kiện cho mèo","Phụ kiện và đồ dùng"))
+        products.append(ProductType(9,5,cat.type,"Đồ dùng cho mèo","Phụ kiện và đồ dùng"))
 
         //
-        products.append(ProductType(9,6,"Thuốc thú y cho chó","Thuốc"))
-        products.append(ProductType(9,6,"Thuốc thú y cho mèo","Thuốc"))
+        products.append(ProductType(9,6,dog.type,"Thuốc thú y cho chó","Thuốc"))
+        products.append(ProductType(9,6,cat.type,"Thuốc thú y cho mèo","Thuốc"))
 
 
         for product in products{
@@ -81,8 +84,9 @@ class ShopViewController: UIViewController {
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    func showPruductView(){
+    func showPruductView(productType:ProductType){
         let vc = ListProductViewController(nibName: "ListProductViewController", bundle: nil)
+        vc.productType = productType
         self.navigationController?.pushViewController(vc, animated: true)
 
         
@@ -121,11 +125,14 @@ extension ShopViewController: UITableViewDataSource, UITableViewDelegate{
         let pros = getProduct(typeId: type.0)
         let product = pros[indexPath.row]
         cell.updateContent(product)
-        
+        cell.selectionStyle = .none
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showPruductView()
+        let type = productTypes[indexPath.section]
+        let pros = getProduct(typeId: type.0)
+        let product = pros[indexPath.row]
+        showPruductView(productType: product)
     }
     
     func getProduct(typeId:Int) -> [ProductType]{

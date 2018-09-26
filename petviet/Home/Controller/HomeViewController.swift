@@ -13,6 +13,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     var posts:[PostDetail] = []
     var currentPostIndex:IndexPath?
+    var pet:Pet?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +31,7 @@ class HomeViewController: BaseViewController {
             self.tableView.reloadData()
         }
         initNavigation()
+        initLoadingView()
         setupUI()
         fetchPosts()
        
@@ -63,7 +65,19 @@ class HomeViewController: BaseViewController {
         present(vc, animated: true, completion: nil)
     }
     override func tappedLeftButton(_ button: UIButton) {
-        
+        let vc = StoryCategoryViewController(nibName: "StoryCategoryViewController", bundle: nil)
+        vc.modalPresentationStyle  = .overCurrentContext
+        vc.isFilterPost = true
+        vc.didFilterPost = {[weak self]pet in
+            guard let strongSelf = self else {return}
+            if strongSelf.pet?.type ?? 0 != pet?.type ?? 0{
+                strongSelf.pet = pet
+                strongSelf.fetchPosts()
+            }
+            strongSelf.dismiss(animated: true, completion: nil)
+
+        }
+        present(vc, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
@@ -75,9 +89,12 @@ class HomeViewController: BaseViewController {
     }
     */
     func fetchPosts(){
-        FirebaseServices.shared().fetchPosts(1) { [weak self](success, nil, posts) in
+        showLoadingView()
+        FirebaseServices.shared().fetchPosts(pet?.type ?? 0) { [weak self](success, nil, posts) in
             guard let strongSelf = self else{return}
+            strongSelf.hideLoadingView()
             strongSelf.posts = posts
+            strongSelf.tableView.setContentOffset(.zero, animated: true)
             strongSelf.tableView.reloadData()
         }
     }
@@ -101,7 +118,11 @@ class HomeViewController: BaseViewController {
 extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
         return posts.count
+    }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "homeViewCell", for: indexPath) as! HomeViewCell
@@ -139,8 +160,11 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
         }
         cell.didTapFollowButton = {
             
-            FirebaseServices.shared().follow(post.created_user, post.userName, complete: { (success, message) in
-                
+            FirebaseServices.shared().follow(post.created_user, post.userName, complete: {[weak self] (success, message) in
+                guard let strongSelf = self else {return}
+                if success{
+                    strongSelf.tableView.reloadData()
+                }
             })
         }
         cell.selectionStyle = .none

@@ -40,6 +40,11 @@ class InputProductViewController: UIViewController {
     @IBAction func tappedIUploadButton(_ sender: Any) {
     }
     @IBAction func tappedSaveButton(_ sender: Any) {
+        guard let code = productCodeTextfield.text else{return}
+        guard let name = productNameTextfield.text else{return}
+        guard let price = productPriceTextfield.text else{return}
+        
+        let product = PetProduct(productType: productType, productCode: code, productName: name, price: Float(price) ?? 0.0, imagePath: nil)
     }
     
 }

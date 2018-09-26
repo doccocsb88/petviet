@@ -37,5 +37,9 @@ class PetProfile{
         }
         return data
     }
+    
+    func follow(_ follow:PetFollow){
+        follows.insert(follow, at: 0)
+    }
  
 }

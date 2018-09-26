@@ -135,14 +135,14 @@ class FirebaseServices{
     }
     func follow(_ toId:String, _ toName:String, complete:@escaping (_ success:Bool, _ message:String?) -> Void){
         guard let user = Auth.auth().currentUser else{return}
-        let follow = PetFollow(user.uid,user.displayName ?? "", toId,toName)
+        let follow = PetFollow(DataServices.shared().profile.userId, DataServices.shared().profile.displayName,toId,toName)
+        
         let followingPath  = "\(PATH_PROFILE)/\(follow.toId)/\(PATH_FOLLOW)"
         let followingRef = ref.child(followingPath).childByAutoId()
         
         followingRef.setValue(follow.toJSON()) { (error, dataRef) in
             
         }
-        
         //
         let followPath  = "\(PATH_PROFILE)/\(follow.fromId)/\(PATH_FOLLOW)"
         let followRef = ref.child(followPath).childByAutoId()
@@ -150,6 +150,8 @@ class FirebaseServices{
             if let error = error{
                 complete(false, error.localizedDescription)
             }else{
+                
+                DataServices.shared().profile.follow(follow)
                 complete(true,nil)
             }
         }
@@ -192,12 +194,20 @@ class FirebaseServices{
  
     }
     
-    func fetchPosts(_ catId:Int, complete:@escaping (_ success:Bool, _ message:String?, _ posts:[PostDetail]) ->Void){
+    func fetchPosts(_ petId:Int, complete:@escaping (_ success:Bool, _ message:String?, _ posts:[PostDetail]) ->Void){
         let postRef = ref.child(PATH_POST);
+        if petId == 0{
         postRef.observeSingleEvent(of: .value) { (snapshot) in
             let posts = self.parsePostData(snapshot)
             complete(true,nil,posts)
 
+        }
+        }else{
+            postRef.queryOrdered(byChild: "petId").queryEqual(toValue: petId).observeSingleEvent(of: .value) { (snapshot) in
+                let posts = self.parsePostData(snapshot)
+                complete(true,nil,posts)
+
+            }
         }
     }
     
