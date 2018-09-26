@@ -47,6 +47,9 @@ class HomeViewCell: UITableViewCell {
         self.avatarButton.addBorder(avatarSize / 2, 0.5, UIColor.lightGray)
         self.likeButton.imageView?.contentMode  = .scaleAspectFit
         self.commentButton.imageView?.contentMode =  .scaleAspectFit
+        
+        //
+        self.followButton.isHidden = true
     }
     
     func updateContent(_ post:PostDetail){
@@ -71,7 +74,7 @@ class HomeViewCell: UITableViewCell {
         if let user = FirebaseServices.shared().currentUser(), user.uid == post.created_user{
             followButton.isHidden = true
         }else{
-            followButton.isHidden = false
+            followButton.isHidden = DataServices.shared().isFollowed(post.created_user)
         }
         
     }

@@ -98,6 +98,7 @@ class BaseViewController: UIViewController {
             vc.userId = userId
 //            vc.modalPresentationStyle = .overFullScreen
             self.navigationController?.pushViewController(vc, animated: true)
+//            self.present(vc, animated: true, completion: nil)
         }
         
     }

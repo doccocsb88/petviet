@@ -22,6 +22,7 @@ class ProfileViewController: BaseViewController {
     var userId:String?
     var posts:[PostDetail] = []
     var currentUserId:String?
+    var profile:PetProfile?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -29,6 +30,7 @@ class ProfileViewController: BaseViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
         if firstTime {
             firstTime = false
             if let userId = self.userId{
@@ -43,8 +45,15 @@ class ProfileViewController: BaseViewController {
                     if success{
                         strongSelf.posts = posts
                         strongSelf.tableView.reloadData()
+                        strongSelf.storyButton.setTitle("\(posts.count) \n stories", for: .normal)
                         
                     }
+                }
+                //
+                FirebaseServices.shared().fetchProfile(userId) { [weak self](success, profile) in
+                       guard let strongSelf = self else {return}
+                        strongSelf.profile = profile
+                        strongSelf.bindData()
                 }
             }
            
@@ -63,16 +72,35 @@ class ProfileViewController: BaseViewController {
         tableView.register(UINib(nibName: "HomeViewCell", bundle: nil), forCellReuseIdentifier: "homeCell")
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func bindData(){
+        if let profile = profile{
+            self.bioLabel.text = profile.biography
+            self.displayNameLabel.text = profile.displayName
+            self.followerButton.setTitle(" \(profile.followers().count)\n followers", for: .normal)
+            self.followingButton.setTitle(" \(profile.following().count)\n following", for: .normal)
+        }
+        
     }
-    */
+    func showFollowView(_ follows:[PetFollow], _ following:Bool){
+        let vc = FollowViewController(nibName: "FollowViewController", bundle: nil)
+        vc.follows = follows
+        vc.following = following
+        vc.didUploadFollow = { [weak self] in
+            guard let strongSelf = self else{return}
+            strongSelf.bindData()
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func tappedFollowerButton(_ sender: Any) {
+    
+        
+        showFollowView(DataServices.shared().profile.following(), false)
 
+    }
+    @IBAction func tappedFollowingButton(_ sender: Any) {
+        showFollowView(DataServices.shared().profile.following(), true)
+    }
+    
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{

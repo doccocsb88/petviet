@@ -16,18 +16,19 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let email = "bmail@gmail.com";
+        let email = "cmail@gmail.com";
         let password = "123456"
-        let displayName = "userB"
+        let displayName = "userC"
 //        FirebaseServices.shared().createUser(email, password, displayName) { (success, message) in
-//            FirebaseServices.shared().loginWithEmailPassword(email, password) { (success, mmessage) in
 //
-//            }
 //        }
         FirebaseServices.shared().loginWithEmailPassword(email, password) { (success, mmessage) in
-            
+
         }
 //        FirebaseServices.shared().logout()
+        FirebaseServices.shared().fetchProfile {
+            self.tableView.reloadData()
+        }
         initNavigation()
         setupUI()
         fetchPosts()
@@ -135,6 +136,12 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
         }
         cell.didTapUserProfile = {
             self.showProfileView(post.created_user)
+        }
+        cell.didTapFollowButton = {
+            
+            FirebaseServices.shared().follow(post.created_user, post.userName, complete: { (success, message) in
+                
+            })
         }
         cell.selectionStyle = .none
         return cell

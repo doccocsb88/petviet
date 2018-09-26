@@ -12,6 +12,7 @@ import FirebaseStorage
 import FirebaseDatabase
 class FirebaseServices{
     fileprivate let PATH_PROFILE = "users"
+    fileprivate let PATH_FOLLOW = "follows"
 
     fileprivate let PATH_POST = "posts"
     fileprivate let PATH_POST_LIKE = "likes"
@@ -94,8 +95,87 @@ class FirebaseServices{
         profileRef.setValue(profile) { (error, dataRef) in
             
         }
+    }
+    func fetchProfile(complete:@escaping()->Void){
+        guard let user = Auth.auth().currentUser else{return}
+       
         
-
+        fetchProfile(user.uid) { (success, profile) in
+            DataServices.shared().profile = profile
+            complete()
+        }
+    }
+    
+    func fetchProfile(_ userId:String, complete:@escaping(_ success:Bool, _ profile:PetProfile)->Void){
+        let profileRef = ref.child(PATH_PROFILE).child(userId)
+        let profile = PetProfile()
+        profile.userId = userId
+        profileRef.observeSingleEvent(of: .value) { (snapshot) in
+            if let dict  = snapshot.value as? [String:Any]{
+                NSLog("profile %@", Utils.convertToJSON(dict))
+                if let follows = dict["follows"]  as? [String:Any]{
+                    for key in follows.keys{
+                        if let followDict = follows[key] as? [String:Any]{
+                            if let follow = PetFollow(JSON: followDict){
+                                profile.follows.append(follow)
+                            }
+                        }
+                        
+                    }
+                }
+                if let profileDict = dict["profile"] as? [String:Any]{
+                    profile.email =  profileDict["email"] as? String ?? ""
+                    profile.displayName = profileDict["displayName"] as? String ?? ""
+                    profile.biography = profileDict["biography"] as? String ?? ""
+                    
+                }
+            }
+            complete(true,profile)
+        }
+    }
+    func follow(_ toId:String, _ toName:String, complete:@escaping (_ success:Bool, _ message:String?) -> Void){
+        guard let user = Auth.auth().currentUser else{return}
+        let follow = PetFollow(user.uid,user.displayName ?? "", toId,toName)
+        let followingPath  = "\(PATH_PROFILE)/\(follow.toId)/\(PATH_FOLLOW)"
+        let followingRef = ref.child(followingPath).childByAutoId()
+        
+        followingRef.setValue(follow.toJSON()) { (error, dataRef) in
+            
+        }
+        
+        //
+        let followPath  = "\(PATH_PROFILE)/\(follow.fromId)/\(PATH_FOLLOW)"
+        let followRef = ref.child(followPath).childByAutoId()
+        followRef.setValue(follow.toJSON()) { (error, dataRef) in
+            if let error = error{
+                complete(false, error.localizedDescription)
+            }else{
+                complete(true,nil)
+            }
+        }
+    }
+    func unfollow(_ follow:PetFollow, complete:@escaping (_ success:Bool, _ message:String?) -> Void){
+        guard let user = Auth.auth().currentUser else{return}
+        
+        //
+        let followPath  = "\(PATH_PROFILE)/\(user.uid)/\(PATH_FOLLOW)/\(follow.key)"
+        let followRef = ref.child(followPath)
+        followRef.removeValue()
+        //
+        let followingPath  = "\(PATH_PROFILE)/\(follow.toId)/\(PATH_FOLLOW)"
+        let followingRef = ref.child(followingPath).queryOrdered(byChild: "fromId").queryEqual(toValue: user.uid)
+        followingRef.observeSingleEvent(of: .value) { (snapshot) in
+            
+            for child in snapshot.children{
+                if let dict = child as? DataSnapshot {
+                    self.ref.child("\(followingPath)/\(dict.key)").removeValue()
+                }
+            }
+            complete(true,nil)
+        }
+       
+        
+     
     }
     func publishPost(_ postDetail:PostDetail, complete:@escaping (_ success:Bool, _ message:String?) -> Void){
         let postRef = ref.child(PATH_POST);

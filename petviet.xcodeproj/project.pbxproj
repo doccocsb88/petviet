@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E28F4FA215A92E100ACFDD0 /* PetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E28F4F9215A92E100ACFDD0 /* PetUser.swift */; };
-		0E28F4FC215A93B100ACFDD0 /* UserFollow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E28F4FB215A93B100ACFDD0 /* UserFollow.swift */; };
+		0E28F4FC215A93B100ACFDD0 /* PetFollow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E28F4FB215A93B100ACFDD0 /* PetFollow.swift */; };
 		0E8E918321568AE80002CF4F /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E918121568AE80002CF4F /* PostDetailViewController.swift */; };
 		0E8E918421568AE80002CF4F /* PostDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E918221568AE80002CF4F /* PostDetailViewController.xib */; };
 		0E8E9187215691980002CF4F /* CommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E9185215691980002CF4F /* CommentViewCell.swift */; };
@@ -64,11 +64,17 @@
 		0EA47E7A215648DC001523A0 /* ProductViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA47E78215648DC001523A0 /* ProductViewCell.swift */; };
 		0EA47E7B215648DC001523A0 /* ProductViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EA47E79215648DC001523A0 /* ProductViewCell.xib */; };
 		638FA5F1EC08F0CB04F75685 /* Pods_petviet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D121F858CD14B1B3C2DD0040 /* Pods_petviet.framework */; };
+		EC6EFE4E215B2C1100F0BEE4 /* PetProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6EFE4D215B2C1100F0BEE4 /* PetProfile.swift */; };
+		EC6EFE50215B3E3E00F0BEE4 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6EFE4F215B3E3E00F0BEE4 /* DataServices.swift */; };
+		EC6EFE53215B46EB00F0BEE4 /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6EFE51215B46EB00F0BEE4 /* FollowViewController.swift */; };
+		EC6EFE54215B46EB00F0BEE4 /* FollowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC6EFE52215B46EB00F0BEE4 /* FollowViewController.xib */; };
+		EC6EFE59215B482400F0BEE4 /* FollowViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6EFE57215B482400F0BEE4 /* FollowViewCell.swift */; };
+		EC6EFE5A215B482400F0BEE4 /* FollowViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC6EFE58215B482400F0BEE4 /* FollowViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0E28F4F9215A92E100ACFDD0 /* PetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetUser.swift; sourceTree = "<group>"; };
-		0E28F4FB215A93B100ACFDD0 /* UserFollow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollow.swift; sourceTree = "<group>"; };
+		0E28F4FB215A93B100ACFDD0 /* PetFollow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetFollow.swift; sourceTree = "<group>"; };
 		0E8E918121568AE80002CF4F /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		0E8E918221568AE80002CF4F /* PostDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailViewController.xib; sourceTree = "<group>"; };
 		0E8E9185215691980002CF4F /* CommentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewCell.swift; sourceTree = "<group>"; };
@@ -127,6 +133,12 @@
 		0EA47E79215648DC001523A0 /* ProductViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProductViewCell.xib; path = Shop/View/ProductViewCell.xib; sourceTree = "<group>"; };
 		5A5C202797A76A2B95448CA3 /* Pods-petviet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petviet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petviet/Pods-petviet.debug.xcconfig"; sourceTree = "<group>"; };
 		D121F858CD14B1B3C2DD0040 /* Pods_petviet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petviet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC6EFE4D215B2C1100F0BEE4 /* PetProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfile.swift; sourceTree = "<group>"; };
+		EC6EFE4F215B3E3E00F0BEE4 /* DataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
+		EC6EFE51215B46EB00F0BEE4 /* FollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
+		EC6EFE52215B46EB00F0BEE4 /* FollowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowViewController.xib; sourceTree = "<group>"; };
+		EC6EFE57215B482400F0BEE4 /* FollowViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewCell.swift; sourceTree = "<group>"; };
+		EC6EFE58215B482400F0BEE4 /* FollowViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowViewCell.xib; sourceTree = "<group>"; };
 		FEED33B912B882DA2145B2E9 /* Pods-petviet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petviet.release.xcconfig"; path = "Pods/Target Support Files/Pods-petviet/Pods-petviet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +226,8 @@
 		0EA47E4521562EA7001523A0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				EC6EFE56215B46F800F0BEE4 /* View */,
+				EC6EFE55215B46F200F0BEE4 /* Model */,
 				0EA47E4F21562F47001523A0 /* Controller */,
 			);
 			path = Profile;
@@ -231,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				0E8E919D2157600F0002CF4F /* FirebaseServices.swift */,
+				EC6EFE4F215B3E3E00F0BEE4 /* DataServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -276,6 +291,8 @@
 			isa = PBXGroup;
 			children = (
 				0EA47E5021562F55001523A0 /* ProfileViewController.swift */,
+				EC6EFE51215B46EB00F0BEE4 /* FollowViewController.swift */,
+				EC6EFE52215B46EB00F0BEE4 /* FollowViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -312,7 +329,8 @@
 				0E8E91A92157A7320002CF4F /* UserLike.swift */,
 				0E8E91AF2157F0810002CF4F /* PetComment.swift */,
 				0E28F4F9215A92E100ACFDD0 /* PetUser.swift */,
-				0E28F4FB215A93B100ACFDD0 /* UserFollow.swift */,
+				0E28F4FB215A93B100ACFDD0 /* PetFollow.swift */,
+				EC6EFE4D215B2C1100F0BEE4 /* PetProfile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -367,6 +385,22 @@
 				FEED33B912B882DA2145B2E9 /* Pods-petviet.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		EC6EFE55215B46F200F0BEE4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EC6EFE56215B46F800F0BEE4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EC6EFE57215B482400F0BEE4 /* FollowViewCell.swift */,
+				EC6EFE58215B482400F0BEE4 /* FollowViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,6 +470,7 @@
 				0E8E91C2215A794A0002CF4F /* animation_done.json in Resources */,
 				0E8E91C0215A70030002CF4F /* StoryCategoryViewCell.xib in Resources */,
 				0E8E91902156A4850002CF4F /* PublishStoryViewController.xib in Resources */,
+				EC6EFE5A215B482400F0BEE4 /* FollowViewCell.xib in Resources */,
 				0EA47E3B21561949001523A0 /* LaunchScreen.storyboard in Resources */,
 				0EA47E7721564885001523A0 /* ListProductViewController.xib in Resources */,
 				0EA47E5A215630CA001523A0 /* HomeViewCell.xib in Resources */,
@@ -445,6 +480,7 @@
 				0E8E91C4215A79830002CF4F /* material_loader.json in Resources */,
 				0EA47E3621561947001523A0 /* Main.storyboard in Resources */,
 				0EA47E6921564031001523A0 /* ShopViewCell.xib in Resources */,
+				EC6EFE54215B46EB00F0BEE4 /* FollowViewController.xib in Resources */,
 				0E8E918421568AE80002CF4F /* PostDetailViewController.xib in Resources */,
 				0EA47E6521563DAA001523A0 /* ShopCategoryViewCell.xib in Resources */,
 				0E8E91A621578A1C0002CF4F /* StoryCategoryViewController.xib in Resources */,
@@ -517,15 +553,18 @@
 				0EA47E4E21562F2F001523A0 /* ShopViewController.swift in Sources */,
 				0EA47E3321561947001523A0 /* ViewController.swift in Sources */,
 				0EA47E7621564885001523A0 /* ListProductViewController.swift in Sources */,
-				0E28F4FC215A93B100ACFDD0 /* UserFollow.swift in Sources */,
+				0E28F4FC215A93B100ACFDD0 /* PetFollow.swift in Sources */,
 				0E8E91A22157676E0002CF4F /* PostDetail.swift in Sources */,
 				0EA47E59215630CA001523A0 /* HomeViewCell.swift in Sources */,
 				0EA47E5421562F83001523A0 /* ServiceViewController.swift in Sources */,
+				EC6EFE50215B3E3E00F0BEE4 /* DataServices.swift in Sources */,
 				0EA47E6821564031001523A0 /* ShopViewCell.swift in Sources */,
 				0E8E918A21569B2C0002CF4F /* BaseViewController.swift in Sources */,
 				0E8E91B721593F230002CF4F /* InputProductViewController.swift in Sources */,
+				EC6EFE59215B482400F0BEE4 /* FollowViewCell.swift in Sources */,
 				0E8E91AA2157A7320002CF4F /* UserLike.swift in Sources */,
 				0E8E918321568AE80002CF4F /* PostDetailViewController.swift in Sources */,
+				EC6EFE4E215B2C1100F0BEE4 /* PetProfile.swift in Sources */,
 				0E8E91BC215A62760002CF4F /* PetService.swift in Sources */,
 				0EA47E6421563DAA001523A0 /* ShopCategoryViewCell.swift in Sources */,
 				0EA47E5121562F55001523A0 /* ProfileViewController.swift in Sources */,
@@ -534,6 +573,7 @@
 				0E8E91B2215930C50002CF4F /* Pet.swift in Sources */,
 				0E8E91AE2157D3720002CF4F /* ProductType.swift in Sources */,
 				0E8E919E2157600F0002CF4F /* FirebaseServices.swift in Sources */,
+				EC6EFE53215B46EB00F0BEE4 /* FollowViewController.swift in Sources */,
 				0E8E91B02157F0810002CF4F /* PetComment.swift in Sources */,
 				0EA47E7021564146001523A0 /* ListShopViewController.swift in Sources */,
 				0E8E918F2156A4850002CF4F /* PublishStoryViewController.swift in Sources */,
