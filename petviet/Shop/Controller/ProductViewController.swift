@@ -62,6 +62,11 @@ class ProductViewController: BaseViewController {
     override func tappedLeftButton(_ button: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    func showProductDetailView(_ product:PetProduct){
+        let vc = ProductDetailViewController(nibName: "", bundle: nil)
+        
+        self.navigationController?.pushViewController(vc, animated:true)
+    }
 }
 extension ProductViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
