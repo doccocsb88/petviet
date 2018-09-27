@@ -10,7 +10,7 @@ import UIKit
 
 class ProductViewController: BaseViewController {
     fileprivate let itemsPerRow: CGFloat = 2
-    fileprivate let sectionInsets = UIEdgeInsets(top: 1, left: 0.4, bottom: 0, right: 0)
+    fileprivate let sectionInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
 
     @IBOutlet weak var collectionView: UICollectionView!
     var products:[PetProduct] = []
@@ -21,12 +21,13 @@ class ProductViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         self.addRightButton(UIImage(named: "ic_tab_service"))
-
+        addDefaultLeft()
         setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationItem.title = "\(type.typeName) - \(pet.name)"
         ProductServices.shared().fetchProducts(pet, type) {[weak self] (products) in
             guard let strongSelf = self else{return}
             strongSelf.products = products
@@ -40,6 +41,7 @@ class ProductViewController: BaseViewController {
     }
     func setupUI(){
         collectionView.register(UINib(nibName: "ProductViewCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
+        collectionView.contentInset = sectionInsets
     }
 
     /*
@@ -56,6 +58,9 @@ class ProductViewController: BaseViewController {
         vc.productType = type
         vc.pet = pet
         present(vc, animated: true, completion: nil)
+    }
+    override func tappedLeftButton(_ button: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 extension ProductViewController: UICollectionViewDelegate, UICollectionViewDataSource{
@@ -87,7 +92,7 @@ extension ProductViewController:UICollectionViewDelegateFlowLayout{
         let availableWidth = UIScreen.main.bounds.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
         
-        return CGSize(width: widthPerItem, height: widthPerItem)
+        return CGSize(width: widthPerItem, height: widthPerItem + 60)
     }
     
     func collectionView(_ collectionView: UICollectionView,

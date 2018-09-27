@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "petviet/Services/FirebaseServices.swift"
-            timestampString = "559669143.019237"
+            timestampString = "559753568.279902"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "petviet/Services/FirebaseServices.swift"
-            timestampString = "559669143.019317"
+            timestampString = "559753568.279994"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "191"
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "petviet/Services/FirebaseServices.swift"
-            timestampString = "559669143.019358"
+            timestampString = "559753568.280041"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "196"
@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "petviet/Services/FirebaseServices.swift"
-            timestampString = "559669143.019399"
+            timestampString = "559753568.280085"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "179"
@@ -202,13 +202,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "petviet/Services/FirebaseServices.swift"
-            timestampString = "559669143.019472"
+            timestampString = "559753568.280161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "169"
             endingLineNumber = "169"
             landmarkName = "unfollow(_:complete:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "petviet.FirebaseServices.unfollow(petviet.PetFollow, complete: (Swift.Bool, Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "petviet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macintoshhd/Documents/Project/petviet/petviet/Services/FirebaseServices.swift"
+                  timestampString = "559757226.59479"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "2500">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in petviet.FirebaseServices.unfollow(petviet.PetFollow, complete: (Swift.Bool, Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "petviet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macintoshhd/Documents/Project/petviet/petviet/Services/FirebaseServices.swift"
+                  timestampString = "559757226.5963089"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "171"
+                  endingLineNumber = "171"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -218,13 +250,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "petviet/Services/FirebaseServices.swift"
-            timestampString = "559669143.019513"
+            timestampString = "559753568.2802041"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "142"
             endingLineNumber = "142"
             landmarkName = "follow(_:_:complete:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "petviet.FirebaseServices.follow(Swift.String, Swift.String, complete: (Swift.Bool, Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "petviet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macintoshhd/Documents/Project/petviet/petviet/Services/FirebaseServices.swift"
+                  timestampString = "559757226.600978"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "1824">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;, __ObjC.DatabaseReference) -&gt; () in petviet.FirebaseServices.follow(Swift.String, Swift.String, complete: (Swift.Bool, Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "petviet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macintoshhd/Documents/Project/petviet/petviet/Services/FirebaseServices.swift"
+                  timestampString = "559757226.602952"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -234,7 +298,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "petviet/Services/FirebaseServices.swift"
-            timestampString = "559669143.019551"
+            timestampString = "559753568.280244"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "137"
@@ -330,7 +394,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "petviet/Services/FirebaseServices.swift"
-            timestampString = "559669143.0197459"
+            timestampString = "559753568.280357"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "116"
@@ -346,45 +410,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "petviet/Services/FirebaseServices.swift"
-            timestampString = "559669143.019787"
+            timestampString = "559753568.280399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "115"
             endingLineNumber = "115"
             landmarkName = "fetchProfile(_:complete:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "petviet.FirebaseServices.fetchPostByUserId(Swift.String, complete: (Swift.Bool, Swift.Optional&lt;Swift.String&gt;, Swift.Array&lt;petviet.PostDetail&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "petviet"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macintoshhd/Documents/Project/petviet/petviet/Services/FirebaseServices.swift"
-                  timestampString = "559582707.357425"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "115"
-                  endingLineNumber = "115"
-                  offsetFromSymbolStart = "504">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in petviet.FirebaseServices.fetchPostByUserId(Swift.String, complete: (Swift.Bool, Swift.Optional&lt;Swift.String&gt;, Swift.Array&lt;petviet.PostDetail&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "petviet"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macintoshhd/Documents/Project/petviet/petviet/Services/FirebaseServices.swift"
-                  timestampString = "559582707.359639"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "116"
-                  endingLineNumber = "116"
-                  offsetFromSymbolStart = "29">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -394,12 +426,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "petviet/Services/FirebaseServices.swift"
-            timestampString = "559669143.019827"
+            timestampString = "559753568.28044"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "244"
             endingLineNumber = "244"
             landmarkName = "likePost(_:complete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "petviet/Services/ProductServices.swift"
+            timestampString = "559757226.3049949"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "fetchProducts(_:_:complete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "petviet/Services/ProductServices.swift"
+            timestampString = "559757226.305323"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "addProduct(_:_:complete:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

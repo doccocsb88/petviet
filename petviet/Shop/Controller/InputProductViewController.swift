@@ -19,15 +19,21 @@ class InputProductViewController: BaseViewController {
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var uploadButton: UIButton!
+    @IBOutlet weak var shopNameLabel: UILabel!
+    
+    @IBOutlet weak var selectShopButton: UIButton!
     var productType:ProductType!
     var pet:Pet!
     var productCode:String!
     var image:UIImage?
+    var shops:[PetShop] = []
+    var shop:PetShop?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         initLoadingView()
+        fetchShop()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -50,7 +56,11 @@ class InputProductViewController: BaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
+    func fetchShop(){
+        ProductServices.shared().fetchShops { (shops) in
+            self.shops = shops
+        }
+    }
     func resetInput(){
         productCode =  "pet_\(pet.type)_\(productType.id)_\(String.randomString(length: 6))"
         productCodeTextfield.text = productCode
@@ -58,6 +68,21 @@ class InputProductViewController: BaseViewController {
         productPriceTextfield.text = nil
         image = nil
         productImageView.image = image
+    }
+    
+    
+    @IBAction func tappedSelectShopButton(_ sender: Any) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        for i in 0..<shops.count{
+            let shop = shops[i]
+            let action = UIAlertAction(title: shop.shopName, style: .default) { (action) in
+                self.shop = shop
+                self.shopNameLabel.text = shop.shopName
+            }
+            
+            actionSheet.addAction(action)
+        }
+        present(actionSheet, animated: true, completion: nil)
     }
     @IBAction func tappedIUploadButton(_ sender: Any) {
         CameraHandler.shared.showActionSheet(vc: self)
@@ -73,14 +98,15 @@ class InputProductViewController: BaseViewController {
         guard let name = productNameTextfield.text else{return}
         guard let price = productPriceTextfield.text else{return}
         guard let image = image else{return}
+        guard let shop = shop else {return}
+
         let product = PetProduct(catId: productType.id,petId:pet.type, productCode: code, productName: name, price: Float(price) ?? 0.0, imagePath: nil)
         
-     
         if let data = UIImagePNGRepresentation(image){
             self.showLoadingView()
             ProductServices.shared().uploadImage(data, name: self.productCode, complete: { (success, message, url) in
                 product.imagePath = url?.absoluteString
-                ProductServices.shared().addProduct(product) {[weak self] (success, message, key) in
+                ProductServices.shared().addProduct(product,shop) {[weak self] (success, message, key) in
                     guard let strongSelf = self else{return}
                     strongSelf.hideLoadingView()
                     if success{

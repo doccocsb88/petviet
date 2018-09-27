@@ -10,6 +10,11 @@
 		0E28F4FA215A92E100ACFDD0 /* PetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E28F4F9215A92E100ACFDD0 /* PetUser.swift */; };
 		0E28F4FC215A93B100ACFDD0 /* PetFollow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E28F4FB215A93B100ACFDD0 /* PetFollow.swift */; };
 		0E28F4FE215BDFAF00ACFDD0 /* ProductServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E28F4FD215BDFAF00ACFDD0 /* ProductServices.swift */; };
+		0E28F500215D0BDF00ACFDD0 /* PetShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E28F4FF215D0BDF00ACFDD0 /* PetShop.swift */; };
+		0E28F503215D1FFD00ACFDD0 /* RegisterShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E28F501215D1FFD00ACFDD0 /* RegisterShopViewController.swift */; };
+		0E28F504215D1FFD00ACFDD0 /* RegisterShopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E28F502215D1FFD00ACFDD0 /* RegisterShopViewController.xib */; };
+		0E28F507215D383100ACFDD0 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E28F505215D383100ACFDD0 /* ProductDetailViewController.swift */; };
+		0E28F508215D383100ACFDD0 /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E28F506215D383100ACFDD0 /* ProductDetailViewController.xib */; };
 		0E8E918321568AE80002CF4F /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E918121568AE80002CF4F /* PostDetailViewController.swift */; };
 		0E8E918421568AE80002CF4F /* PostDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E918221568AE80002CF4F /* PostDetailViewController.xib */; };
 		0E8E9187215691980002CF4F /* CommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E9185215691980002CF4F /* CommentViewCell.swift */; };
@@ -83,6 +88,11 @@
 		0E28F4F9215A92E100ACFDD0 /* PetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetUser.swift; sourceTree = "<group>"; };
 		0E28F4FB215A93B100ACFDD0 /* PetFollow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetFollow.swift; sourceTree = "<group>"; };
 		0E28F4FD215BDFAF00ACFDD0 /* ProductServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServices.swift; sourceTree = "<group>"; };
+		0E28F4FF215D0BDF00ACFDD0 /* PetShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PetShop.swift; path = Shop/Model/PetShop.swift; sourceTree = "<group>"; };
+		0E28F501215D1FFD00ACFDD0 /* RegisterShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegisterShopViewController.swift; path = Shop/Controller/RegisterShopViewController.swift; sourceTree = "<group>"; };
+		0E28F502215D1FFD00ACFDD0 /* RegisterShopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RegisterShopViewController.xib; path = Shop/Controller/RegisterShopViewController.xib; sourceTree = "<group>"; };
+		0E28F505215D383100ACFDD0 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductDetailViewController.swift; path = Shop/Controller/ProductDetailViewController.swift; sourceTree = "<group>"; };
+		0E28F506215D383100ACFDD0 /* ProductDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProductDetailViewController.xib; path = Shop/Controller/ProductDetailViewController.xib; sourceTree = "<group>"; };
 		0E8E918121568AE80002CF4F /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		0E8E918221568AE80002CF4F /* PostDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailViewController.xib; sourceTree = "<group>"; };
 		0E8E9185215691980002CF4F /* CommentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewCell.swift; sourceTree = "<group>"; };
@@ -301,6 +311,10 @@
 				0E8E91B621593F230002CF4F /* InputProductViewController.xib */,
 				EC299379215C9859000AB0D1 /* ProductViewController.swift */,
 				EC29937A215C9859000AB0D1 /* ProductViewController.xib */,
+				0E28F501215D1FFD00ACFDD0 /* RegisterShopViewController.swift */,
+				0E28F502215D1FFD00ACFDD0 /* RegisterShopViewController.xib */,
+				0E28F505215D383100ACFDD0 /* ProductDetailViewController.swift */,
+				0E28F506215D383100ACFDD0 /* ProductDetailViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -372,6 +386,7 @@
 				0E8E91B1215930C50002CF4F /* Pet.swift */,
 				0E8E91B9215A62540002CF4F /* PetFood.swift */,
 				0E8E91BB215A62760002CF4F /* PetService.swift */,
+				0E28F4FF215D0BDF00ACFDD0 /* PetShop.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -486,6 +501,7 @@
 			files = (
 				0E8E9188215691980002CF4F /* CommentViewCell.xib in Resources */,
 				0E8E91B821593F230002CF4F /* InputProductViewController.xib in Resources */,
+				0E28F504215D1FFD00ACFDD0 /* RegisterShopViewController.xib in Resources */,
 				0E8E91942156A96C0002CF4F /* StoryImageViewCell.xib in Resources */,
 				0EA47E7121564146001523A0 /* ListShopViewController.xib in Resources */,
 				0E8E91C2215A794A0002CF4F /* animation_done.json in Resources */,
@@ -496,6 +512,7 @@
 				0EA47E3B21561949001523A0 /* LaunchScreen.storyboard in Resources */,
 				0EA47E7721564885001523A0 /* ProductCategoryViewController.xib in Resources */,
 				0EA47E5A215630CA001523A0 /* HomeViewCell.xib in Resources */,
+				0E28F508215D383100ACFDD0 /* ProductDetailViewController.xib in Resources */,
 				0E8E919A2157539F0002CF4F /* StoryCameraViewCell.xib in Resources */,
 				0EA47E3821561949001523A0 /* Assets.xcassets in Resources */,
 				0E8E91A8215799B70002CF4F /* GoogleService-Info.plist in Resources */,
@@ -576,6 +593,7 @@
 				EC299378215C7F7B000AB0D1 /* CameraHandler.swift in Sources */,
 				0EA47E4E21562F2F001523A0 /* ShopViewController.swift in Sources */,
 				0EA47E3321561947001523A0 /* ViewController.swift in Sources */,
+				0E28F503215D1FFD00ACFDD0 /* RegisterShopViewController.swift in Sources */,
 				0EA47E7621564885001523A0 /* ProductCategoryViewController.swift in Sources */,
 				0E28F4FC215A93B100ACFDD0 /* PetFollow.swift in Sources */,
 				0E8E91A22157676E0002CF4F /* PostDetail.swift in Sources */,
@@ -596,8 +614,10 @@
 				0EA47E5121562F55001523A0 /* ProfileViewController.swift in Sources */,
 				0EA47E5F2156392B001523A0 /* BaseTabbarController.swift in Sources */,
 				0E8E91A521578A1C0002CF4F /* StoryCategoryViewController.swift in Sources */,
+				0E28F500215D0BDF00ACFDD0 /* PetShop.swift in Sources */,
 				0E8E91B2215930C50002CF4F /* Pet.swift in Sources */,
 				0E8E91AE2157D3720002CF4F /* ProductType.swift in Sources */,
+				0E28F507215D383100ACFDD0 /* ProductDetailViewController.swift in Sources */,
 				0E8E919E2157600F0002CF4F /* FirebaseServices.swift in Sources */,
 				EC6EFE53215B46EB00F0BEE4 /* FollowViewController.swift in Sources */,
 				0E8E91B02157F0810002CF4F /* PetComment.swift in Sources */,

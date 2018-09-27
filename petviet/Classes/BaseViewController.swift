@@ -28,6 +28,9 @@ class BaseViewController: UIViewController {
     func addDefaultLeft(){
         addLeftButton(UIImage(named: "ic_back"))
     }
+    func addDefaultRight(){
+        addLeftButton(UIImage(named: "ic_tab_service"))
+    }
     func addRightButton(_ image:UIImage?){
         rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         rightButton?.imageView?.contentMode = .scaleAspectFit

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShopViewController: UIViewController {
+class ShopViewController: BaseViewController {
     fileprivate let headerColors:[String] = ["#019EA6","#5F9CBC","#4B777E"]
     @IBOutlet weak var tableView: UITableView!
 //    var products:[ProductType]  = []
@@ -16,6 +16,7 @@ class ShopViewController: UIViewController {
     var pets:[Pet] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        addDefaultRight()
         initData()
         setupUI()
         // Do any additional setup after loading the view.
@@ -81,6 +82,11 @@ class ShopViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    override func tappedRightButton(_ button: UIButton) {
+        let vc = RegisterShopViewController(nibName: "RegisterShopViewController", bundle: nil)
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     func showShopView(){
         let vc = ListShopViewController(nibName: "ListShopViewController", bundle: nil)
         

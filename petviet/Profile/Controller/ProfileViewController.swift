@@ -22,6 +22,8 @@ class ProfileViewController: BaseViewController {
     @IBOutlet weak var followerButton: UIButton!
     @IBOutlet weak var followingButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var shopButton: UIButton!
+    
     var userId:String?
     var posts:[PostDetail] = []
     var currentUserId:String?
@@ -104,6 +106,12 @@ class ProfileViewController: BaseViewController {
         
         showFollowView(DataServices.shared().profile.following(), false)
 
+    }
+    @IBAction func tappedShopButton(_ sender: Any) {
+        
+        let vc = RegisterShopViewController(nibName: "RegisterShopViewController", bundle: nil)
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func tappedFollowingButton(_ sender: Any) {
         showFollowView(DataServices.shared().profile.following(), true)

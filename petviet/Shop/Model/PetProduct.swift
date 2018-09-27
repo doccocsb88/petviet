@@ -21,6 +21,12 @@ class PetProduct:Mappable{
     
     func mapping(map: Map) {
         catId <- map["catId"]
+        petId <- map["petId"]
+        productCode <- map["productCode"]
+        productName <- map["productName"]
+        imagePath <- map["imagePath"]
+        price <- map["price"]
+
     }
     
   

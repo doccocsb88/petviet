@@ -29,7 +29,7 @@ class ProductViewCell: UICollectionViewCell {
             productImageImageView.kf.setImage(with: url)
             
         }else{
-            productImageImageView.image = UIImage(named: "")
+            productImageImageView.image = UIImage(named: "ic_noimage")
         }
     }
 }

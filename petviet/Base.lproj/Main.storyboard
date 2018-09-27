@@ -300,15 +300,29 @@ following</string>
                                     <outlet property="delegate" destination="7ba-W5-XeQ" id="wW1-PK-XzU"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjL-6B-1aG">
+                                <rect key="frame" x="325" y="568" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="OG5-zM-DIz"/>
+                                    <constraint firstAttribute="width" constant="40" id="Slp-mg-Y1S"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <state key="normal" title="Button" image="ic_shop"/>
+                                <connections>
+                                    <action selector="tappedShopButton:" destination="7ba-W5-XeQ" eventType="touchUpInside" id="fEM-ky-bRF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9xz-dJ-a6Q" firstAttribute="bottom" secondItem="gLL-ht-pCA" secondAttribute="bottom" id="1U6-o8-sQA"/>
                             <constraint firstItem="9xz-dJ-a6Q" firstAttribute="trailing" secondItem="gLL-ht-pCA" secondAttribute="trailing" id="77C-n6-dyK"/>
+                            <constraint firstItem="wjL-6B-1aG" firstAttribute="trailing" secondItem="9xz-dJ-a6Q" secondAttribute="trailing" constant="-10" id="IZQ-fZ-Oqm"/>
                             <constraint firstItem="931-BF-oMi" firstAttribute="top" secondItem="9xz-dJ-a6Q" secondAttribute="top" id="Mym-02-IcB"/>
                             <constraint firstItem="931-BF-oMi" firstAttribute="leading" secondItem="9xz-dJ-a6Q" secondAttribute="leading" id="NdV-xq-eUb"/>
                             <constraint firstItem="gLL-ht-pCA" firstAttribute="top" secondItem="931-BF-oMi" secondAttribute="bottom" constant="1" id="Pbt-GT-FK6"/>
                             <constraint firstItem="gLL-ht-pCA" firstAttribute="leading" secondItem="9xz-dJ-a6Q" secondAttribute="leading" id="hfD-FP-hzr"/>
+                            <constraint firstItem="9xz-dJ-a6Q" firstAttribute="bottom" secondItem="wjL-6B-1aG" secondAttribute="bottom" constant="10" id="plb-f3-klX"/>
                             <constraint firstItem="9xz-dJ-a6Q" firstAttribute="trailing" secondItem="931-BF-oMi" secondAttribute="trailing" id="uTw-j6-eYJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9xz-dJ-a6Q"/>
@@ -321,6 +335,7 @@ following</string>
                         <outlet property="displayNameLabel" destination="jyQ-7O-H4y" id="s67-Ym-kQd"/>
                         <outlet property="followerButton" destination="VlJ-95-GAu" id="K7N-AP-3t9"/>
                         <outlet property="followingButton" destination="7B8-6X-MHG" id="mjN-sF-bgj"/>
+                        <outlet property="shopButton" destination="wjL-6B-1aG" id="ken-VK-u2m"/>
                         <outlet property="storyButton" destination="3MX-j8-6lP" id="Mmg-7Q-Ox3"/>
                         <outlet property="tableView" destination="gLL-ht-pCA" id="S9G-gC-ata"/>
                     </connections>
@@ -371,5 +386,6 @@ following</string>
     <resources>
         <image name="ic_animal_dog" width="68" height="47"/>
         <image name="ic_back" width="32" height="14"/>
+        <image name="ic_shop" width="128" height="128"/>
     </resources>
 </document>

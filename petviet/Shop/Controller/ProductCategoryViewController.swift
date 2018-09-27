@@ -34,10 +34,13 @@ class ProductCategoryViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
+        addDefaultLeft()
         setupUI()
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "Cửa hàng \(pet.name) cảnh"
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -57,7 +60,9 @@ class ProductCategoryViewController: BaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    override func tappedLeftButton(_ button: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
     func showProductView(){
         let vc = ProductViewController(nibName: "ProductViewController", bundle: nil)
         vc.modalPresentationStyle = .overFullScreen
