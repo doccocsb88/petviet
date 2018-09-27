@@ -117,7 +117,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! PetStoryViewCell
         let post = posts[indexPath.row]
         cell.updateContent(post)
         cell.selectionStyle = .none

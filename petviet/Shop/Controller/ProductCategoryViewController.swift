@@ -34,7 +34,6 @@ class ProductCategoryViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.addRightButton(UIImage(named: "ic_tab_service"))
 
         setupUI()
     }
@@ -47,7 +46,7 @@ class ProductCategoryViewController: BaseViewController {
     func setupUI(){
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "ProductViewCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
+        collectionView.register(UINib(nibName: "ProductCategoryViewCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
     }
     /*
     // MARK: - Navigation
@@ -58,14 +57,14 @@ class ProductCategoryViewController: BaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    override func tappedRightButton(_ button: UIButton) {
-        guard let productType = productType else{return}
-        let vc = InputProductViewController(nibName: "InputProductViewController", bundle: nil)
-        vc.productType = productType
-        vc.pet = pet
-        present(vc, animated: true, completion: nil)
-    }
 
+    func showProductView(){
+        let vc = ProductViewController(nibName: "ProductViewController", bundle: nil)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.pet = pet
+        vc.type = productType!
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 extension ProductCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -76,7 +75,7 @@ extension ProductCategoryViewController: UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCategoryViewCell
         let type = categories[indexPath.row]
         cell.updateContent(type, type.id == productType?.id ?? 0)
         return cell
@@ -84,7 +83,7 @@ extension ProductCategoryViewController: UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         productType = categories[indexPath.row]
-        self.collectionView.reloadData()
+        self.showProductView()
     }
     
 //    //1

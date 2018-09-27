@@ -125,7 +125,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
         return UIView()
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "homeViewCell", for: indexPath) as! HomeViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "homeViewCell", for: indexPath) as! PetStoryViewCell
         let post = posts[indexPath.row]
         cell.updateContent(post)
         cell.didTappedLike = {

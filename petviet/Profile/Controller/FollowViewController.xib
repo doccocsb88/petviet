@@ -12,7 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FollowViewController" customModule="petviet" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="3Ah-KZ-0O5" id="KUq-xk-GDl"/>
                 <outlet property="tableView" destination="Win-K3-asq" id="Jff-uY-lk8"/>
+                <outlet property="titleLabel" destination="SGF-4J-xBD" id="g3T-Ji-spE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,8 +23,36 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Win-K3-asq">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2rh-g9-h5q">
+                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ah-KZ-0O5">
+                            <rect key="frame" x="10" y="11" width="40" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="1d1-Lr-3xU"/>
+                            </constraints>
+                            <state key="normal" image="ic_back"/>
+                            <connections>
+                                <action selector="tappedBackButton:" destination="-1" eventType="touchUpInside" id="DhA-Or-rVh"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGF-4J-xBD">
+                            <rect key="frame" x="171.5" y="14.5" width="32" height="15.5"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="KMb-1g-hVf"/>
+                        <constraint firstItem="3Ah-KZ-0O5" firstAttribute="centerY" secondItem="2rh-g9-h5q" secondAttribute="centerY" id="QqT-8h-mRV"/>
+                        <constraint firstItem="SGF-4J-xBD" firstAttribute="centerX" secondItem="2rh-g9-h5q" secondAttribute="centerX" id="TQk-3s-aGe"/>
+                        <constraint firstItem="3Ah-KZ-0O5" firstAttribute="leading" secondItem="2rh-g9-h5q" secondAttribute="leading" constant="10" id="a3L-BM-Ghv"/>
+                        <constraint firstItem="SGF-4J-xBD" firstAttribute="centerY" secondItem="2rh-g9-h5q" secondAttribute="centerY" id="r6t-SL-g8l"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Win-K3-asq">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="CvO-4r-tob"/>
@@ -35,9 +65,15 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Win-K3-asq" secondAttribute="trailing" id="30d-sN-LNr"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Win-K3-asq" secondAttribute="bottom" id="5rr-av-5pe"/>
                 <constraint firstItem="Win-K3-asq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EKi-SA-Xex"/>
-                <constraint firstItem="Win-K3-asq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="b3o-H9-rn8"/>
+                <constraint firstItem="2rh-g9-h5q" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="HAQ-Zg-FI3"/>
+                <constraint firstItem="2rh-g9-h5q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="U4N-8D-JKP"/>
+                <constraint firstAttribute="trailing" secondItem="2rh-g9-h5q" secondAttribute="trailing" id="Ws4-yL-ZtH"/>
+                <constraint firstItem="Win-K3-asq" firstAttribute="top" secondItem="2rh-g9-h5q" secondAttribute="bottom" id="b3o-H9-rn8"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_back" width="32" height="14"/>
+    </resources>
 </document>

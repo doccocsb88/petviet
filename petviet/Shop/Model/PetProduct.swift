@@ -9,23 +9,25 @@
 import Foundation
 import ObjectMapper
 class PetProduct:Mappable{
-    var productType:ProductType
+    var catId:Int = 0
+    var petId:Int = 0
     var productCode:String = ""
     var productName:String = ""
     var imagePath:String? = ""
     var price:Float = 0
     required init?(map: Map) {
-        productType = ProductType(0,0,0,"","")
+        
     }
     
     func mapping(map: Map) {
-        
+        catId <- map["catId"]
     }
     
   
     
-    init(productType:ProductType, productCode:String, productName:String, price:Float, imagePath:String?) {
-        self.productType = productType
+    init(catId:Int, petId:Int, productCode:String, productName:String, price:Float, imagePath:String?) {
+        self.catId = catId
+        self.petId = petId
         self.productCode = productCode
         self.productName = productName
         self.price = price
@@ -33,9 +35,8 @@ class PetProduct:Mappable{
     }
     func toJSON() -> [String : Any] {
         var json:[String:Any] = [:]
-        json["type"] = self.productType.id
-        json["catId"] = self.productType.type
-        json["petId"] = self.productType.petId
+        json["catId"] = self.catId
+        json["petId"] = self.petId
         json["productName"] = self.productName
         json["productCode"] = self.productCode
         json["price"] = self.price

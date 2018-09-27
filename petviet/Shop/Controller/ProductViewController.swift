@@ -1,35 +1,21 @@
 //
-//  ListProductViewController.swift
+//  ProductViewController.swift
 //  petviet
 //
-//  Created by Macintosh HD on 9/22/18.
+//  Created by Hai Vu on 9/27/18.
 //  Copyright © 2018 csb. All rights reserved.
 //
 
 import UIKit
 
-class ProductCategoryViewController: BaseViewController {
+class ProductViewController: BaseViewController {
     fileprivate let itemsPerRow: CGFloat = 2
     fileprivate let sectionInsets = UIEdgeInsets(top: 1, left: 0.4, bottom: 0, right: 0)
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var categories:[ProductType]{
-        var cats:[ProductType] = []
-        let food = ProductType(1,"Thức ăn")
-        let cage = ProductType(2,"Lồng nuôi")
-        let toy = ProductType(3,"Đồ chơi")
-        let tool = ProductType(4,"Phụ kiện")
-        let care = ProductType(5,"Chăm sóc và làm đẹp")
-        cats.append(food)
-        cats.append(cage)
-        cats.append(toy)
-        cats.append(tool)
-        cats.append(care)
-
-        return cats
-    }
+    var products:[PetProduct] = []
+    var type:ProductType!
     var pet:Pet!
-    var productType:ProductType?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,17 +24,24 @@ class ProductCategoryViewController: BaseViewController {
 
         setupUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ProductServices.shared().fetchProducts(pet, type) {[weak self] (products) in
+            guard let strongSelf = self else{return}
+            strongSelf.products = products
+            strongSelf.collectionView.reloadData()
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     func setupUI(){
-        collectionView.delegate = self
-        collectionView.dataSource = self
         collectionView.register(UINib(nibName: "ProductViewCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
     }
+
     /*
     // MARK: - Navigation
 
@@ -59,62 +52,34 @@ class ProductCategoryViewController: BaseViewController {
     }
     */
     override func tappedRightButton(_ button: UIButton) {
-        guard let productType = productType else{return}
         let vc = InputProductViewController(nibName: "InputProductViewController", bundle: nil)
-        vc.productType = productType
+        vc.productType = type
         vc.pet = pet
         present(vc, animated: true, completion: nil)
     }
-
 }
-extension ProductCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension ProductViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        return products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductViewCell
-        let type = categories[indexPath.row]
-        cell.updateContent(type, type.id == productType?.id ?? 0)
+        let product = products[indexPath.row]
+        cell.updateContent(product)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        productType = categories[indexPath.row]
-        self.collectionView.reloadData()
+   
     }
-    
-//    //1
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        //2
-//        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-//        let availableWidth = view.frame.width - paddingSpace
-//        let widthPerItem = availableWidth / itemsPerRow
-//
-//        return CGSize(width: widthPerItem, height: widthPerItem)
-//    }
-//
-//    //3
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return sectionInsets
-//    }
-//
-//    // 4
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return sectionInsets.left
-//    }
+
 }
 
-extension ProductCategoryViewController:UICollectionViewDelegateFlowLayout{
+extension ProductViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {

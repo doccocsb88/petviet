@@ -11,6 +11,9 @@ import UIKit
 class FollowViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var backButton: UIButton!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     var follows:[PetFollow] = []
     var following:Bool = false
     var didUploadFollow:()->() = {}
@@ -18,8 +21,8 @@ class FollowViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.navigationController?.navigationBar.isHidden = false
-        self.navigationItem.title = "Following"
+        self.navigationController?.navigationBar.isHidden = true
+        titleLabel.text = "Following"
         addDefaultLeft()
         setupUI()
     }
@@ -47,15 +50,19 @@ class FollowViewController: BaseViewController {
     }
     */
     
-    override func tappedLeftButton(_ button: UIButton) {
+
+    @IBAction func tappedBackButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-
+    
 }
 
 extension FollowViewController:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return follows.count
+    }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "followCell", for: indexPath) as! FollowViewCell

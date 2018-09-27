@@ -8,7 +8,7 @@
 
 import UIKit
 import Kingfisher
-class HomeViewCell: UITableViewCell {
+class PetStoryViewCell: UITableViewCell {
 
     @IBOutlet weak var avatarButton: UIButton!
     @IBOutlet weak var displaynameLabel: UILabel!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoryCategoryViewCell: UICollectionViewCell {
+class PetSpeciesViewCell: UICollectionViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     override func awakeFromNib() {

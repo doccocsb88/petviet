@@ -60,7 +60,7 @@ class StoryCategoryViewController: BaseViewController {
 
     }
     func setupUI(){
-        collection.register(UINib(nibName: "StoryCategoryViewCell", bundle: nil), forCellWithReuseIdentifier: "categoryCell")
+        collection.register(UINib(nibName: "PetSpeciesViewCell", bundle: nil), forCellWithReuseIdentifier: "categoryCell")
     }
     /*
     // MARK: - Navigation
@@ -109,7 +109,7 @@ extension StoryCategoryViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! StoryCategoryViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! PetSpeciesViewCell
         let pet = pets[indexPath.row]
         cell.updateContent(pet,pet.type == self.pet?.type ?? 0)
         return cell

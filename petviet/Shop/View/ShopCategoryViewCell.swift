@@ -24,7 +24,7 @@ class ShopCategoryViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func updateContent(_ product:ProductType){
-        titleLabel.text = product.productName
+    func updateContent(_ pet:Pet){
+        titleLabel.text = pet.name
     }
 }
