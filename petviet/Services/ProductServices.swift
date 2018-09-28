@@ -54,7 +54,9 @@ class ProductServices {
         let child = productRef.childByAutoId()
         var data:[String:Any] = product.toJSON()
 
-        data["shops"] = shop.toJSON()
+//        data["shops"] = shop.toJSON()
+        data["shops"] = shop.key
+
         child.setValue(data) { (error, dataRef) in
             if let error = error{
                 complete(false,error.localizedDescription,nil)
@@ -84,7 +86,21 @@ class ProductServices {
             complete(products)
         }
     }
-    
+    func fetchShop(_ shopId:String, complete:@escaping(_ shop:PetShop?)->Void){
+        var shop:PetShop?
+        let shopRef = ref.child(PATH_SHOP).child(shopId)
+        shopRef.observeSingleEvent(of: .value) { (snapshot) in
+            if let dict  = snapshot.value as? [String:Any]{
+            
+                if let _shop = PetShop(JSON: dict){
+                    _shop.key = snapshot.key
+                    shop = _shop
+                    
+                }
+            }
+            complete(shop)
+        }
+    }
     func fetchShops(complete:@escaping(_ shops:[PetShop])->Void){
         var shops:[PetShop] = []
         let shopRef = ref.child(PATH_SHOP)

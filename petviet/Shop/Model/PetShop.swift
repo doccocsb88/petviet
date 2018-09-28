@@ -17,7 +17,6 @@ class PetShop:Mappable{
     var address:String = ""
     var phone:String = ""
     var cellPhone:String = ""
-
     var imagePath:String = ""
     var cityId:Int = 0
     init(){}

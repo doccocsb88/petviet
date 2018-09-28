@@ -82,6 +82,7 @@
 		EC6EFE54215B46EB00F0BEE4 /* FollowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC6EFE52215B46EB00F0BEE4 /* FollowViewController.xib */; };
 		EC6EFE59215B482400F0BEE4 /* FollowViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6EFE57215B482400F0BEE4 /* FollowViewCell.swift */; };
 		EC6EFE5A215B482400F0BEE4 /* FollowViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC6EFE58215B482400F0BEE4 /* FollowViewCell.xib */; };
+		ECFBA94A215E253F0063D51D /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBA949215E253F0063D51D /* String+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,6 +164,7 @@
 		EC6EFE52215B46EB00F0BEE4 /* FollowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowViewController.xib; sourceTree = "<group>"; };
 		EC6EFE57215B482400F0BEE4 /* FollowViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewCell.swift; sourceTree = "<group>"; };
 		EC6EFE58215B482400F0BEE4 /* FollowViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowViewCell.xib; sourceTree = "<group>"; };
+		ECFBA949215E253F0063D51D /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		FEED33B912B882DA2145B2E9 /* Pods-petviet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petviet.release.xcconfig"; path = "Pods/Target Support Files/Pods-petviet/Pods-petviet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -281,6 +283,7 @@
 			children = (
 				0EA47E5B215636BD001523A0 /* ViewUtils.swift */,
 				0E8E919F215767410002CF4F /* Utils.swift */,
+				ECFBA949215E253F0063D51D /* String+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				0E8E91992157539F0002CF4F /* StoryCameraViewCell.swift in Sources */,
 				0E8E91AC2157D2300002CF4F /* PetProduct.swift in Sources */,
 				0E8E91BA215A62540002CF4F /* PetFood.swift in Sources */,
+				ECFBA94A215E253F0063D51D /* String+Utils.swift in Sources */,
 				EC299376215C72FA000AB0D1 /* Constant.swift in Sources */,
 				EC29937F215C9967000AB0D1 /* ProductViewCell.swift in Sources */,
 				0EA47E3121561947001523A0 /* AppDelegate.swift in Sources */,

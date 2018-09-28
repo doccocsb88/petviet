@@ -15,6 +15,8 @@ class PetProduct:Mappable{
     var productName:String = ""
     var imagePath:String? = ""
     var price:Float = 0
+    var description:String = ""
+    var shops:String?
     required init?(map: Map) {
         
     }
@@ -26,18 +28,21 @@ class PetProduct:Mappable{
         productName <- map["productName"]
         imagePath <- map["imagePath"]
         price <- map["price"]
+        description <- map["description"]
+        shops <- map["shops"]
 
     }
     
   
     
-    init(catId:Int, petId:Int, productCode:String, productName:String, price:Float, imagePath:String?) {
+    init(catId:Int, petId:Int, productCode:String, productName:String, price:Float, imagePath:String?, description:String) {
         self.catId = catId
         self.petId = petId
         self.productCode = productCode
         self.productName = productName
         self.price = price
         self.imagePath = imagePath
+        self.description = description
     }
     func toJSON() -> [String : Any] {
         var json:[String:Any] = [:]
@@ -47,6 +52,8 @@ class PetProduct:Mappable{
         json["productCode"] = self.productCode
         json["price"] = self.price
         json["imagePath"] = self.imagePath ?? ""
+        json["description"] = self.description
+        json["shops"] = self.shops ?? ""
 
         return json
     }

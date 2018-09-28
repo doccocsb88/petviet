@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "petviet/Shop/Controller/InputProductViewController.swift"
-            timestampString = "559723902.969"
+            timestampString = "559823824.512621"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "petviet/Services/ProductServices.swift"
-            timestampString = "559723902.969124"
+            timestampString = "559803943.529637"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
             endingLineNumber = "50"
-            landmarkName = "fetchProducts(_:_:complete:)"
+            landmarkName = "openShop(_:complete:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,45 +42,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "petviet/Services/ProductServices.swift"
-            timestampString = "559723902.969178"
+            timestampString = "559803943.529687"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
             endingLineNumber = "48"
-            landmarkName = "fetchProducts(_:_:complete:)"
+            landmarkName = "openShop(_:complete:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "petviet.ProductServices.fetchProducts(petviet.Pet, petviet.ProductType, complete: (Swift.Array&lt;petviet.PetProduct&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "petviet"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/haivu/Documents/Hai/Source/petviet/petviet/Services/ProductServices.swift"
-                  timestampString = "559723903.287498"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "692">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in petviet.ProductServices.fetchProducts(petviet.Pet, petviet.ProductType, complete: (Swift.Array&lt;petviet.PetProduct&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "petviet"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/haivu/Documents/Hai/Source/petviet/petviet/Services/ProductServices.swift"
-                  timestampString = "559723903.28923"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

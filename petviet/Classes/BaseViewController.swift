@@ -25,6 +25,10 @@ class BaseViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func addTapGesture(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tappedGesture(_:)))
+        self.view.addGestureRecognizer(tap)
+    }
     func addDefaultLeft(){
         addLeftButton(UIImage(named: "ic_back"))
     }
@@ -47,13 +51,7 @@ class BaseViewController: UIViewController {
         let rightItem = UIBarButtonItem(customView: leftButton!)
         self.navigationItem.leftBarButtonItem = rightItem
     }
-    @objc func tappedRightButton(_ button:UIButton){
-        
-    }
-    @objc func tappedLeftButton(_ button:UIButton){
-        
-    }
-   
+
     func initLoadingView(){
         loadingAnimation = LOTAnimationView(name:  "material_loader")
         // Set view to full screen, aspectFill
@@ -67,7 +65,15 @@ class BaseViewController: UIViewController {
         view.addSubview(loadingAnimation!)
         
     }
-    
+    @objc func tappedRightButton(_ button:UIButton){
+        
+    }
+    @objc func tappedLeftButton(_ button:UIButton){
+        
+    }
+    @objc func tappedGesture(_ gesture:UIGestureRecognizer){
+        
+    }
     func showMessageDialog(_ title:String?, _ message:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Đồng ý", style: .default, handler: nil)
@@ -108,5 +114,14 @@ class BaseViewController: UIViewController {
         }
         
     }
-
+    func callNumber(phoneNumber:String) {
+        
+        if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
+            
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                application.open(phoneCallURL, options: [:], completionHandler: nil)
+            }
+        }
+    }
 }

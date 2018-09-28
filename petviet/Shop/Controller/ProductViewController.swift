@@ -63,8 +63,8 @@ class ProductViewController: BaseViewController {
         self.navigationController?.popViewController(animated: true)
     }
     func showProductDetailView(_ product:PetProduct){
-        let vc = ProductDetailViewController(nibName: "", bundle: nil)
-        
+        let vc = ProductDetailViewController(nibName: "ProductDetailViewController", bundle: nil)
+        vc.product = product
         self.navigationController?.pushViewController(vc, animated:true)
     }
 }
@@ -84,7 +84,8 @@ extension ProductViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-   
+        let product = products[indexPath.row]
+        self.showProductDetailView(product)
     }
 
 }

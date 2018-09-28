@@ -17,6 +17,9 @@ class InputProductViewController: BaseViewController {
     @IBOutlet weak var productNameTextfield: UITextField!
     @IBOutlet weak var productPriceTextfield: UITextField!
     
+    @IBOutlet weak var productDescriptionTextview: UITextView!
+    
+    @IBOutlet weak var descriptionHolderTextLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var shopNameLabel: UILabel!
@@ -33,6 +36,8 @@ class InputProductViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         initLoadingView()
+        setupUI()
+        addTapGesture()
         fetchShop()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +51,9 @@ class InputProductViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func setupUI(){
+        productDescriptionTextview.addBorder(2, 1, .lightGray)
+    }
     /*
     // MARK: - Navigation
 
@@ -68,8 +75,11 @@ class InputProductViewController: BaseViewController {
         productPriceTextfield.text = nil
         image = nil
         productImageView.image = image
+        productDescriptionTextview.text = ""
     }
-    
+    override func tappedGesture(_ gesture: UIGestureRecognizer) {
+        self.view.endEditing(true)
+    }
     
     @IBAction func tappedSelectShopButton(_ sender: Any) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -97,10 +107,11 @@ class InputProductViewController: BaseViewController {
         guard let code = productCodeTextfield.text else{return}
         guard let name = productNameTextfield.text else{return}
         guard let price = productPriceTextfield.text else{return}
+        guard let description = productDescriptionTextview.text, description.count > 0 else{return}
         guard let image = image else{return}
         guard let shop = shop else {return}
 
-        let product = PetProduct(catId: productType.id,petId:pet.type, productCode: code, productName: name, price: Float(price) ?? 0.0, imagePath: nil)
+        let product = PetProduct(catId: productType.id,petId:pet.type, productCode: code, productName: name, price: Float(price) ?? 0.0, imagePath: nil,description:description)
         
         if let data = UIImagePNGRepresentation(image){
             self.showLoadingView()
@@ -123,4 +134,13 @@ class InputProductViewController: BaseViewController {
     }
     
 }
+extension InputProductViewController: UITextViewDelegate{
+    func textViewDidChange(_ textView: UITextView) {
+        if let text = textView.text, text.count > 0{
+            descriptionHolderTextLabel.isHidden = true
+        }else{
+            descriptionHolderTextLabel.isHidden = false
 
+        }
+    }
+}
