@@ -17,27 +17,53 @@ class PublishStoryViewController: UIViewController {
     @IBOutlet weak var inputStoryEdittext: UITextView!
     @IBOutlet weak var mediaContainerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var imageButton: UIButton!
+    @IBOutlet weak var youtubeButton: UIButton!
+    
+    @IBOutlet weak var youtubeInputView: UIView!
+    @IBOutlet weak var youtubeUrlTextfield: UITextField!
+    @IBOutlet weak var youtubeThumbnailImageView: UIImageView!
+    
+    @IBOutlet weak var mediaBottomConstraint: NSLayoutConstraint!
+    var activeTextfield:UITextField?
     var didPublishStory:() -> () = {}
     var allPhotos:PHFetchResult<PHAsset>?
     let imageManager = PHCachingImageManager()
     var currentImageIndex:Int = NSNotFound
     var imageUrl:URL?
+    var storyType:StoryType = .image
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        toggleMediaView()
         setupUI()
         fetchPhotoFromLibrary()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(_:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(_:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
 
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     func setupUI(){
+        
+        self.youtubeUrlTextfield.delegate = self
+        
         collectionView.register(UINib(nibName: "StoryImageViewCell", bundle: nil), forCellWithReuseIdentifier: "imageCell")
         collectionView.register(UINib(nibName: "StoryCameraViewCell", bundle: nil), forCellWithReuseIdentifier: "cameraCell")
-
+        self.youtubeButton.imageView?.contentMode = .scaleAspectFit
+        self.youtubeThumbnailImageView.addBorder(0, 0.5, .lightGray)
         //
         let tapped = UITapGestureRecognizer(target: self, action: #selector(tappedGesture(_:)))
         self.view.addGestureRecognizer(tapped)
@@ -81,6 +107,27 @@ class PublishStoryViewController: UIViewController {
     @objc func tappedGesture(_ gesture:UIGestureRecognizer){
         self.view.endEditing(true)
     }
+    @objc func keyboardWillAppear(_ notification: Notification) {
+        //Do something here
+        guard let textfield = self.activeTextfield else {return}
+        adjustKeyboardShow(true, notification: notification)
+        
+    }
+    
+    @objc func keyboardWillDisappear(_ notification: Notification) {
+        //Do something here
+        adjustKeyboardShow(false, notification: notification)
+    }
+    func adjustKeyboardShow(_ open: Bool, notification: Notification) {
+        let userInfo = notification.userInfo ?? [:]
+        let keyboardFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        let height = (keyboardFrame.height) * (open ? 1 : 0)
+        self.mediaBottomConstraint.constant = 0 - height
+        
+        UIView.animate(withDuration: 0.25) {
+            self.view.updateConstraintsIfNeeded()
+        }
+    }
     @IBAction func tappedPublishButton(_ sender: Any) {
         guard let story = inputStoryEdittext.text, story.count > 0 else{return}
         guard let imageUrl = imageUrl else{return}
@@ -101,7 +148,29 @@ class PublishStoryViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
         
     }
+    @IBAction func tappedImageButton(_ sender: Any) {
+        self.storyType = .image
+        self.youtubeUrlTextfield.resignFirstResponder()
+        toggleMediaView()
+    }
+    @IBAction func tappedYoutubeButton(_ sender: Any) {
+        self.storyType = .youtube
+        toggleMediaView()
+
+    }
     
+    func toggleMediaView(){
+        youtubeInputView.isHidden = (storyType == .image)
+        collectionView.isHidden = (storyType == .image)
+    }
+}
+extension PublishStoryViewController:UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.activeTextfield = textField
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.activeTextfield = nil
+    }
 }
 extension PublishStoryViewController:UITextViewDelegate{
     func textViewDidChange(_ textView: UITextView) {

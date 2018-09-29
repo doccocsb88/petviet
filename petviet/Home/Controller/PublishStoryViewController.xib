@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,11 +15,17 @@
             <connections>
                 <outlet property="cancelButton" destination="4cY-YY-xqb" id="1VK-t7-nhI"/>
                 <outlet property="collectionView" destination="0dl-LN-Uwg" id="JVc-RN-DNg"/>
+                <outlet property="imageButton" destination="C81-Up-7Fm" id="iX1-mn-gzI"/>
                 <outlet property="inputStoryEdittext" destination="CLj-Fq-4Lx" id="s10-cJ-mgn"/>
+                <outlet property="mediaBottomConstraint" destination="W0z-vG-vgw" id="Uqd-8V-gmo"/>
                 <outlet property="mediaContainerView" destination="3aA-QY-idC" id="rRD-jY-eht"/>
                 <outlet property="placeHolderLabel" destination="75T-aj-opJ" id="xf5-qe-BNn"/>
                 <outlet property="publishButton" destination="weh-Ik-olP" id="EUK-i8-IVg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="youtubeButton" destination="ups-Oy-XDU" id="Lsc-GB-eaL"/>
+                <outlet property="youtubeInputView" destination="fii-v8-dhX" id="ccB-Ma-xgW"/>
+                <outlet property="youtubeThumbnailImageView" destination="04I-wN-hrj" id="CJr-m0-cZi"/>
+                <outlet property="youtubeUrlTextfield" destination="EvI-AD-iax" id="Wtz-1k-LDJ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -74,8 +81,50 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVu-YI-KGC">
+                    <rect key="frame" x="0.0" y="328" width="375" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C81-Up-7Fm">
+                            <rect key="frame" x="0.0" y="1" width="186.5" height="38"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Hình ảnh" image="ic_image">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="tappedImageButton:" destination="-1" eventType="touchUpInside" id="S2h-hs-rXN"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ups-Oy-XDU">
+                            <rect key="frame" x="187.5" y="1" width="187.5" height="38"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                            <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                            <state key="normal" title="Youtube" image="ic_youtube">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="tappedYoutubeButton:" destination="-1" eventType="touchUpInside" id="uRX-eF-eG6"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="83y-k2-B8C"/>
+                        <constraint firstItem="C81-Up-7Fm" firstAttribute="width" secondItem="tVu-YI-KGC" secondAttribute="width" multiplier="1:2" constant="-1" id="9F1-TH-FYZ"/>
+                        <constraint firstItem="C81-Up-7Fm" firstAttribute="leading" secondItem="tVu-YI-KGC" secondAttribute="leading" id="A4k-In-7vx"/>
+                        <constraint firstItem="ups-Oy-XDU" firstAttribute="top" secondItem="tVu-YI-KGC" secondAttribute="top" constant="1" id="PmN-pk-CKJ"/>
+                        <constraint firstAttribute="bottom" secondItem="C81-Up-7Fm" secondAttribute="bottom" constant="1" id="a7c-Bq-gzg"/>
+                        <constraint firstItem="ups-Oy-XDU" firstAttribute="leading" secondItem="C81-Up-7Fm" secondAttribute="trailing" constant="1" id="bMi-Sa-M8Z"/>
+                        <constraint firstAttribute="trailing" secondItem="ups-Oy-XDU" secondAttribute="trailing" id="g8C-T5-TDF"/>
+                        <constraint firstAttribute="bottom" secondItem="ups-Oy-XDU" secondAttribute="bottom" constant="1" id="o3l-ZA-HuD"/>
+                        <constraint firstItem="C81-Up-7Fm" firstAttribute="top" secondItem="tVu-YI-KGC" secondAttribute="top" constant="1" id="wQC-1I-YJu"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3aA-QY-idC">
-                    <rect key="frame" x="0.0" y="367" width="375" height="300"/>
+                    <rect key="frame" x="0.0" y="368" width="375" height="300"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="0dl-LN-Uwg">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
@@ -91,28 +140,59 @@
                                 <outlet property="delegate" destination="-1" id="78m-Q3-fLc"/>
                             </connections>
                         </collectionView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fii-v8-dhX">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EvI-AD-iax">
+                                    <rect key="frame" x="20" y="20" width="335" height="30"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="04I-wN-hrj">
+                                    <rect key="frame" x="20" y="70" width="335" height="210"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="04I-wN-hrj" secondAttribute="bottom" constant="20" id="9AP-HP-zKq"/>
+                                <constraint firstItem="EvI-AD-iax" firstAttribute="leading" secondItem="fii-v8-dhX" secondAttribute="leading" constant="20" id="A7J-EY-cOT"/>
+                                <constraint firstAttribute="trailing" secondItem="EvI-AD-iax" secondAttribute="trailing" constant="20" id="PPG-Yf-1sq"/>
+                                <constraint firstItem="04I-wN-hrj" firstAttribute="leading" secondItem="fii-v8-dhX" secondAttribute="leading" constant="20" id="VUc-fp-QjH"/>
+                                <constraint firstItem="04I-wN-hrj" firstAttribute="top" secondItem="EvI-AD-iax" secondAttribute="bottom" constant="20" id="euF-XN-DzF"/>
+                                <constraint firstItem="EvI-AD-iax" firstAttribute="top" secondItem="fii-v8-dhX" secondAttribute="top" constant="20" id="pVT-TT-aPq"/>
+                                <constraint firstAttribute="trailing" secondItem="04I-wN-hrj" secondAttribute="trailing" constant="20" id="wPj-lY-Sw0"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.92156862750000001" green="0.41960784309999999" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="fii-v8-dhX" secondAttribute="bottom" id="0hq-tC-SfU"/>
                         <constraint firstAttribute="height" constant="300" id="C6v-7K-rr9"/>
                         <constraint firstAttribute="bottom" secondItem="0dl-LN-Uwg" secondAttribute="bottom" id="HSB-yk-Iln"/>
                         <constraint firstItem="0dl-LN-Uwg" firstAttribute="leading" secondItem="3aA-QY-idC" secondAttribute="leading" id="KYk-J4-gvF"/>
                         <constraint firstAttribute="trailing" secondItem="0dl-LN-Uwg" secondAttribute="trailing" id="NGK-cU-I8X"/>
                         <constraint firstItem="0dl-LN-Uwg" firstAttribute="top" secondItem="3aA-QY-idC" secondAttribute="top" id="O0Z-RD-Nyo"/>
+                        <constraint firstAttribute="trailing" secondItem="fii-v8-dhX" secondAttribute="trailing" id="X0J-Eb-EAr"/>
+                        <constraint firstItem="fii-v8-dhX" firstAttribute="top" secondItem="3aA-QY-idC" secondAttribute="top" id="hqz-fN-vIE"/>
+                        <constraint firstItem="fii-v8-dhX" firstAttribute="leading" secondItem="3aA-QY-idC" secondAttribute="leading" id="uSx-w9-i8a"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="3aA-QY-idC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0wC-nQ-etI"/>
+                <constraint firstItem="3aA-QY-idC" firstAttribute="top" secondItem="tVu-YI-KGC" secondAttribute="bottom" id="2L5-dc-scY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CLj-Fq-4Lx" secondAttribute="trailing" constant="10" id="FBU-a9-330"/>
                 <constraint firstItem="75T-aj-opJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="Nsh-Tu-QoV"/>
                 <constraint firstItem="iBb-Ac-h36" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="PeL-7V-gnV"/>
                 <constraint firstItem="CLj-Fq-4Lx" firstAttribute="top" secondItem="iBb-Ac-h36" secondAttribute="bottom" constant="10" id="Q6n-sA-b9g"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tVu-YI-KGC" secondAttribute="trailing" id="QrZ-LY-xjE"/>
                 <constraint firstItem="CLj-Fq-4Lx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="Tkn-4X-NcF"/>
-                <constraint firstItem="3aA-QY-idC" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="W0z-vG-vgw"/>
+                <constraint firstItem="3aA-QY-idC" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="1" id="W0z-vG-vgw"/>
                 <constraint firstItem="75T-aj-opJ" firstAttribute="top" secondItem="iBb-Ac-h36" secondAttribute="bottom" constant="20" id="ahO-HC-et4"/>
                 <constraint firstItem="iBb-Ac-h36" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bB9-OG-HK0"/>
+                <constraint firstItem="tVu-YI-KGC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="e3P-Hi-Lg5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iBb-Ac-h36" secondAttribute="trailing" id="moG-vx-hiO"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3aA-QY-idC" secondAttribute="trailing" id="pEz-lG-za7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="75T-aj-opJ" secondAttribute="trailing" constant="10" id="toQ-Jm-Y4y"/>
@@ -120,4 +200,8 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_image" width="16" height="16"/>
+        <image name="ic_youtube" width="34" height="24"/>
+    </resources>
 </document>

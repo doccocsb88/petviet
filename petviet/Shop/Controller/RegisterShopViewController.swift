@@ -61,9 +61,7 @@ class RegisterShopViewController: BaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @objc func tappedGesture(_ gesture:UITapGestureRecognizer){
-            self.view.endEditing(true)
-    }
+    
     override func tappedLeftButton(_ button: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }

@@ -25,3 +25,7 @@ class Constant{
         return pets
     }
 }
+
+enum StoryType:Int{
+    case image,youtube
+}
