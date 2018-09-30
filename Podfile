@@ -14,5 +14,6 @@ target 'petviet' do
   pod 'FirebaseAuth', '~> 5.0'
   pod 'FirebaseStorage'
   pod 'ObjectMapper', '~> 3.3'
+  pod 'youtube-ios-player-helper-swift'
 
 end

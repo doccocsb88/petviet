@@ -94,6 +94,7 @@
 		0E28F502215D1FFD00ACFDD0 /* RegisterShopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RegisterShopViewController.xib; path = Shop/Controller/RegisterShopViewController.xib; sourceTree = "<group>"; };
 		0E28F505215D383100ACFDD0 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductDetailViewController.swift; path = Shop/Controller/ProductDetailViewController.swift; sourceTree = "<group>"; };
 		0E28F506215D383100ACFDD0 /* ProductDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProductDetailViewController.xib; path = Shop/Controller/ProductDetailViewController.xib; sourceTree = "<group>"; };
+		0E28F5092160A90100ACFDD0 /* petviet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "petviet-Bridging-Header.h"; sourceTree = "<group>"; };
 		0E8E918121568AE80002CF4F /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		0E8E918221568AE80002CF4F /* PostDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailViewController.xib; sourceTree = "<group>"; };
 		0E8E9185215691980002CF4F /* CommentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewCell.swift; sourceTree = "<group>"; };
@@ -213,6 +214,7 @@
 				0EA47E3C21561949001523A0 /* Info.plist */,
 				0E8E91C3215A79830002CF4F /* material_loader.json */,
 				0E8E91C1215A79490002CF4F /* animation_done.json */,
+				0E28F5092160A90100ACFDD0 /* petviet-Bridging-Header.h */,
 				0E8E91A7215799B70002CF4F /* GoogleService-Info.plist */,
 			);
 			path = petviet;
@@ -345,10 +347,10 @@
 			children = (
 				0EA47E57215630CA001523A0 /* PetStoryViewCell.swift */,
 				0EA47E58215630CA001523A0 /* HomeViewCell.xib */,
+				0E8E91922156A96C0002CF4F /* StoryImageViewCell.xib */,
 				0E8E9185215691980002CF4F /* CommentViewCell.swift */,
 				0E8E9186215691980002CF4F /* CommentViewCell.xib */,
 				0E8E91912156A96C0002CF4F /* StoryImageViewCell.swift */,
-				0E8E91922156A96C0002CF4F /* StoryImageViewCell.xib */,
 				0E8E91972157539F0002CF4F /* StoryCameraViewCell.swift */,
 				0E8E91982157539F0002CF4F /* StoryCameraViewCell.xib */,
 				0E8E91BD215A70030002CF4F /* PetSpeciesViewCell.swift */,
@@ -567,6 +569,7 @@
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper-swift/youtube_ios_player_helper_swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -578,6 +581,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper_swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -793,6 +797,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.csb.petviet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/petviet/petviet-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -812,6 +817,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.csb.petviet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/petviet/petviet-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

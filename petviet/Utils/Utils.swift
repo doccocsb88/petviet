@@ -60,6 +60,50 @@ extension Date {
         if seconds(from: date) > 0 { return "\(seconds(from: date))" }
         return ""
     }
+    func caculateTimeToNow() -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        //        let stdate : String = "2018-06-02 10:11:12"
+        //        let startDate = dateFormatter.date(from: stdate)!
+        
+        let differ = Date().millisecondsSince1970 -  self.millisecondsSince1970
+        NSLog("differ : %ld", differ)
+        let seconds = differ /  1000
+        let mins = seconds / 60
+        let hours = mins / 60
+        let days = hours / 24
+        let weaks = days / 7
+        let months = weaks / 4
+        let years = months / 12
+        var timeString = ""
+        if years > 0{
+            timeString = "\(years) năm trước"
+            
+        }else if months > 0{
+            timeString = "\(months) tháng trước"
+            
+        }else if weaks > 0{
+           timeString = "\(weaks) tuần trước"
+            
+        }else if days > 0{
+            timeString = "\(days) ngày trước"
+            
+        }else if hours > 0{
+           timeString = "\(hours) giờ trước"
+            
+        }else if mins > 0{
+            timeString = "\(mins) phút trước"
+            
+        }else if seconds > 0{
+           timeString = "\(seconds) giây trước"
+            
+        }else {
+            timeString = "Vừa xong"
+        }
+        
+        return timeString
+    }
 }
 extension PHAsset {
     
@@ -105,6 +149,26 @@ extension String{
         }
         
         return false
+    }
+    func getYoutubeId() ->String?{
+        if self.contains("v=") {
+            if self.contains("&"){
+                let url = self.components(separatedBy: "&")[0]
+                return url.components(separatedBy: "=")[1]
+            }else{
+                return self.components(separatedBy: "=")[1]
+                
+            }
+        }
+        return nil
+    }
+    
+    func getYoutubeThumbnail() ->String?{
+        if let youtubeId = self.getYoutubeId()  {
+            let thumbnailPath = String(format: "https://img.youtube.com/vi/%@/mqdefault.jpg", youtubeId)
+            return thumbnailPath
+        }
+        return nil
     }
 }
 

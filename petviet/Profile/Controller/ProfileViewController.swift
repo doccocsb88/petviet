@@ -18,6 +18,7 @@ class ProfileViewController: BaseViewController {
     @IBOutlet weak var storyButton: UIButton!
     
     
+    @IBOutlet weak var followUserButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var followerButton: UIButton!
     @IBOutlet weak var followingButton: UIButton!
@@ -40,9 +41,17 @@ class ProfileViewController: BaseViewController {
             firstTime = false
             if let userId = self.userId{
                 self.currentUserId = userId
-               
+                if DataServices.shared().isFollowed(userId){
+                    self.followUserButton.setTitle("Bỏ theo dõi", for: .normal)
+
+                }else{
+                    self.followUserButton.setTitle("Theo dõi", for: .normal)
+                }
+                self.followUserButton.isHidden = false
+
             }else if let userId = FirebaseServices.shared().userId(){
                 self.currentUserId = userId
+                self.followUserButton.isHidden = true
             }
             if let userId = self.currentUserId{
                 FirebaseServices.shared().fetchPostByUserId(userId) {  [weak self](success, message, posts) in
@@ -103,8 +112,10 @@ class ProfileViewController: BaseViewController {
     
     @IBAction func tappedFollowerButton(_ sender: Any) {
     
-        
-        showFollowView(DataServices.shared().profile.following(), false)
+        if self.currentUserId == DataServices.shared().profile.userId{
+
+            showFollowView(DataServices.shared().profile.following(), false)
+        }
 
     }
     @IBAction func tappedShopButton(_ sender: Any) {
@@ -114,9 +125,35 @@ class ProfileViewController: BaseViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func tappedFollowingButton(_ sender: Any) {
-        showFollowView(DataServices.shared().profile.following(), true)
+        if self.currentUserId == DataServices.shared().profile.userId{
+        
+            showFollowView(DataServices.shared().profile.following(), true)
+        }
     }
     
+    @IBAction func tappedFollowUserButton(_ sender: Any) {
+        guard let profile = self.profile else{return}
+        if let userId = self.userId{
+            let isFollow = DataServices.shared().isFollowed(userId)
+            if isFollow{
+                FirebaseServices.shared().unfollow(userId) { [weak self] (success, message) in
+                    guard let strongSelf = self else{return}
+
+                    if success{
+                        DataServices.shared().unFollowUser(userId)
+                        strongSelf.bindData()
+                    }
+                }
+            }else{
+                FirebaseServices.shared().follow(profile.userId, profile.displayName) {[weak self] (success, message) in
+                    guard let strongSelf = self else{return}
+                    if success{
+                        strongSelf.bindData()
+                    }
+                }
+            }
+        }
+    }
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{

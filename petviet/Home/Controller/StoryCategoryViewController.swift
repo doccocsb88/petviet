@@ -17,6 +17,7 @@ class StoryCategoryViewController: BaseViewController {
     @IBOutlet weak var publishButton: UIButton!
     @IBOutlet weak var collection: UICollectionView!
     var imageUrl:URL!
+    var storyType:StoryType = .image
     var story:String!
     var pets:[Pet] = []
     var pet:Pet?
@@ -82,16 +83,29 @@ class StoryCategoryViewController: BaseViewController {
             guard let user = FirebaseServices.shared().currentUser() else{return}
             guard let pet = self.pet else{return}
             let post = PostDetail(1, 1,pet.type, user.uid, user.displayName ?? "vuhai", story, "", "", created_date:Date().millisecondsSince1970)
+            post.storyType = self.storyType.rawValue
             showLoadingView()
-            FirebaseServices.shared().uploadImage(imageUrl) { (success, message, url) in
-                if success{
-                    post.imagePath = url?.absoluteString
-                    FirebaseServices.shared().publishPost(post) {[weak self] (success, message) in
-                        guard let strongSelf = self else{return}
-                        strongSelf.hideLoadingView()
-                        if success{
-                            strongSelf.didPublishStory()
+            if self.storyType == .image{
+                
+                FirebaseServices.shared().uploadImage(imageUrl) { (success, message, url) in
+                    if success{
+                        post.imagePath = url?.absoluteString
+                        FirebaseServices.shared().publishPost(post) {[weak self] (success, message) in
+                            guard let strongSelf = self else{return}
+                            strongSelf.hideLoadingView()
+                            if success{
+                                strongSelf.didPublishStory()
+                            }
                         }
+                    }
+                }
+            }else if self.storyType == .youtube{
+                post.youtubePath = imageUrl.absoluteString
+                FirebaseServices.shared().publishPost(post) {[weak self] (success, message) in
+                    guard let strongSelf = self else{return}
+                    strongSelf.hideLoadingView()
+                    if success{
+                        strongSelf.didPublishStory()
                     }
                 }
             }

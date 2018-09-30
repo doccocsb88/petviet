@@ -156,9 +156,9 @@ class FirebaseServices{
             }
         }
     }
-    func unfollow(_ follow:PetFollow, complete:@escaping (_ success:Bool, _ message:String?) -> Void){
+    func unfollow(_ toId:String, complete:@escaping (_ success:Bool, _ message:String?) -> Void){
         guard let user = Auth.auth().currentUser else{return}
-        
+        let follow = PetFollow(user.uid,"",toId,"")
         //
         let followPath  = "\(PATH_PROFILE)/\(user.uid)/\(PATH_FOLLOW)/\(follow.key)"
         let followRef = ref.child(followPath)
@@ -195,9 +195,9 @@ class FirebaseServices{
     }
     
     func fetchPosts(_ petId:Int, complete:@escaping (_ success:Bool, _ message:String?, _ posts:[PostDetail]) ->Void){
-        let postRef = ref.child(PATH_POST);
+        let postRef = ref.child(PATH_POST)
         if petId == 0{
-        postRef.observeSingleEvent(of: .value) { (snapshot) in
+        postRef.queryOrdered(byChild: "created_date").observeSingleEvent(of: .value) { (snapshot) in
             let posts = self.parsePostData(snapshot)
             complete(true,nil,posts)
 

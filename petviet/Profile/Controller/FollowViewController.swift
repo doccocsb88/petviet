@@ -71,7 +71,7 @@ extension FollowViewController:UITableViewDelegate, UITableViewDataSource{
         cell.updateContent(follow, following)
         
         cell.didTappedUnFollow = {
-            FirebaseServices.shared().unfollow(follow, complete: {[weak self] (success, message) in
+            FirebaseServices.shared().unfollow(follow.toId, complete: {[weak self] (success, message) in
                 guard let strongSelf = self else {return}
                 DataServices.shared().unFollow(follow)
                 if strongSelf.following{

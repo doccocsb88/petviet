@@ -261,6 +261,20 @@ following</string>
                                             <action selector="tappedBackButton:" destination="7ba-W5-XeQ" eventType="touchUpInside" id="RSd-Ot-che"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ox3-Qh-8sm">
+                                        <rect key="frame" x="295" y="20" width="70" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="dT1-TZ-Py3"/>
+                                            <constraint firstAttribute="height" constant="30" id="oNA-B0-Fh4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                        <state key="normal" title="Theo dõi">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedFollowUserButton:" destination="7ba-W5-XeQ" eventType="touchUpInside" id="3jy-O8-Ocx"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -271,12 +285,14 @@ following</string>
                                     <constraint firstItem="VlJ-95-GAu" firstAttribute="top" secondItem="VVb-mg-Ghk" secondAttribute="bottom" constant="30" id="8WZ-2g-bA9"/>
                                     <constraint firstItem="3MX-j8-6lP" firstAttribute="leading" secondItem="931-BF-oMi" secondAttribute="leading" id="9EE-fd-74j"/>
                                     <constraint firstAttribute="height" constant="250" id="BeR-gw-Hxl"/>
+                                    <constraint firstAttribute="trailing" secondItem="ox3-Qh-8sm" secondAttribute="trailing" constant="10" id="E90-9Y-BJb"/>
                                     <constraint firstItem="VlJ-95-GAu" firstAttribute="leading" secondItem="3MX-j8-6lP" secondAttribute="trailing" id="EJ7-Lk-sVL"/>
                                     <constraint firstItem="7B8-6X-MHG" firstAttribute="leading" secondItem="VlJ-95-GAu" secondAttribute="trailing" id="QoN-UB-uMl"/>
                                     <constraint firstItem="3MX-j8-6lP" firstAttribute="width" secondItem="931-BF-oMi" secondAttribute="width" multiplier="1:3" id="SbC-hl-jhF"/>
                                     <constraint firstItem="VVb-mg-Ghk" firstAttribute="top" secondItem="jyQ-7O-H4y" secondAttribute="bottom" constant="10" id="TxT-m9-h35"/>
                                     <constraint firstItem="oIT-iZ-QbR" firstAttribute="top" secondItem="931-BF-oMi" secondAttribute="top" constant="20" id="W8h-YD-GQI"/>
                                     <constraint firstItem="oIT-iZ-QbR" firstAttribute="centerX" secondItem="931-BF-oMi" secondAttribute="centerX" id="daJ-Fb-V6q"/>
+                                    <constraint firstItem="ox3-Qh-8sm" firstAttribute="top" secondItem="931-BF-oMi" secondAttribute="top" constant="20" id="g6m-jE-X4p"/>
                                     <constraint firstItem="VlJ-95-GAu" firstAttribute="height" secondItem="3MX-j8-6lP" secondAttribute="height" id="gAa-HC-Hw5"/>
                                     <constraint firstItem="VVb-mg-Ghk" firstAttribute="centerX" secondItem="931-BF-oMi" secondAttribute="centerX" id="hlP-h7-tYa"/>
                                     <constraint firstItem="jyQ-7O-H4y" firstAttribute="centerX" secondItem="931-BF-oMi" secondAttribute="centerX" id="jSI-Sx-TgI"/>
@@ -333,6 +349,7 @@ following</string>
                         <outlet property="backButton" destination="wLJ-mX-DvO" id="OeN-8z-744"/>
                         <outlet property="bioLabel" destination="VVb-mg-Ghk" id="zmb-Fh-Ew9"/>
                         <outlet property="displayNameLabel" destination="jyQ-7O-H4y" id="s67-Ym-kQd"/>
+                        <outlet property="followUserButton" destination="ox3-Qh-8sm" id="kiG-tI-j0j"/>
                         <outlet property="followerButton" destination="VlJ-95-GAu" id="K7N-AP-3t9"/>
                         <outlet property="followingButton" destination="7B8-6X-MHG" id="mjN-sF-bgj"/>
                         <outlet property="shopButton" destination="wjL-6B-1aG" id="ken-VK-u2m"/>

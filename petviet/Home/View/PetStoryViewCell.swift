@@ -13,7 +13,7 @@ class PetStoryViewCell: UITableViewCell {
     @IBOutlet weak var avatarButton: UIButton!
     @IBOutlet weak var displaynameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var followButton: UIButton!
+    @IBOutlet weak var petTypeButton: UIButton!
     
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var commentButton: UIButton!
@@ -26,6 +26,9 @@ class PetStoryViewCell: UITableViewCell {
     @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var storyPhotoImageView: UIImageView!
+    @IBOutlet weak var thumbnailHeightConstraint: NSLayoutConstraint!
+    
+    
     var didTappedLike:()->() = {}
     var didTappedComment:()->() = {}
     var didTapUserProfile:()->() = {}
@@ -49,18 +52,16 @@ class PetStoryViewCell: UITableViewCell {
         self.commentButton.imageView?.contentMode =  .scaleAspectFit
         
         //
-        self.followButton.isHidden = true
+        self.petTypeButton.imageView?.contentMode = .scaleAspectFit
 
     }
     
     func updateContent(_ post:PostDetail){
         displaynameLabel.text = post.userName
         captionLabel.text = post.story
-        if let imagePath = post.imagePath , imagePath.count > 0{
-            storyPhotoImageView.kf.setImage(with: URL(string: imagePath))
-        }else{
-            storyPhotoImageView.image = UIImage(named: "ic_default_photo")
-        }
+        let fromDate = Date(milliseconds: post.created_date)
+        addressLabel.text = fromDate.caculateTimeToNow()
+         
         displaynameLabel.text = post.userName
         if let userId = FirebaseServices.shared().userId(){
             likeButton.isSelected = post.isLiked(userId)
@@ -72,12 +73,28 @@ class PetStoryViewCell: UITableViewCell {
         }else{
             likedByLabel.text = "\(post.likes.count) người đã thích bài viết này."
         }
-        if let user = FirebaseServices.shared().currentUser(), user.uid == post.created_user{
-            followButton.isHidden = true
-        }else{
-            followButton.isHidden = DataServices.shared().isFollowed(post.created_user)
+       
+        //
+        if let _ = Constant.getPetById(post.petId){
+            petTypeButton.setImage(UIImage(named: "ic_animal_cat"), for: .normal)
         }
+        //
+        var thumbnailPath:String? = nil
         
+        if post.storyType == StoryType.image.rawValue{
+            thumbnailPath = post.imagePath
+            thumbnailHeightConstraint.constant = UIScreen.main.bounds.width
+        }else{
+            thumbnailPath = post.youtubePath?.getYoutubeThumbnail()
+            thumbnailHeightConstraint.constant = (UIScreen.main.bounds.width / 16) * 9 
+
+        }
+        if let imagePath = thumbnailPath , imagePath.count > 0{
+            storyPhotoImageView.kf.setImage(with: URL(string: imagePath))
+        }else{
+            storyPhotoImageView.image = UIImage(named: "ic_default_photo")
+        }
+        self.updateConstraintsIfNeeded()
     }
     
     @IBAction func tappedProfileButton(_ sender: Any) {

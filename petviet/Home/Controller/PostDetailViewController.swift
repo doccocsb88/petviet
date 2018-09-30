@@ -8,14 +8,19 @@
 
 import UIKit
 import Kingfisher
+import youtube_ios_player_helper_swift
 class PostDetailViewController: BaseViewController {
 
     @IBOutlet weak var avatarButton: UIButton!
     
+    @IBOutlet weak var createdDateLabel: UILabel!
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
+    
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var storyLabel: UILabel!
@@ -23,6 +28,7 @@ class PostDetailViewController: BaseViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var storyImageView: UIImageView!
     
+    @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var commentContainerView: UIView!
     @IBOutlet weak var commentTextview: UITextView!
     @IBOutlet weak var commentPlaceholderLabel: UILabel!
@@ -30,6 +36,8 @@ class PostDetailViewController: BaseViewController {
     
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var commentBoxBottomConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var thumbnailHeightConstraint: NSLayoutConstraint!
     var postDetail:PostDetail!
     var didUpdatePostValue:()->() = {}
     var willComment:Bool = false
@@ -71,17 +79,37 @@ class PostDetailViewController: BaseViewController {
         commentTextview.addBorder(15, 0.5,.lightGray)
         commentTextview.delegate = self
         sendCommentButton.addBorder(4, 0.5,.lightGray)
+        
+        //
+        likeButton.imageView?.contentMode = .scaleAspectFit
+        commentButton.imageView?.contentMode = .scaleAspectFit
+        playerView.delegate = self
     }
     func bindData(){
         if let userId = FirebaseServices.shared().userId(){
             likeButton.isSelected = postDetail.isLiked(userId)
         }
-        if let imagePath = postDetail.imagePath, imagePath.verifyUrl() == true{
-            storyImageView.kf.setImage(with: URL(string: imagePath))
-        }
+        createdDateLabel.text = postDetail.caculateTimeToNow()
         displayNameLabel.text = postDetail.userName
         storyLabel.text = postDetail.story
-        
+        commentButton.setTitle("\(postDetail.comments.count)", for: .normal)
+        if postDetail.storyType == StoryType.image.rawValue{
+            if let imagePath = postDetail.imagePath, imagePath.verifyUrl() == true{
+                storyImageView.kf.setImage(with: URL(string: imagePath))
+            }
+            self.playerView.isHidden = true
+            self.storyImageView.isHidden = false
+            self.thumbnailHeightConstraint.constant = UIScreen.main.bounds.width
+        }else if postDetail.storyType == StoryType.youtube.rawValue{
+            if let youtubeId = postDetail.getYutubeId(){
+                let _ = self.playerView .load(videoId: youtubeId)
+            }
+            self.playerView.isHidden = false
+            self.storyImageView.isHidden = true
+            self.thumbnailHeightConstraint.constant = (UIScreen.main.bounds.width / 16) * 9
+
+        }
+        self.view.updateConstraintsIfNeeded()
     }
     @objc func keyboardWillAppear(_ notification: Notification) {
         //Do something here
@@ -140,6 +168,11 @@ class PostDetailViewController: BaseViewController {
             }
         }
     }
+    
+    
+    @IBAction func tappedShareButton(_ sender: Any) {
+        
+    }
     @IBAction func tappedCommentButton(_ sender: Any) {
         commentTextview.becomeFirstResponder()
     }
@@ -174,7 +207,9 @@ extension PostDetailViewController{
     
 }
 extension PostDetailViewController:UITableViewDelegate, UITableViewDataSource{
-    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postDetail.comments.count
     }
@@ -197,5 +232,13 @@ extension PostDetailViewController:UITextViewDelegate{
     }
     func textViewDidEndEditing(_ textView: UITextView) {
          commentPlaceholderLabel.isHidden = textView.text.count > 0
+    }
+}
+extension PostDetailViewController:YTPlayerViewDelegate{
+    func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
+        
+    }
+    func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
+        
     }
 }

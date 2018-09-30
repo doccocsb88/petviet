@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -32,19 +36,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tpg-hn-0Ic">
-                                <rect key="frame" x="339" y="7.5" width="50" height="25"/>
-                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="364" y="8" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="6K1-ie-AIE"/>
+                                    <constraint firstAttribute="width" constant="25" id="6K1-ie-AIE"/>
                                     <constraint firstAttribute="height" constant="25" id="vdo-O4-LUW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                <state key="normal" title="Follow">
+                                <state key="normal" image="ic_animal_cat">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="tappedFollowButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rYP-kg-xqU"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uac-ZH-whg">
                                 <rect key="frame" x="10" y="4.5" width="32" height="32"/>
@@ -77,6 +77,9 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_default_photo" translatesAutoresizingMaskIntoConstraints="NO" id="eXA-O7-bLw">
                                 <rect key="frame" x="0.0" y="0.0" width="399" height="399"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="399" id="OXB-R1-xl8"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -87,10 +90,22 @@
                             <constraint firstItem="eXA-O7-bLw" firstAttribute="top" secondItem="8QC-a2-9R5" secondAttribute="top" id="qzj-sZ-6Ir"/>
                             <constraint firstAttribute="trailing" secondItem="eXA-O7-bLw" secondAttribute="trailing" id="znT-YQ-qQo"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="chg-gC-dFs"/>
+                            </mask>
+                        </variation>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZGh-6A-hJg">
                         <rect key="frame" x="0.0" y="439" width="399" height="40"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Um2-wj-Lcs">
+                                <rect key="frame" x="0.0" y="39.5" width="399" height="0.5"/>
+                                <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="kUp-RO-zne"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUM-gZ-s4B">
                                 <rect key="frame" x="10" y="4" width="32" height="32"/>
                                 <constraints>
@@ -122,7 +137,10 @@
                             </button>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Um2-wj-Lcs" secondAttribute="trailing" id="4wU-Zq-btb"/>
+                            <constraint firstItem="Um2-wj-Lcs" firstAttribute="leading" secondItem="ZGh-6A-hJg" secondAttribute="leading" id="Brw-vl-uUW"/>
                             <constraint firstAttribute="height" constant="40" id="JUx-8J-f89"/>
+                            <constraint firstAttribute="bottom" secondItem="Um2-wj-Lcs" secondAttribute="bottom" id="gIE-rr-P79"/>
                             <constraint firstItem="4Vj-YH-YbC" firstAttribute="leading" secondItem="hUM-gZ-s4B" secondAttribute="trailing" constant="10" id="n8m-Pm-9da"/>
                             <constraint firstItem="hUM-gZ-s4B" firstAttribute="centerY" secondItem="ZGh-6A-hJg" secondAttribute="centerY" id="nHk-Ka-7g2"/>
                             <constraint firstItem="hUM-gZ-s4B" firstAttribute="leading" secondItem="ZGh-6A-hJg" secondAttribute="leading" constant="10" id="no2-LH-5d0"/>
@@ -191,15 +209,17 @@
                 <outlet property="commentButton" destination="4Vj-YH-YbC" id="Ix2-q5-TYr"/>
                 <outlet property="containerView" destination="8QC-a2-9R5" id="gpy-bn-HYf"/>
                 <outlet property="displaynameLabel" destination="t2B-ot-afY" id="NSL-Cm-KYs"/>
-                <outlet property="followButton" destination="Tpg-hn-0Ic" id="5ga-UC-1GE"/>
                 <outlet property="likeButton" destination="hUM-gZ-s4B" id="4aD-8F-oEi"/>
                 <outlet property="likedByLabel" destination="dTw-uZ-46k" id="Plg-88-bbA"/>
+                <outlet property="petTypeButton" destination="Tpg-hn-0Ic" id="aPc-ms-QBH"/>
                 <outlet property="storyPhotoImageView" destination="eXA-O7-bLw" id="alD-22-p6Q"/>
+                <outlet property="thumbnailHeightConstraint" destination="OXB-R1-xl8" id="QEy-mG-xL2"/>
             </connections>
             <point key="canvasLocation" x="4.5" y="179"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="ic_animal_cat" width="54" height="50"/>
         <image name="ic_avatar" width="32" height="32"/>
         <image name="ic_comment" width="23" height="23"/>
         <image name="ic_default_photo" width="375" height="339"/>

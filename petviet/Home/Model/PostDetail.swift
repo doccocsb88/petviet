@@ -21,11 +21,13 @@ class PostDetail:Mappable {
     var created_date:Int64
     var likes:[UserLike] = []
     var comments:[PetComment] = []
+    var storyType:Int = 0
     required init?(map: Map) {
         self.postId = 0
         self.key = ""
         self.category_id = 0
         self.petId = 0
+        self.storyType = 0
         self.created_user = ""
         self.userName = ""
         self.story = ""
@@ -39,6 +41,8 @@ class PostDetail:Mappable {
         self.key  <- map["key"]
         self.category_id  <- map["category_id"]
         self.petId  <- map["petId"]
+        self.storyType  <- map["storyType"]
+
         self.created_user  <- map["created_user"]
         self.userName  <- map["userName"]
         self.story <- map["story"]
@@ -117,6 +121,19 @@ class PostDetail:Mappable {
         }
         return false
     }
-
+    func getYutubeId() -> String?{
+        if storyType == StoryType.youtube.rawValue{
+            if let path = youtubePath{
+                return path.getYoutubeId()
+            }
+        }
+        return nil
+    }
+    
+    func caculateTimeToNow() -> String{
+        let date = Date(milliseconds: self.created_date)
+        
+        return date.caculateTimeToNow()
+    }
     
 }

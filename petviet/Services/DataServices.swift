@@ -38,4 +38,9 @@ class DataServices {
             profile.follows.remove(at: index)
         }
     }
+    func unFollowUser( _ toId : String){
+        if let index = profile.follows.index(where: {$0.toId == toId}) {
+            profile.follows.remove(at: index)
+        }
+    }
 }

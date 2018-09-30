@@ -24,6 +24,14 @@ class Constant{
         pets.append(reptile)
         return pets
     }
+    static func getPetById(_ type:Int) -> Pet?{
+        for pet in pets{
+            if pet.type == type{
+                return pet
+            }
+        }
+        return nil
+    }
 }
 
 enum StoryType:Int{

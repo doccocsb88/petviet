@@ -57,13 +57,15 @@ class PublishStoryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     func setupUI(){
-        
+        self.youtubeUrlTextfield.text = "https://www.youtube.com/watch?v=fKopy74weus"
+        self.youtubeUrlTextfield.autocorrectionType = .no
         self.youtubeUrlTextfield.delegate = self
         
         collectionView.register(UINib(nibName: "StoryImageViewCell", bundle: nil), forCellWithReuseIdentifier: "imageCell")
         collectionView.register(UINib(nibName: "StoryCameraViewCell", bundle: nil), forCellWithReuseIdentifier: "cameraCell")
         self.youtubeButton.imageView?.contentMode = .scaleAspectFit
         self.youtubeThumbnailImageView.addBorder(0, 0.5, .lightGray)
+        
         //
         let tapped = UITapGestureRecognizer(target: self, action: #selector(tappedGesture(_:)))
         self.view.addGestureRecognizer(tapped)
@@ -85,8 +87,9 @@ class PublishStoryViewController: UIViewController {
                 let fetchOptions = PHFetchOptions()
                 self.allPhotos = PHAsset.fetchAssets(with: .image, options: fetchOptions)
                 print("Found \(self.allPhotos?.count ?? 0) assets")
-                
-                self.collectionView.reloadData()
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             case .denied, .restricted:
                 print("Not allowed")
             case .notDetermined:
@@ -130,11 +133,19 @@ class PublishStoryViewController: UIViewController {
     }
     @IBAction func tappedPublishButton(_ sender: Any) {
         guard let story = inputStoryEdittext.text, story.count > 0 else{return}
-        guard let imageUrl = imageUrl else{return}
-
         let vc = StoryCategoryViewController(nibName: "StoryCategoryViewController", bundle: nil)
+
+        if storyType == .image{
+            guard let imageUrl = imageUrl else{return}
+            vc.imageUrl = imageUrl
+
+        }else if storyType == .youtube{
+            guard let youtubeUrl = youtubeUrlTextfield.text, youtubeUrl.verifyUrl() else{return}
+            vc.imageUrl = URL(string: youtubeUrl)
+
+        }
+        vc.storyType = self.storyType
         vc.story = story
-        vc.imageUrl = imageUrl
         vc.modalPresentationStyle  = .overFullScreen
         vc.didPublishStory = { [weak self] in
             guard let strongSelf = self else{return}
@@ -170,6 +181,12 @@ extension PublishStoryViewController:UITextFieldDelegate{
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.activeTextfield = nil
+        guard let url = textField.text, url.verifyUrl() else {return}
+        
+        guard let youtubeId = url.getYoutubeId() else {return}
+        let thumbnailPath = String(format: "https://img.youtube.com/vi/%@/mqdefault.jpg", youtubeId)
+        let thumbnailUrl = URL(string: thumbnailPath)
+        youtubeThumbnailImageView.kf.setImage(with: thumbnailUrl)
     }
 }
 extension PublishStoryViewController:UITextViewDelegate{
