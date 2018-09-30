@@ -12,6 +12,7 @@ class ProductCategoryViewController: BaseViewController {
     fileprivate let itemsPerRow: CGFloat = 2
     fileprivate let sectionInsets = UIEdgeInsets(top: 1, left: 0.4, bottom: 0, right: 0)
 
+    @IBOutlet weak var shopNowButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     var categories:[ProductType]{
         var cats:[ProductType] = []
@@ -70,20 +71,31 @@ class ProductCategoryViewController: BaseViewController {
         vc.type = productType!
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func tappedShopNowButton(_ sender: Any) {
+    }
+    
 }
 extension ProductCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        if section == 0 {
+//            return 10
+//        }
         return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        if indexPath.section == 0{
+//            return UICollectionViewCell()
+//        }else{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCategoryViewCell
         let type = categories[indexPath.row]
         cell.updateContent(type, type.id == productType?.id ?? 0)
         return cell
+//        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -140,4 +152,5 @@ extension ProductCategoryViewController:UICollectionViewDelegateFlowLayout{
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.top
     }
+    
 }

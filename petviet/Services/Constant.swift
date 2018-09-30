@@ -14,14 +14,26 @@ class Constant{
         let cat = Pet(type: 2, name: "Mèo")
         let fish = Pet(type: 3, name: "Cá")
         let hamster = Pet(type: 4, name: "Hamster")
-        let arthropods = Pet(type: 5, name: "Chân đốt")
-        let reptile = Pet(type: 6, name: "Bò sát")
+        let arthropods = Pet(type: 5, name: "Nhím kiểng")
+        let reptile = Pet(type: 6, name: "Bọ ú")
+        let rabit = Pet(type: 6, name: "Thỏ kiểng")
+        let squarel = Pet(type: 6, name: "Sóc kiểng")
+        let bosat = Pet(type: 6, name: "Bò sát & Rồng nam mỹ")
+        let snake = Pet(type: 6, name: "Rắn")
+        let spider = Pet(type: 6, name: "Nhện")
+
         pets.append(dog)
         pets.append(cat)
         pets.append(fish)
         pets.append(hamster)
         pets.append(arthropods)
         pets.append(reptile)
+        pets.append(rabit)
+        pets.append(squarel)
+        pets.append(bosat)
+        pets.append(snake)
+        pets.append(spider)
+
         return pets
     }
     static func getPetById(_ type:Int) -> Pet?{

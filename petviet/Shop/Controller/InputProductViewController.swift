@@ -25,6 +25,11 @@ class InputProductViewController: BaseViewController {
     @IBOutlet weak var shopNameLabel: UILabel!
     
     @IBOutlet weak var selectShopButton: UIButton!
+    
+    @IBOutlet weak var petInfoView: UIView!
+    
+    @IBOutlet weak var petInfoHeightConstraint: NSLayoutConstraint!
+    
     var productType:ProductType!
     var pet:Pet!
     var productCode:String!
@@ -45,6 +50,11 @@ class InputProductViewController: BaseViewController {
         titleLabel.text = "\(pet.name) - \(productType.typeName)"
         productCode =  "pet_\(pet.type)_\(productType.id)_\(String.randomString(length: 6))"
         productCodeTextfield.text = productCode
+        if productType.id != 0{
+            petInfoView.isHidden = true
+            petInfoHeightConstraint.constant = 0
+            self.view.updateConstraintsIfNeeded()
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

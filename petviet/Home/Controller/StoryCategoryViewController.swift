@@ -38,6 +38,7 @@ class StoryCategoryViewController: BaseViewController {
             let allPet = Pet(type: 0, name: "Tất cả")
             pets.insert(allPet, at: 0)
             collection.reloadData()
+            publishButton.setTitle("Lọc", for: .normal)
         }
     }
     override func didReceiveMemoryWarning() {
@@ -45,18 +46,7 @@ class StoryCategoryViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     func initData(){
-        let dog = Pet(type: 1, name: "Chó")
-        let cat = Pet(type: 2, name: "Mèo")
-        let fish = Pet(type: 3, name: "Cá")
-        let hamster = Pet(type: 4, name: "Hamster")
-        let arthropods = Pet(type: 5, name: "Chân đốt")
-        let reptile = Pet(type: 6, name: "Bò sát")
-        pets.append(dog)
-        pets.append(cat)
-        pets.append(fish)
-        pets.append(hamster)
-        pets.append(arthropods)
-        pets.append(reptile)
+        self.pets.append(contentsOf: Constant.pets)
 
 
     }
