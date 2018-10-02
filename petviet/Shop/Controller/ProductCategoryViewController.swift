@@ -30,7 +30,7 @@ class ProductCategoryViewController: BaseViewController {
         return cats
     }
     var pet:Pet!
-    var productType:ProductType?
+    var productType:ProductType = ProductType(0,"Pet")
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -68,11 +68,12 @@ class ProductCategoryViewController: BaseViewController {
         let vc = ProductViewController(nibName: "ProductViewController", bundle: nil)
         vc.modalPresentationStyle = .overFullScreen
         vc.pet = pet
-        vc.type = productType!
+        vc.type = productType
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func tappedShopNowButton(_ sender: Any) {
+        showProductView()
     }
     
 }
@@ -93,7 +94,7 @@ extension ProductCategoryViewController: UICollectionViewDelegate, UICollectionV
 //        }else{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCategoryViewCell
         let type = categories[indexPath.row]
-        cell.updateContent(type, type.id == productType?.id ?? 0)
+        cell.updateContent(type, type.id == productType.id )
         return cell
 //        }
     }

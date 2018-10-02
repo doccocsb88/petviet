@@ -16,9 +16,9 @@ class InputProductViewController: BaseViewController {
     @IBOutlet weak var productCodeTextfield: UITextField!
     @IBOutlet weak var productNameTextfield: UITextField!
     @IBOutlet weak var productPriceTextfield: UITextField!
-    
+    @IBOutlet weak var productMaxpriceTextfield: UITextField!
+    @IBOutlet weak var ageTextfied: UITextField!
     @IBOutlet weak var productDescriptionTextview: UITextView!
-    
     @IBOutlet weak var descriptionHolderTextLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var uploadButton: UIButton!
@@ -27,7 +27,16 @@ class InputProductViewController: BaseViewController {
     @IBOutlet weak var selectShopButton: UIButton!
     
     @IBOutlet weak var petInfoView: UIView!
+    @IBOutlet weak var colorButton: UIButton!
+    @IBOutlet weak var genderButton: UIButton!
+    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var colorLabel: UILabel!
+    @IBOutlet weak var genderTitleLabel: UILabel!
+    @IBOutlet weak var colorTitleLabel: UILabel!
+    @IBOutlet weak var ageTitleLabel: UILabel!
+    @IBOutlet weak var ageUnitLabel: UILabel!
     
+    //
     @IBOutlet weak var petInfoHeightConstraint: NSLayoutConstraint!
     
     var productType:ProductType!
@@ -53,6 +62,7 @@ class InputProductViewController: BaseViewController {
         if productType.id != 0{
             petInfoView.isHidden = true
             petInfoHeightConstraint.constant = 0
+            hidePetInfoView()
             self.view.updateConstraintsIfNeeded()
         }
     }
@@ -78,6 +88,7 @@ class InputProductViewController: BaseViewController {
             self.shops = shops
         }
     }
+    
     func resetInput(){
         productCode =  "pet_\(pet.type)_\(productType.id)_\(String.randomString(length: 6))"
         productCodeTextfield.text = productCode
@@ -87,8 +98,70 @@ class InputProductViewController: BaseViewController {
         productImageView.image = image
         productDescriptionTextview.text = ""
     }
+    func hidePetInfoView(){
+        colorTitleLabel.isHidden = true
+        colorLabel.isHidden = true
+        colorButton.isHidden = true
+        //
+        genderTitleLabel.isHidden = true
+        genderLabel.isHidden = true
+        genderButton.isHidden = true
+        //
+        ageTitleLabel.isHidden = true
+        ageTextfied.isHidden = true
+        ageUnitLabel.isHidden = true
+    }
     override func tappedGesture(_ gesture: UIGestureRecognizer) {
         self.view.endEditing(true)
+    }
+    @IBAction func tappedGenderButton(_ sender: Any) {
+        let genderSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let maleAction = UIAlertAction(title: "Đực", style: .default) { (action) in
+            
+        }
+        let femaleAction = UIAlertAction(title: "Cái", style: .default) { (action) in
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Bỏ qua", style: .cancel) { (action) in
+            
+        }
+        
+        genderSheet.addAction(maleAction)
+        genderSheet.addAction(femaleAction)
+        genderSheet.addAction(cancelAction)
+        present(genderSheet, animated: true, completion: nil)
+    }
+    
+    @IBAction func tappedColorButton(_ sender: Any) {
+        let colorSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let blackAction = UIAlertAction(title: "Đen", style: .default) { (action) in
+            
+        }
+        let whiteAction = UIAlertAction(title: "Trắng", style: .default) { (action) in
+            
+        }
+        let yellowAction = UIAlertAction(title: "Vàng mơ", style: .default) { (action) in
+            
+        }
+        let brownAction = UIAlertAction(title: "Nâu đỏ", style: .default) { (action) in
+            
+        }
+        let otherAction = UIAlertAction(title: "Màu khác", style: .default) { (action) in
+            
+        }
+        let cancelAction = UIAlertAction(title: "Bỏ qua", style: .cancel) { (action) in
+            
+        }
+        
+        colorSheet.addAction(blackAction)
+        colorSheet.addAction(whiteAction)
+        colorSheet.addAction(yellowAction)
+        colorSheet.addAction(brownAction)
+        colorSheet.addAction(otherAction)
+        colorSheet.addAction(cancelAction)
     }
     
     @IBAction func tappedSelectShopButton(_ sender: Any) {
@@ -117,11 +190,13 @@ class InputProductViewController: BaseViewController {
         guard let code = productCodeTextfield.text else{return}
         guard let name = productNameTextfield.text else{return}
         guard let price = productPriceTextfield.text else{return}
+        guard let maxPrice = productMaxpriceTextfield.text else{return}
         guard let description = productDescriptionTextview.text, description.count > 0 else{return}
         guard let image = image else{return}
         guard let shop = shop else {return}
+        let age = ageTextfied.text ?? "0"
 
-        let product = PetProduct(catId: productType.id,petId:pet.type, productCode: code, productName: name, price: Float(price) ?? 0.0, imagePath: nil,description:description)
+        let product = PetProduct(catId: productType.id,petId:pet.type, productCode: code, productName: name, price: Float(price) ?? 0.0, maxPrice:Float(maxPrice) ?? 0.0,age:Int(age) ?? 0, imagePath: nil,description:description)
         
         if let data = UIImagePNGRepresentation(image){
             self.showLoadingView()

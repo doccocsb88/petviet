@@ -33,6 +33,7 @@ class ProductViewController: BaseViewController {
             strongSelf.products = products
             strongSelf.collectionView.reloadData()
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
