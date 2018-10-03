@@ -49,3 +49,33 @@ class Constant{
 enum StoryType:Int{
     case image,youtube
 }
+enum PetGender:Int,CustomStringConvertible{
+    case female,male,other
+    var description: String{
+        switch self {
+        case .female:
+            return "Giống cái"
+        case .male:
+            return "Giống đực"
+        case .other:
+            return "Khác"
+        }
+    }
+}
+enum PetColor:Int,CustomStringConvertible{
+    case black,white,yellow,brown,other
+    var description: String{
+        switch self {
+        case .black:
+            return "Màu đen"
+        case .white:
+            return "Màu trắng"
+        case .yellow:
+            return "Vàng mơ"
+        case .brown:
+            return "Nâu đỏ"
+        default:
+            return "Bất kì"
+        }
+    }
+}

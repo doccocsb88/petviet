@@ -52,8 +52,9 @@ class ProductDetailViewController: BaseViewController {
         guard let product = product else{return}
         
         self.navigationItem.title = product.productName
-        if let imagePath = product.imagePath, imagePath.count > 0{
-            let url = URL(string: imagePath)
+        if product.imagePath.count > 0{
+            let path = product.imagePath[0]
+            let url = URL(string: path)
             productImageView.kf.setImage(with: url)
         }else{
             productImageView.image = UIImage(named: "ic_noimage")

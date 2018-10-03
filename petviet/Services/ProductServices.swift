@@ -77,7 +77,18 @@ class ProductServices {
                         let petId = productDict["petId"] as? Int ?? 0
                         if petId == pet.type{
                             if let product = PetProduct(JSON: productDict){
+                                if let imagePaths = productDict["imagePath"] as? [String:Any]{
+                                    for key in imagePaths.keys{
+                                        if let path = imagePaths[key] as? String{
+                                            product.imagePath.append(path)
+                                        }
+                                    }
+                                }else if let imagePath = productDict["imagePath"] as? String{
+                                    product.imagePath.append(imagePath)
+
+                                }
                                 products.append(product)
+
                             }
                         }
                     }
@@ -137,7 +148,7 @@ class ProductServices {
         let metadata = StorageMetadata()
         
         metadata.contentType = "image/jpeg"
-        
+    
         // Upload the file to the path "images/rivers.jpg"
         let uploadTask = riversRef.putData(data, metadata: metadata) { (metadata, error) in
             guard let metadata = metadata else {
@@ -165,6 +176,23 @@ class ProductServices {
                 
             }
         }
-       
+    }
+    func uploadImages(_ datas:[Data],_ prefixName:(String),complete:@escaping(_ urls:[String]) -> Void){
+        var urls:[String] = []
+        var count = 0
+        for data in datas{
+            let name = "\(prefixName)_\(String.randomString(length: 10))"
+            uploadImage(data, name: name) { (success, message, url) in
+                count += 1
+                if let url = url{
+                    urls.append(url.absoluteString)
+
+                }
+                if count == datas.count{
+                    complete(urls)
+                }
+            }
+        }
+        
     }
 }

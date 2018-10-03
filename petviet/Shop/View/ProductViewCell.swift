@@ -24,7 +24,8 @@ class ProductViewCell: UICollectionViewCell {
         productPriceLabel.text = "\(product.price)"
         productNameLabel.text = product.productName
         
-        if let path = product.imagePath, path.count > 0{
+        if product.imagePath.count > 0{
+            let path = product.imagePath[0]
             let url = URL(string: path)
             productImageImageView.kf.setImage(with: url)
             

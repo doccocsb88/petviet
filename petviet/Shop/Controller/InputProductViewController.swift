@@ -13,6 +13,11 @@ class InputProductViewController: BaseViewController {
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var thumb1ImageView: UIImageView!
+    @IBOutlet weak var thumb2ImageView: UIImageView!
+    @IBOutlet weak var thumb3ImageView: UIImageView!
+    
+    
     @IBOutlet weak var productCodeTextfield: UITextField!
     @IBOutlet weak var productNameTextfield: UITextField!
     @IBOutlet weak var productPriceTextfield: UITextField!
@@ -42,9 +47,11 @@ class InputProductViewController: BaseViewController {
     var productType:ProductType!
     var pet:Pet!
     var productCode:String!
-    var image:UIImage?
     var shops:[PetShop] = []
     var shop:PetShop?
+    var gender:PetGender = .female
+    var color:PetColor = .black
+    var productImages:[UIImage] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,6 +66,8 @@ class InputProductViewController: BaseViewController {
         titleLabel.text = "\(pet.name) - \(productType.typeName)"
         productCode =  "pet_\(pet.type)_\(productType.id)_\(String.randomString(length: 6))"
         productCodeTextfield.text = productCode
+        genderLabel.text = gender.description
+        colorLabel.text = color.description
         if productType.id != 0{
             petInfoView.isHidden = true
             petInfoHeightConstraint.constant = 0
@@ -94,8 +103,13 @@ class InputProductViewController: BaseViewController {
         productCodeTextfield.text = productCode
         productNameTextfield.text = nil
         productPriceTextfield.text = nil
-        image = nil
-        productImageView.image = image
+        productImages = []
+        let noImage = UIImage(named: "ic_noimage")
+        productImageView.image = noImage
+        thumb1ImageView.image = noImage
+        thumb2ImageView.image = noImage
+        thumb3ImageView.image = noImage
+
         productDescriptionTextview.text = ""
     }
     func hidePetInfoView(){
@@ -118,10 +132,10 @@ class InputProductViewController: BaseViewController {
         let genderSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let maleAction = UIAlertAction(title: "Đực", style: .default) { (action) in
-            
+            self.gender = .male
         }
         let femaleAction = UIAlertAction(title: "Cái", style: .default) { (action) in
-            
+            self.gender = .female
         }
         
         let cancelAction = UIAlertAction(title: "Bỏ qua", style: .cancel) { (action) in
@@ -138,19 +152,19 @@ class InputProductViewController: BaseViewController {
         let colorSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let blackAction = UIAlertAction(title: "Đen", style: .default) { (action) in
-            
+            self.color = .black
         }
         let whiteAction = UIAlertAction(title: "Trắng", style: .default) { (action) in
-            
+            self.color = .white
         }
         let yellowAction = UIAlertAction(title: "Vàng mơ", style: .default) { (action) in
-            
+            self.color = .yellow
         }
         let brownAction = UIAlertAction(title: "Nâu đỏ", style: .default) { (action) in
-            
+            self.color = .brown
         }
         let otherAction = UIAlertAction(title: "Màu khác", style: .default) { (action) in
-            
+            self.color = .other
         }
         let cancelAction = UIAlertAction(title: "Bỏ qua", style: .cancel) { (action) in
             
@@ -162,6 +176,7 @@ class InputProductViewController: BaseViewController {
         colorSheet.addAction(brownAction)
         colorSheet.addAction(otherAction)
         colorSheet.addAction(cancelAction)
+        present(colorSheet, animated: true, completion: nil)
     }
     
     @IBAction func tappedSelectShopButton(_ sender: Any) {
@@ -182,8 +197,7 @@ class InputProductViewController: BaseViewController {
         CameraHandler.shared.imagePickedBlock = { (image) in
             /* get your image here */
             self.productImageView.image =  image
-            self.image = image
-
+            self.productImages.insert(image, at: 0)
         }
     }
     @IBAction func tappedSaveButton(_ sender: Any) {
@@ -192,26 +206,35 @@ class InputProductViewController: BaseViewController {
         guard let price = productPriceTextfield.text else{return}
         guard let maxPrice = productMaxpriceTextfield.text else{return}
         guard let description = productDescriptionTextview.text, description.count > 0 else{return}
-        guard let image = image else{return}
+        if productImages.count == 0{
+            return
+        }
         guard let shop = shop else {return}
         let age = ageTextfied.text ?? "0"
 
-        let product = PetProduct(catId: productType.id,petId:pet.type, productCode: code, productName: name, price: Float(price) ?? 0.0, maxPrice:Float(maxPrice) ?? 0.0,age:Int(age) ?? 0, imagePath: nil,description:description)
+        let product = PetProduct(catId: productType.id,petId:pet.type, productCode: code, productName: name, price: Float(price) ?? 0.0, maxPrice:Float(maxPrice) ?? 0.0,age:Int(age) ?? 0, gender:gender.rawValue,color:color.rawValue, imagePath:[],description:description)
         
-        if let data = UIImagePNGRepresentation(image){
-            self.showLoadingView()
-            ProductServices.shared().uploadImage(data, name: self.productCode, complete: { (success, message, url) in
-                product.imagePath = url?.absoluteString
-                ProductServices.shared().addProduct(product,shop) {[weak self] (success, message, key) in
-                    guard let strongSelf = self else{return}
-                    strongSelf.hideLoadingView()
-                    if success{
-                        strongSelf.resetInput()
-                    }
-                }
-                
-            })
+        var datas:[Data] = []
+        for image in productImages{
+            if let data = UIImagePNGRepresentation(image){
+                datas.append(data)
+            }
         }
+   
+        let prefixName = "pet_\(pet.type)_\(productType.id)"
+        showLoadingView()
+        ProductServices.shared().uploadImages(datas, prefixName) { (urls) in
+            product.imagePath =  urls
+            ProductServices.shared().addProduct(product,shop) {[weak self] (success, message, key) in
+                guard let strongSelf = self else{return}
+                strongSelf.hideLoadingView()
+                if success{
+                    strongSelf.resetInput()
+                }
+            }
+        }
+        
+        
     }
 
     @IBAction func tappedBackButton(_ sender: Any) {
