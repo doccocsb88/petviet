@@ -81,8 +81,9 @@ class PetProduct:Mappable{
             let key = "image_\(i)"
             paths[key] = self.imagePath[i]
         }
-        json["imagePath"] = Utils.convertToJSON(paths)
-        
+        //json["imagePath"] = Utils.convertToJSON(paths)
+        json["imagePath"] = paths
+
         json["description"] = self.description
         json["shops"] = self.shops ?? ""
 

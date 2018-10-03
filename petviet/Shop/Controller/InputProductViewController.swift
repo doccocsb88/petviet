@@ -83,6 +83,26 @@ class InputProductViewController: BaseViewController {
     func setupUI(){
         productDescriptionTextview.addBorder(2, 1, .lightGray)
     }
+    func updateProductImageViews(){
+        if productImages.count > 0{
+            productImageView.image = productImages[0]
+        }
+        for i in 0..<productImages.count{
+            switch i{
+            case 0:
+                thumb1ImageView.image = productImages[i]
+                break
+            case 1:
+                thumb2ImageView.image = productImages[i]
+                break
+            case 2:
+                thumb3ImageView.image = productImages[i]
+                break
+            default:
+                break
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -112,6 +132,7 @@ class InputProductViewController: BaseViewController {
 
         productDescriptionTextview.text = ""
     }
+    
     func hidePetInfoView(){
         colorTitleLabel.isHidden = true
         colorLabel.isHidden = true
@@ -198,6 +219,7 @@ class InputProductViewController: BaseViewController {
             /* get your image here */
             self.productImageView.image =  image
             self.productImages.insert(image, at: 0)
+            self.updateProductImageViews()
         }
     }
     @IBAction func tappedSaveButton(_ sender: Any) {

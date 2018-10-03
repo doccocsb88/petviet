@@ -82,6 +82,8 @@
 		EC6EFE54215B46EB00F0BEE4 /* FollowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC6EFE52215B46EB00F0BEE4 /* FollowViewController.xib */; };
 		EC6EFE59215B482400F0BEE4 /* FollowViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6EFE57215B482400F0BEE4 /* FollowViewCell.swift */; };
 		EC6EFE5A215B482400F0BEE4 /* FollowViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC6EFE58215B482400F0BEE4 /* FollowViewCell.xib */; };
+		ECC1150A2164BC70007390A4 /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC115092164BC70007390A4 /* SlideView.swift */; };
+		ECC1150C2164BC88007390A4 /* SlideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC1150B2164BC88007390A4 /* SlideView.xib */; };
 		ECFBA94A215E253F0063D51D /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBA949215E253F0063D51D /* String+Utils.swift */; };
 /* End PBXBuildFile section */
 
@@ -165,6 +167,8 @@
 		EC6EFE52215B46EB00F0BEE4 /* FollowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowViewController.xib; sourceTree = "<group>"; };
 		EC6EFE57215B482400F0BEE4 /* FollowViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewCell.swift; sourceTree = "<group>"; };
 		EC6EFE58215B482400F0BEE4 /* FollowViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowViewCell.xib; sourceTree = "<group>"; };
+		ECC115092164BC70007390A4 /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SlideView.swift; path = Shop/View/SlideView.swift; sourceTree = "<group>"; };
+		ECC1150B2164BC88007390A4 /* SlideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SlideView.xib; path = Shop/View/SlideView.xib; sourceTree = "<group>"; };
 		ECFBA949215E253F0063D51D /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		FEED33B912B882DA2145B2E9 /* Pods-petviet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petviet.release.xcconfig"; path = "Pods/Target Support Files/Pods-petviet/Pods-petviet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -407,6 +411,8 @@
 				0EA47E79215648DC001523A0 /* ProductCategoryViewCell.xib */,
 				EC29937D215C9967000AB0D1 /* ProductViewCell.swift */,
 				EC29937E215C9967000AB0D1 /* ProductViewCell.xib */,
+				ECC115092164BC70007390A4 /* SlideView.swift */,
+				ECC1150B2164BC88007390A4 /* SlideView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 				EC6EFE54215B46EB00F0BEE4 /* FollowViewController.xib in Resources */,
 				0E8E918421568AE80002CF4F /* PostDetailViewController.xib in Resources */,
 				0EA47E6521563DAA001523A0 /* ShopCategoryViewCell.xib in Resources */,
+				ECC1150C2164BC88007390A4 /* SlideView.xib in Resources */,
 				0E8E91A621578A1C0002CF4F /* StoryCategoryViewController.xib in Resources */,
 				0EA47E7B215648DC001523A0 /* ProductCategoryViewCell.xib in Resources */,
 			);
@@ -619,6 +626,7 @@
 				0EA47E6421563DAA001523A0 /* ShopCategoryViewCell.swift in Sources */,
 				0E28F4FE215BDFAF00ACFDD0 /* ProductServices.swift in Sources */,
 				0EA47E5121562F55001523A0 /* ProfileViewController.swift in Sources */,
+				ECC1150A2164BC70007390A4 /* SlideView.swift in Sources */,
 				0EA47E5F2156392B001523A0 /* BaseTabbarController.swift in Sources */,
 				0E8E91A521578A1C0002CF4F /* StoryCategoryViewController.swift in Sources */,
 				0E28F500215D0BDF00ACFDD0 /* PetShop.swift in Sources */,

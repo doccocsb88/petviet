@@ -12,6 +12,8 @@ class ProductDetailViewController: BaseViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var productImageView: UIImageView!
+    
+    @IBOutlet weak var imageScrollview: UIScrollView!
     @IBOutlet weak var phoneImageView: UIImageView!
     @IBOutlet weak var addressImageView: UIButton!
     @IBOutlet weak var productNameLabel: UILabel!
@@ -53,9 +55,14 @@ class ProductDetailViewController: BaseViewController {
         
         self.navigationItem.title = product.productName
         if product.imagePath.count > 0{
-            let path = product.imagePath[0]
-            let url = URL(string: path)
-            productImageView.kf.setImage(with: url)
+            for imagepath in product.imagePath{
+                let path = product.imagePath[0]
+                let url = URL(string: path)
+                productImageView.kf.setImage(with: url)
+                let slide1:Slide = Bundle.main.loadNibNamed("SlideView", owner: self, options: nil)?.first as! SlideView
+                
+
+            }
         }else{
             productImageView.image = UIImage(named: "ic_noimage")
         }

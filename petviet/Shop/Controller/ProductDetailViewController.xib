@@ -16,11 +16,11 @@
             <connections>
                 <outlet property="addressImageView" destination="4Zr-rO-oRO" id="cvg-4c-rYq"/>
                 <outlet property="addressLabel" destination="jCZ-Fl-qc2" id="vyl-93-h8p"/>
+                <outlet property="imageScrollview" destination="Dxr-Xa-vCa" id="iJr-7f-GEl"/>
                 <outlet property="phoneImageView" destination="krR-Fm-gwb" id="hWK-Uz-YKk"/>
                 <outlet property="phoneLabel" destination="vC1-VP-rc0" id="2Sr-DW-hkj"/>
                 <outlet property="priceLabel" destination="lMV-UB-eiA" id="j7S-kB-ooL"/>
                 <outlet property="productDescriptionLabel" destination="kzv-gZ-adS" id="D3E-z1-65f"/>
-                <outlet property="productImageView" destination="ekx-ek-aNI" id="fdk-fC-jeS"/>
                 <outlet property="productNameLabel" destination="hNB-rC-nfE" id="WMd-Yf-gTm"/>
                 <outlet property="scrollView" destination="1Bl-Un-LSM" id="LDs-Rz-axF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -37,12 +37,12 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naf-7A-owa">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="809"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_noimage" translatesAutoresizingMaskIntoConstraints="NO" id="ekx-ek-aNI">
+                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dxr-Xa-vCa">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" secondItem="ekx-ek-aNI" secondAttribute="height" id="Fcn-Jt-MUR"/>
+                                        <constraint firstAttribute="width" secondItem="Dxr-Xa-vCa" secondAttribute="height" multiplier="1:1" id="URs-8b-0yf"/>
                                     </constraints>
-                                </imageView>
+                                </scrollView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ik3-3E-CHn">
                                     <rect key="frame" x="0.0" y="375" width="375" height="128"/>
                                     <subviews>
@@ -167,15 +167,15 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="mWw-Ca-I69" firstAttribute="top" secondItem="ik3-3E-CHn" secondAttribute="bottom" id="AY3-hV-KSY"/>
-                                <constraint firstAttribute="trailing" secondItem="ekx-ek-aNI" secondAttribute="trailing" id="Iwx-Tl-dTe"/>
+                                <constraint firstAttribute="trailing" secondItem="Dxr-Xa-vCa" secondAttribute="trailing" id="IOf-8r-7Pt"/>
                                 <constraint firstItem="ik3-3E-CHn" firstAttribute="leading" secondItem="naf-7A-owa" secondAttribute="leading" id="KMY-TA-B2t"/>
                                 <constraint firstAttribute="trailing" secondItem="mWw-Ca-I69" secondAttribute="trailing" id="LTd-e0-XWV"/>
+                                <constraint firstItem="Dxr-Xa-vCa" firstAttribute="leading" secondItem="naf-7A-owa" secondAttribute="leading" id="Tyc-6t-Kjh"/>
                                 <constraint firstAttribute="trailing" secondItem="ik3-3E-CHn" secondAttribute="trailing" id="UOa-DM-vT2"/>
-                                <constraint firstItem="ik3-3E-CHn" firstAttribute="top" secondItem="ekx-ek-aNI" secondAttribute="bottom" id="Yhz-Nb-zdK"/>
+                                <constraint firstItem="Dxr-Xa-vCa" firstAttribute="top" secondItem="naf-7A-owa" secondAttribute="top" id="boh-68-964"/>
                                 <constraint firstItem="mWw-Ca-I69" firstAttribute="leading" secondItem="naf-7A-owa" secondAttribute="leading" id="cof-N9-t1t"/>
                                 <constraint firstAttribute="bottom" secondItem="mWw-Ca-I69" secondAttribute="bottom" id="dgH-Vr-EJK"/>
-                                <constraint firstItem="ekx-ek-aNI" firstAttribute="leading" secondItem="naf-7A-owa" secondAttribute="leading" id="qE9-WA-SVa"/>
-                                <constraint firstItem="ekx-ek-aNI" firstAttribute="top" secondItem="naf-7A-owa" secondAttribute="top" id="zap-ei-zol"/>
+                                <constraint firstItem="ik3-3E-CHn" firstAttribute="top" secondItem="Dxr-Xa-vCa" secondAttribute="bottom" id="ykp-iS-9rh"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -202,7 +202,6 @@
     </objects>
     <resources>
         <image name="ic_location" width="22" height="27"/>
-        <image name="ic_noimage" width="300" height="300"/>
         <image name="ic_phone" width="48" height="48"/>
     </resources>
 </document>
