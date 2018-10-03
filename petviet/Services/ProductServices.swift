@@ -12,6 +12,8 @@ import FirebaseDatabase
 import FirebaseStorage
 class ProductServices {
     fileprivate let PATH_PRODUCT = "products"
+    fileprivate let PATH_PET = "pets"
+
     fileprivate let PATH_SHOP = "shops"
 
     var ref: DatabaseReference!
@@ -50,7 +52,7 @@ class ProductServices {
         
     }
     func addProduct(_ product:PetProduct, _ shop:PetShop, complete:@escaping(_ success:Bool,_ message:String?,_ key: String?)->Void){
-        let productRef = ref.child(PATH_PRODUCT)
+        let productRef = ref.child(product.catId == 0 ? PATH_PET :  PATH_PRODUCT)
         let child = productRef.childByAutoId()
         var data:[String:Any] = product.toJSON()
 
@@ -70,32 +72,69 @@ class ProductServices {
         let child  = productRef.queryOrdered(byChild: "catId").queryEqual(toValue: type.id)
         var products:[PetProduct] = []
         child.observeSingleEvent(of: .value) { (snapshot) in
+            products = self.parseProducts(pet,snapshot)
+            complete(products)
+        }
+    }
+    func fetchPets(_ pet:Pet, complete:@escaping(_ products:[PetProduct])->Void){
+        let productRef = ref.child(PATH_PET)
+        let child  = productRef.queryOrdered(byChild: "petId").queryEqual(toValue: pet.type)
+        var products:[PetProduct] = []
+        child.observeSingleEvent(of: .value) { (snapshot) in
             for child in snapshot.children{
                 if let dict = child as? DataSnapshot {
                     if let productDict =  dict.value as? [String:Any]{
                         print("product %@",Utils.convertToJSON(productDict))
-                        let petId = productDict["petId"] as? Int ?? 0
-                        if petId == pet.type{
-                            if let product = PetProduct(JSON: productDict){
-                                if let imagePaths = productDict["imagePath"] as? [String:Any]{
-                                    for key in imagePaths.keys{
-                                        if let path = imagePaths[key] as? String{
-                                            product.imagePath.append(path)
-                                        }
+                        
+                        if let product = PetProduct(JSON: productDict){
+                            if let imagePaths = productDict["imagePath"] as? [String:Any]{
+                                for key in imagePaths.keys{
+                                    if let path = imagePaths[key] as? String{
+                                        product.imagePath.append(path)
                                     }
-                                }else if let imagePath = productDict["imagePath"] as? String{
-                                    product.imagePath.append(imagePath)
-
                                 }
-                                products.append(product)
-
+                            }else if let imagePath = productDict["imagePath"] as? String{
+                                product.imagePath.append(imagePath)
+                                
                             }
+                            products.append(product)
+                            
                         }
                     }
+                    
                 }
             }
             complete(products)
         }
+    }
+    func parseProducts(_ pet:Pet,_ snapshot:DataSnapshot) ->[PetProduct]{
+        var products:[PetProduct] = []
+        for child in snapshot.children{
+            if let dict = child as? DataSnapshot {
+                if let productDict =  dict.value as? [String:Any]{
+                    print("product %@",Utils.convertToJSON(productDict))
+                    let petId = productDict["petId"] as? Int ?? 0
+                    if petId == pet.type{
+                        if let product = PetProduct(JSON: productDict){
+                            if let imagePaths = productDict["imagePath"] as? [String:Any]{
+                                for key in imagePaths.keys{
+                                    if let path = imagePaths[key] as? String{
+                                        product.imagePath.append(path)
+                                    }
+                                }
+                            }else if let imagePath = productDict["imagePath"] as? String{
+                                product.imagePath.append(imagePath)
+                                
+                            }
+                            products.append(product)
+                            
+                        }
+                    }
+                }
+            }
+        }
+        
+        return products
     }
     func fetchShop(_ shopId:String, complete:@escaping(_ shop:PetShop?)->Void){
         var shop:PetShop?

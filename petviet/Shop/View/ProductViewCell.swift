@@ -21,7 +21,8 @@ class ProductViewCell: UICollectionViewCell {
     }
 
     func updateContent(_ product:PetProduct){
-        productPriceLabel.text = "\(product.price)"
+     
+        productPriceLabel.text = String(format: "%@", product.price.formattedNumber())
         productNameLabel.text = product.productName
         
         if product.imagePath.count > 0{

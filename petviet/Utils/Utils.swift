@@ -207,3 +207,12 @@ extension Array {
         return dict
     }
 }
+
+extension Float{
+    func formattedNumber()->String{
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        let formattedNumber = numberFormatter.string(from: NSNumber(value:self))
+        return formattedNumber ?? ""
+    }
+}

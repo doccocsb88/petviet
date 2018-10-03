@@ -68,7 +68,8 @@ class InputProductViewController: BaseViewController {
         productCodeTextfield.text = productCode
         genderLabel.text = gender.description
         colorLabel.text = color.description
-        if productType.id != 0{
+        
+        if productType.id != 0 || true{
             petInfoView.isHidden = true
             petInfoHeightConstraint.constant = 0
             hidePetInfoView()

@@ -10,9 +10,11 @@ import UIKit
 import Kingfisher
 class ProductDetailViewController: BaseViewController {
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var productImageView: UIImageView!
+//    @IBOutlet weak var productImageView: UIImageView!
     
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var imageScrollview: UIScrollView!
     @IBOutlet weak var phoneImageView: UIImageView!
     @IBOutlet weak var addressImageView: UIButton!
@@ -47,33 +49,58 @@ class ProductDetailViewController: BaseViewController {
     func setupUI(){
         phoneImageView.contentMode = .scaleAspectFit
         addressImageView.imageView?.contentMode = .scaleAspectFit
-        
+        imageScrollview.delegate = self
     }
    
     func bindData(){
         guard let product = product else{return}
         
         self.navigationItem.title = product.productName
-        if product.imagePath.count > 0{
-            for imagepath in product.imagePath{
-                let path = product.imagePath[0]
-                let url = URL(string: path)
-                productImageView.kf.setImage(with: url)
-                let slide1:Slide = Bundle.main.loadNibNamed("SlideView", owner: self, options: nil)?.first as! SlideView
-                
-
-            }
-        }else{
-            productImageView.image = UIImage(named: "ic_noimage")
+        let slides = createSlides()
+        let size = UIScreen.main.bounds.width
+        imageScrollview.contentSize = CGSize(width: size * CGFloat(slides.count), height: size)
+        imageScrollview.isPagingEnabled = true
+        
+        for i in 0 ..< slides.count {
+            slides[i].frame = CGRect(x: size * CGFloat(i), y: 0, width: size, height: size)
+            imageScrollview.addSubview(slides[i])
         }
         
+        pageControl.numberOfPages = slides.count
+        pageControl.currentPage = 0
+        containerView.bringSubview(toFront: pageControl)
+        //
+        
         productNameLabel.text = product.productName
-        priceLabel.text = "\(product.price)"
+        
+
+        priceLabel.text = String(format: "%@ - %@",product.price.formattedNumber(),product.maxPrice.formattedNumber())
         
         productDescriptionLabel.text = product.description
         
     }
-    
+    func createSlides() -> [SlideView] {
+        var slides:[SlideView] = []
+        guard let product = product else{return slides}
+
+        if product.imagePath.count > 0{
+            for imagepath in product.imagePath{
+//                let path = product.imagePath[0]
+                let url = URL(string: imagepath)
+                let slide:SlideView = Bundle.main.loadNibNamed("SlideView", owner: self, options: nil)?.first as! SlideView
+                slide.imageView.kf.setImage(with: url)
+                slides.append(slide)
+                
+            }
+        }else{
+            let slide:SlideView = Bundle.main.loadNibNamed("SlideView", owner: self, options: nil)?.first as! SlideView
+            slide.imageView.image = UIImage(named: "ic_noimage")
+            slides.append(slide)
+        }
+        
+        return slides
+        
+    }
     func fetchShopInfo(){
         guard let product = product else{return}
         guard let shop = product.shops else{return}
@@ -93,4 +120,21 @@ class ProductDetailViewController: BaseViewController {
         self.callNumber(phoneNumber: phoneNumber)
     }
     
+}
+
+extension ProductDetailViewController:UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
+        pageControl.currentPage = Int(pageIndex)
+        
+//        let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
+//        let currentHorizontalOffset: CGFloat = scrollView.contentOffset.x
+//
+//        // vertical
+//        let maximumVerticalOffset: CGFloat = scrollView.contentSize.height - scrollView.frame.height
+//        let currentVerticalOffset: CGFloat = scrollView.contentOffset.y
+//
+//        let percentageHorizontalOffset: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
+//        let percentageVerticalOffset: CGFloat = currentVerticalOffset / maximumVerticalOffset
+    }
 }
