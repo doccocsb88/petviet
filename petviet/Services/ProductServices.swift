@@ -47,9 +47,17 @@ class ProductServices {
                 complete(true,nil,shop)
             }
         }
-        
-        
-        
+    }
+    func increaseShopCalled(_ shop:PetShop, complete:@escaping(_ success:Bool, _ message:String?)->Void){
+        let shopRef = ref.child(PATH_SHOP).child(shop.key).child("countCall")
+        shop.countCall = shop.countCall + 1
+        shopRef.setValue(shop.countCall) { (error, dataRef) in
+            if let error = error{
+                complete(false, error.localizedDescription)
+            }else{
+                complete(true,nil)
+            }
+        }
     }
     func addProduct(_ product:PetProduct, _ shop:PetShop, complete:@escaping(_ success:Bool,_ message:String?,_ key: String?)->Void){
         let productRef = ref.child(product.catId == 0 ? PATH_PET :  PATH_PRODUCT)

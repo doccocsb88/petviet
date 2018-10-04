@@ -19,6 +19,7 @@ class PetShop:Mappable{
     var cellPhone:String = ""
     var imagePath:String = ""
     var cityId:Int = 0
+    var countCall:Int = 0
     init(){}
     required init?(map: Map) {
         
@@ -33,6 +34,7 @@ class PetShop:Mappable{
         cellPhone <- map["cellPhone"]
         cityId <- map["cityId"]
         imagePath <- map["imagePath"]
+        countCall <- map["countCall"]
     }
    
 }

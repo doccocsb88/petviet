@@ -72,7 +72,7 @@ class BaseViewController: UIViewController {
         
     }
     @objc func tappedGesture(_ gesture:UIGestureRecognizer){
-        
+        self.view.endEditing(true)
     }
     func showMessageDialog(_ title:String?, _ message:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

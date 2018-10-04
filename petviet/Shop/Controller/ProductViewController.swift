@@ -28,10 +28,18 @@ class ProductViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = "\(type.typeName) - \(pet.name)"
-        ProductServices.shared().fetchProducts(pet, type) {[weak self] (products) in
-            guard let strongSelf = self else{return}
-            strongSelf.products = products
-            strongSelf.collectionView.reloadData()
+        if type.id == 0{
+            ProductServices.shared().fetchPets(pet) {[weak self] (products)in
+                guard let strongSelf = self else{return}
+                strongSelf.products = products
+                strongSelf.collectionView.reloadData()
+            }
+        }else{
+            ProductServices.shared().fetchProducts(pet, type) {[weak self] (products) in
+                guard let strongSelf = self else{return}
+                strongSelf.products = products
+                strongSelf.collectionView.reloadData()
+            }
         }
         
     }

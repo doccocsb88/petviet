@@ -17,6 +17,68 @@
             endingLineNumber = "42"
             landmarkName = "InputProductViewController"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "petviet.InputProductViewController.ageUnitLabel.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UILabel&gt;"
+                  moduleName = "petviet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/haivu/Documents/Hai/Source/petviet/petviet/Shop/Controller/InputProductViewController.swift"
+                  timestampString = "560312110.2582051"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "petviet.InputProductViewController.ageUnitLabel.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UILabel&gt;"
+                  moduleName = "petviet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/haivu/Documents/Hai/Source/petviet/petviet/Shop/Controller/InputProductViewController.swift"
+                  timestampString = "560312110.260342"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "petviet.InputProductViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; petviet.InputProductViewController"
+                  moduleName = "petviet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/haivu/Documents/Hai/Source/petviet/petviet/Shop/Controller/InputProductViewController.swift"
+                  timestampString = "560312110.262135"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "2416">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "petviet.InputProductViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;petviet.InputProductViewController&gt;"
+                  moduleName = "petviet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/haivu/Documents/Hai/Source/petviet/petviet/Shop/Controller/InputProductViewController.swift"
+                  timestampString = "560312110.263833"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "2372">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,11 +88,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "petviet/Services/ProductServices.swift"
-            timestampString = "560231985.141885"
+            timestampString = "560314780.953164"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "openShop(_:complete:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -41,13 +103,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "petviet/Services/ProductServices.swift"
-            timestampString = "560231985.142186"
+            filePath = "petviet/Utils/String+Utils.swift"
+            timestampString = "560314780.9532191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "openShop(_:complete:)"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "isPhone()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "petviet/Shop/Controller/ProductDetailViewController.swift"
+            timestampString = "560314780.953263"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "tappedPhoneNumberButton(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

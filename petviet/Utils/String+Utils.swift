@@ -10,10 +10,13 @@ import Foundation
 extension String {
     
     public func isPhone()->Bool {
-        if self.isAllDigits() == true {
-            let phoneRegex = "[235689][0-9]{6}([0-9]{3})?"
-            let predicate = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
-            return  predicate.evaluate(with: self)
+        let phomNumber = self.replacingOccurrences(of: ".", with: "", options: NSString.CompareOptions.literal, range: nil)
+
+        if phomNumber.isAllDigits() == true {
+//            let phoneRegex = "[235689][0-9]{6}([0-9]{3})?"
+//            let predicate = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+//            return  predicate.evaluate(with: phomNumber)
+            return true
         }else {
             return false
         }

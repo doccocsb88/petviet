@@ -34,6 +34,7 @@ class RegisterShopViewController: BaseViewController {
         self.navigationItem.title = "Đăng kí mở cửa hàng"
         initLoadingView()
         addDefaultLeft()
+        setupUI()
         let tap = UITapGestureRecognizer(target: self, action: #selector(tappedGesture(_:)))
         
         self.view.addGestureRecognizer(tap)
@@ -52,6 +53,9 @@ class RegisterShopViewController: BaseViewController {
     }
     
 
+    func setupUI(){
+        descriptionTextview.addBorder(4, 1, .lightGray)
+    }
     /*
     // MARK: - Navigation
 

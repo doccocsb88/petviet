@@ -26,6 +26,7 @@ class ProductDetailViewController: BaseViewController {
 
     @IBOutlet weak var productDescriptionLabel: UILabel!
     var product:PetProduct?
+    var shop:PetShop?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -107,7 +108,12 @@ class ProductDetailViewController: BaseViewController {
         ProductServices.shared().fetchShop(shop) { [weak self](shop) in
             guard let shop = shop else {return}
             guard let strongSelf = self else{return}
-            strongSelf.phoneLabel.setTitle(shop.phone, for: .normal)
+            strongSelf.shop = shop
+            if shop.phone.count > 0{
+                strongSelf.phoneLabel.setTitle(shop.phone, for: .normal)
+            }else if shop.cellPhone.count > 0{
+                strongSelf.phoneLabel.setTitle(shop.cellPhone, for: .normal)
+            }
             strongSelf.addressLabel.text = shop.address
         }
     }
@@ -118,6 +124,13 @@ class ProductDetailViewController: BaseViewController {
     @IBAction func tappedPhoneNumberButton(_ sender: Any) {
         guard let phoneNumber = phoneLabel.titleLabel?.text, phoneNumber.isPhone() else {return}
         self.callNumber(phoneNumber: phoneNumber)
+        if let shop = shop{
+            print("countCall 1:  \(shop.countCall)")
+            ProductServices.shared().increaseShopCalled(shop) { (success, message) in
+                print("countCall 2: \(shop.countCall)")
+
+            }
+        }
     }
     
 }
