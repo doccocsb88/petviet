@@ -76,6 +76,7 @@
 		EC29937C215C9859000AB0D1 /* ProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC29937A215C9859000AB0D1 /* ProductViewController.xib */; };
 		EC29937F215C9967000AB0D1 /* ProductViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC29937D215C9967000AB0D1 /* ProductViewCell.swift */; };
 		EC299380215C9967000AB0D1 /* ProductViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC29937E215C9967000AB0D1 /* ProductViewCell.xib */; };
+		EC4D0C9921BE1CC000C4D50F /* travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = EC4D0C9821BE1CC000C4D50F /* travis.yml */; };
 		EC6EFE4E215B2C1100F0BEE4 /* PetProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6EFE4D215B2C1100F0BEE4 /* PetProfile.swift */; };
 		EC6EFE50215B3E3E00F0BEE4 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6EFE4F215B3E3E00F0BEE4 /* DataServices.swift */; };
 		EC6EFE53215B46EB00F0BEE4 /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6EFE51215B46EB00F0BEE4 /* FollowViewController.swift */; };
@@ -161,6 +162,7 @@
 		EC29937A215C9859000AB0D1 /* ProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProductViewController.xib; path = Shop/Controller/ProductViewController.xib; sourceTree = "<group>"; };
 		EC29937D215C9967000AB0D1 /* ProductViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductViewCell.swift; path = Shop/View/ProductViewCell.swift; sourceTree = "<group>"; };
 		EC29937E215C9967000AB0D1 /* ProductViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProductViewCell.xib; path = Shop/View/ProductViewCell.xib; sourceTree = "<group>"; };
+		EC4D0C9821BE1CC000C4D50F /* travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = travis.yml; sourceTree = "<group>"; };
 		EC6EFE4D215B2C1100F0BEE4 /* PetProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfile.swift; sourceTree = "<group>"; };
 		EC6EFE4F215B3E3E00F0BEE4 /* DataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
 		EC6EFE51215B46EB00F0BEE4 /* FollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				0E8E91C1215A79490002CF4F /* animation_done.json */,
 				0E28F5092160A90100ACFDD0 /* petviet-Bridging-Header.h */,
 				0E8E91A7215799B70002CF4F /* GoogleService-Info.plist */,
+				EC4D0C9821BE1CC000C4D50F /* travis.yml */,
 			);
 			path = petviet;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				0EA47E5A215630CA001523A0 /* HomeViewCell.xib in Resources */,
 				0E28F508215D383100ACFDD0 /* ProductDetailViewController.xib in Resources */,
 				0E8E919A2157539F0002CF4F /* StoryCameraViewCell.xib in Resources */,
+				EC4D0C9921BE1CC000C4D50F /* travis.yml in Resources */,
 				0EA47E3821561949001523A0 /* Assets.xcassets in Resources */,
 				0E8E91A8215799B70002CF4F /* GoogleService-Info.plist in Resources */,
 				0E8E91C4215A79830002CF4F /* material_loader.json in Resources */,
