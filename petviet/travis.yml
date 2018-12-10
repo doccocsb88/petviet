@@ -4,4 +4,4 @@ osx_image: xcode9.4 #2
 
 jobs:
 include:
-- script: xcodebuild clean build test -workspace petviet.xcworkspace -scheme petviet -destination "platform=iOS Simulator,name=iPhone 8,OS=11.2" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+- script: xcodebuild clean build test -workspace petviet.xcworkspace -scheme petviet -destination "platform=iOS Simulator,name=iPhone 8,OS=10.1" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
