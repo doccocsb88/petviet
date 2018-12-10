@@ -69,6 +69,7 @@ PODS:
   - nanopb/encode (0.3.8)
   - ObjectMapper (3.3.0)
   - Spring (1.0.5)
+  - SwiftLint (0.29.1)
   - youtube-ios-player-helper-swift (1.0.3)
 
 DEPENDENCIES:
@@ -81,6 +82,7 @@ DEPENDENCIES:
   - lottie-ios
   - ObjectMapper (~> 3.3)
   - Spring (~> 1.0)
+  - SwiftLint
   - youtube-ios-player-helper-swift
 
 SPEC REPOS:
@@ -102,6 +104,7 @@ SPEC REPOS:
     - nanopb
     - ObjectMapper
     - Spring
+    - SwiftLint
     - youtube-ios-player-helper-swift
 
 SPEC CHECKSUMS:
@@ -122,8 +125,9 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   Spring: 17901566c8ecf3a1327902b940406c64512f9bb1
+  SwiftLint: 6772320e40b52049053a518c17db9b0634a0b45a
   youtube-ios-player-helper-swift: 940e810174d89aebe73497cfff7783db196bbae5
 
-PODFILE CHECKSUM: 582608d1cbe8592110e45c249066ee492090cd88
+PODFILE CHECKSUM: 624ddb14f57298eff5cfaa6fe3dcc124d6384e5e
 
 COCOAPODS: 1.5.3
