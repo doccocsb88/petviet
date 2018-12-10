@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navBackgroundImage:UIImage! = UIImage(color: .white)
         UINavigationBar.appearance().setBackgroundImage(navBackgroundImage, for: .default)
         FirebaseApp.configure()
+        print("application : ")
         return true
     }
 
